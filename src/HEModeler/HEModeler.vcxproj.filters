@@ -1,21 +1,21 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="__resource__">
-      <UniqueIdentifier>{b2dc8141-f3d2-4f31-af65-2b73bea13735}</UniqueIdentifier>
-    </Filter>
     <Filter Include="Main">
       <UniqueIdentifier>{73993ae4-3c9f-4b71-85fa-4b6e1f5b7e21}</UniqueIdentifier>
     </Filter>
     <Filter Include="__meta__">
       <UniqueIdentifier>{68999f4d-cd55-41c8-8ca5-884edb43bada}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Main\Frame">
+      <UniqueIdentifier>{f3a5a36e-8dff-46d7-be8e-107a9aaac1b1}</UniqueIdentifier>
+    </Filter>
     <Filter Include="__resource file__">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
-    <Filter Include="Main\Frame">
-      <UniqueIdentifier>{f3a5a36e-8dff-46d7-be8e-107a9aaac1b1}</UniqueIdentifier>
+    <Filter Include="__resource__">
+      <UniqueIdentifier>{b2dc8141-f3d2-4f31-af65-2b73bea13735}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
