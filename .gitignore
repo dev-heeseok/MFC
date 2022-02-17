@@ -26,7 +26,13 @@
 *.a
 *.lib
 
+# Template Folder
+/temp
+/src/.vs
+
 # Executables
 *.exe
 *.out
 *.app
+*.pdb
+*.user

@@ -1,0 +1,157 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="__resource__">
+      <UniqueIdentifier>{b2dc8141-f3d2-4f31-af65-2b73bea13735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Main">
+      <UniqueIdentifier>{73993ae4-3c9f-4b71-85fa-4b6e1f5b7e21}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="__meta__">
+      <UniqueIdentifier>{68999f4d-cd55-41c8-8ca5-884edb43bada}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="__resource file__">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="Main\Frame">
+      <UniqueIdentifier>{f3a5a36e-8dff-46d7-be8e-107a9aaac1b1}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>__resource__</Filter>
+    </ClInclude>
+    <ClInclude Include="HEModelerView.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="HEModelerDoc.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="HEModeler.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="calendarbar.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputWnd.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>Main</Filter>
+    </ClInclude>
+    <ClInclude Include="ChildFrm.h">
+      <Filter>Main\Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="MainFrm.h">
+      <Filter>Main\Frame</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="HEModelerView.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="HEModelerDoc.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="HEModeler.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="calendarbar.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputWnd.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>Main</Filter>
+    </ClCompile>
+    <ClCompile Include="ChildFrm.cpp">
+      <Filter>Main\Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="MainFrm.cpp">
+      <Filter>Main\Frame</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\ribbon.mfcribbon-ms">
+      <Filter>__resource file__</Filter>
+    </None>
+    <None Include="res\HEModeler.rc2">
+      <Filter>__resource__</Filter>
+    </None>
+    <None Include="HEModeler.reg">
+      <Filter>__meta__</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="res\output_wnd.ico">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\output_wnd_hc.ico">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\nav_large.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\nav_large_hc.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\pages.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\pages_hc.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\pages_small.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\pages_small_hc.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\info.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\buttons.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\filelarge.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\filesmall.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\main.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\writelarge.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\writesmall.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\HEModelerDoc.ico">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\HEModeler.ico">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\Toolbar.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\Toolbar256.bmp">
+      <Filter>__resource file__</Filter>
+    </Image>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HEModeler.rc">
+      <Filter>__resource__</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>
