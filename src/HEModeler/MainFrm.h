@@ -17,6 +17,9 @@
 #include "CalendarBar.h"
 #include "Resource.h"
 
+#include <memory>
+
+class CHEMRibbonManager;
 class COutlookBar : public CMFCOutlookBar
 {
 	virtual BOOL AllowShowOnPaneMenu() const { return TRUE; }
@@ -26,26 +29,50 @@ class COutlookBar : public CMFCOutlookBar
 class CMainFrame : public CMDIFrameWndEx
 {
 	DECLARE_DYNAMIC(CMainFrame)
+
 public:
 	CMainFrame() noexcept;
 
-// 특성입니다.
-public:
-
-// 작업입니다.
-public:
-
-// 재정의입니다.
-public:
-	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
-
-// 구현입니다.
 public:
 	virtual ~CMainFrame();
+
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
+
+public:
+	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+
+protected:
+	BOOL CreateDockingWindows();
+	void SetDockingWindowIcons(BOOL bHiColorIcons);
+	BOOL CreateOutlookBar(CMFCOutlookBar& bar, UINT uiID, CMFCShellTreeCtrl& tree, CCalendarBar& calendar, int nInitialWidth);
+	BOOL CreateCaptionBar();
+
+	int FindFocusedOutlookWnd(CMFCOutlookBarTabCtrl** ppOutlookWnd);
+
+	CMFCOutlookBarTabCtrl* FindOutlookParent(CWnd* pWnd);
+
+
+private:
+	void SetRibbonMenu();
+
+protected:
+	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnWindowManager();
+	afx_msg void OnApplicationLook(UINT id);
+	afx_msg void OnUpdateApplicationLook(CCmdUI* pCmdUI);
+	afx_msg void OnViewCaptionBar();
+	afx_msg void OnUpdateViewCaptionBar(CCmdUI* pCmdUI);
+	afx_msg void OnOptions();
+	afx_msg void OnSettingChange(UINT uFlags, LPCTSTR lpszSection);
+
+	DECLARE_MESSAGE_MAP()
+
+private:
+	CMFCOutlookBarTabCtrl* m_pCurrOutlookWnd;
+	CMFCOutlookBarPane* m_pCurrOutlookPage;
 
 protected:  // 컨트롤 모음이 포함된 멤버입니다.
 	CMFCRibbonBar     m_wndRibbonBar;
@@ -58,28 +85,6 @@ protected:  // 컨트롤 모음이 포함된 멤버입니다.
 	CCalendarBar      m_wndCalendar;
 	CMFCCaptionBar    m_wndCaptionBar;
 
-// 생성된 메시지 맵 함수
-protected:
-	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
-	afx_msg void OnWindowManager();
-	afx_msg void OnApplicationLook(UINT id);
-	afx_msg void OnUpdateApplicationLook(CCmdUI* pCmdUI);
-	afx_msg void OnViewCaptionBar();
-	afx_msg void OnUpdateViewCaptionBar(CCmdUI* pCmdUI);
-	afx_msg void OnOptions();
-	afx_msg void OnSettingChange(UINT uFlags, LPCTSTR lpszSection);
-	DECLARE_MESSAGE_MAP()
+	std::shared_ptr<CHEMRibbonManager> m_pRibbonManager;
 
-	BOOL CreateDockingWindows();
-	void SetDockingWindowIcons(BOOL bHiColorIcons);
-	BOOL CreateOutlookBar(CMFCOutlookBar& bar, UINT uiID, CMFCShellTreeCtrl& tree, CCalendarBar& calendar, int nInitialWidth);
-	BOOL CreateCaptionBar();
-
-	int FindFocusedOutlookWnd(CMFCOutlookBarTabCtrl** ppOutlookWnd);
-
-	CMFCOutlookBarTabCtrl* FindOutlookParent(CWnd* pWnd);
-	CMFCOutlookBarTabCtrl* m_pCurrOutlookWnd;
-	CMFCOutlookBarPane*    m_pCurrOutlookPage;
 };
-
-

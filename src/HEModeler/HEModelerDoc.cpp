@@ -33,6 +33,13 @@
 IMPLEMENT_DYNCREATE(CHEModelerDoc, CDocument)
 
 BEGIN_MESSAGE_MAP(CHEModelerDoc, CDocument)
+#define ON_COMMAND_CATEGORY_DEV(id, func) ON_COMMAND_RANGE(id, id, func)
+	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_DEV_BTN, OnCategoryDev)
+
+#define ON_UPDATE_CATEGORY_DEV(id, func) ON_UPDATE_COMMAND_UI_RANGE(id, id, func)
+	ON_UPDATE_CATEGORY_DEV(ID_RIBBON_DEV_BTN, OnUpdateCategoryDev)
+
+
 END_MESSAGE_MAP()
 
 
@@ -87,7 +94,7 @@ void CHEModelerDoc::OnDrawThumbnail(CDC& dc, LPRECT lprcBounds)
 	CString strText = _T("TODO: implement thumbnail drawing here");
 	LOGFONT lf;
 
-	CFont* pDefaultGUIFont = CFont::FromHandle((HFONT) GetStockObject(DEFAULT_GUI_FONT));
+	CFont* pDefaultGUIFont = CFont::FromHandle((HFONT)GetStockObject(DEFAULT_GUI_FONT));
 	pDefaultGUIFont->GetLogFont(&lf);
 	lf.lfHeight = 36;
 
@@ -118,7 +125,7 @@ void CHEModelerDoc::SetSearchContent(const CString& value)
 	}
 	else
 	{
-		CMFCFilterChunkValueImpl *pChunk = nullptr;
+		CMFCFilterChunkValueImpl* pChunk = nullptr;
 		ATLTRY(pChunk = new CMFCFilterChunkValueImpl);
 		if (pChunk != nullptr)
 		{
@@ -144,5 +151,37 @@ void CHEModelerDoc::Dump(CDumpContext& dc) const
 }
 #endif //_DEBUG
 
+void CHEModelerDoc::OnCategoryDev(UINT nID)
+{
+	switch (nID)
+	{
+	case ID_RIBBON_DEV_BTN:
+	{
 
-// CHEModelerDoc 명령
+	}
+	break;
+	default:
+	{
+		ASSERT(FALSE);
+	}
+	break;
+	}
+}
+
+void CHEModelerDoc::OnUpdateCategoryDev(CCmdUI* pCmdUI)
+{
+	switch (pCmdUI->m_nID)
+	{
+	case ID_RIBBON_DEV_BTN:
+	{
+		pCmdUI->Enable(TRUE);
+	}
+	break;
+	default:
+	{
+		pCmdUI->Enable(FALSE);
+	}
+	break;
+	}
+
+}

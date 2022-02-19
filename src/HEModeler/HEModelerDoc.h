@@ -49,6 +49,9 @@ protected:
 #endif // SHARED_HANDLERS
 
 private:
+	afx_msg void OnCategoryDev(UINT nID);
+	afx_msg void OnUpdateCategoryDev(CCmdUI* pCmdUI);
+
 	DECLARE_MESSAGE_MAP()
 
 };
