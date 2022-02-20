@@ -219,6 +219,7 @@
     <ClInclude Include="HEModelerDoc.h" />
     <ClInclude Include="HEModelerView.h" />
     <ClInclude Include="HEMRibbonMenu.h" />
+    <ClInclude Include="HEMRibbonMenuDefine.h" />
     <ClInclude Include="HEMRibbonMenuDev.h" />
     <ClInclude Include="MainFrm.h" />
     <ClInclude Include="OutputWnd.h" />
@@ -234,6 +235,7 @@
     <ClCompile Include="HEModelerDoc.cpp" />
     <ClCompile Include="HEModelerView.cpp" />
     <ClCompile Include="HEMRibbonMenu.cpp" />
+    <ClCompile Include="HEMRibbonMenuDefine.cpp" />
     <ClCompile Include="HEMRibbonMenuDev.cpp" />
     <ClCompile Include="MainFrm.cpp" />
     <ClCompile Include="OutputWnd.cpp" />

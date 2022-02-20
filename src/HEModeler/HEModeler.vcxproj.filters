@@ -67,6 +67,9 @@
     <ClInclude Include="HEMRibbonMenuDev.h">
       <Filter>Frame\Ribbon</Filter>
     </ClInclude>
+    <ClInclude Include="HEMRibbonMenuDefine.h">
+      <Filter>Frame\Ribbon</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HEModelerView.cpp">
@@ -100,6 +103,9 @@
       <Filter>Frame\Ribbon</Filter>
     </ClCompile>
     <ClCompile Include="HEMRibbonMenuDev.cpp">
+      <Filter>Frame\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="HEMRibbonMenuDefine.cpp">
       <Filter>Frame\Ribbon</Filter>
     </ClCompile>
   </ItemGroup>
