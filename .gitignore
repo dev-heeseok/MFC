@@ -37,3 +37,7 @@
 *.pdb
 *.user
 *.aps
+
+*.exp
+
+*.ilk

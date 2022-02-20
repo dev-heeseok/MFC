@@ -75,8 +75,6 @@ private:
 	CMFCOutlookBarPane* m_pCurrOutlookPage;
 
 protected:  // 컨트롤 모음이 포함된 멤버입니다.
-	CMFCRibbonBar     m_wndRibbonBar;
-	CMFCRibbonApplicationButton m_MainButton;
 	CMFCToolBarImages m_PanelImages;
 	CMFCRibbonStatusBar  m_wndStatusBar;
 	COutputWnd        m_wndOutput;
@@ -84,6 +82,9 @@ protected:  // 컨트롤 모음이 포함된 멤버입니다.
 	CMFCShellTreeCtrl m_wndTree;
 	CCalendarBar      m_wndCalendar;
 	CMFCCaptionBar    m_wndCaptionBar;
+
+	CMFCRibbonApplicationButton m_MainButton;
+	CMFCRibbonBar m_wndRibbonBar;
 
 	std::shared_ptr<CHEMRibbonManager> m_pRibbonManager;
 
