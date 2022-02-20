@@ -36,3 +36,8 @@
 *.app
 *.pdb
 *.user
+*.aps
+
+*.exp
+
+*.ilk

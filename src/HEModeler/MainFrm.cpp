@@ -15,6 +15,7 @@
 #include "pch.h"
 #include "framework.h"
 #include "HEModeler.h"
+#include "HEMRibbonManager.h"
 
 #include "MainFrm.h"
 
@@ -49,6 +50,12 @@ CMainFrame::~CMainFrame()
 {
 }
 
+void CMainFrame::SetRibbonMenu()
+{
+	m_pRibbonManager = std::make_shared<CHEMRibbonManager>();
+
+}
+
 int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
 	if (CMDIFrameWndEx::OnCreate(lpCreateStruct) == -1)
@@ -66,6 +73,8 @@ int CMainFrame::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_wndRibbonBar.Create(this);
 	m_wndRibbonBar.LoadFromResource(IDR_RIBBON);
+
+	m_pRibbonManager->SetMenu(&m_wndRibbonBar);
 
 	if (!m_wndStatusBar.Create(this))
 	{

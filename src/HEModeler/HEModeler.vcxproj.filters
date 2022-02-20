@@ -7,15 +7,21 @@
     <Filter Include="__meta__">
       <UniqueIdentifier>{68999f4d-cd55-41c8-8ca5-884edb43bada}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Main\Frame">
-      <UniqueIdentifier>{f3a5a36e-8dff-46d7-be8e-107a9aaac1b1}</UniqueIdentifier>
-    </Filter>
     <Filter Include="__resource file__">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="__resource__">
       <UniqueIdentifier>{b2dc8141-f3d2-4f31-af65-2b73bea13735}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Frame">
+      <UniqueIdentifier>{f3a5a36e-8dff-46d7-be8e-107a9aaac1b1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Frame\Ribbon">
+      <UniqueIdentifier>{35f857ef-332b-4a0b-8718-9b74d6444e67}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="__resource file__\Ribbon Menu">
+      <UniqueIdentifier>{d33c5ff8-3f94-43e6-bb9d-9e3b6cd05299}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -47,10 +53,22 @@
       <Filter>Main</Filter>
     </ClInclude>
     <ClInclude Include="ChildFrm.h">
-      <Filter>Main\Frame</Filter>
+      <Filter>Frame</Filter>
     </ClInclude>
     <ClInclude Include="MainFrm.h">
-      <Filter>Main\Frame</Filter>
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="HEMRibbonManager.h">
+      <Filter>Frame\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="HEMRibbonMenu.h">
+      <Filter>Frame\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="HEMRibbonMenuDev.h">
+      <Filter>Frame\Ribbon</Filter>
+    </ClInclude>
+    <ClInclude Include="HEMRibbonMenuDefine.h">
+      <Filter>Frame\Ribbon</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
@@ -73,10 +91,22 @@
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="ChildFrm.cpp">
-      <Filter>Main\Frame</Filter>
+      <Filter>Frame</Filter>
     </ClCompile>
     <ClCompile Include="MainFrm.cpp">
-      <Filter>Main\Frame</Filter>
+      <Filter>Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="HEMRibbonManager.cpp">
+      <Filter>Frame\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="HEMRibbonMenu.cpp">
+      <Filter>Frame\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="HEMRibbonMenuDev.cpp">
+      <Filter>Frame\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="HEMRibbonMenuDefine.cpp">
+      <Filter>Frame\Ribbon</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -147,6 +177,12 @@
     </Image>
     <Image Include="res\Toolbar256.bmp">
       <Filter>__resource file__</Filter>
+    </Image>
+    <Image Include="res\category_dev_16x16.bmp">
+      <Filter>__resource file__\Ribbon Menu</Filter>
+    </Image>
+    <Image Include="res\category_dev_32x32.bmp">
+      <Filter>__resource file__\Ribbon Menu</Filter>
     </Image>
   </ItemGroup>
   <ItemGroup>

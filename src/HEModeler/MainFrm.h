@@ -17,6 +17,9 @@
 #include "CalendarBar.h"
 #include "Resource.h"
 
+#include <memory>
+
+class CHEMRibbonManager;
 class COutlookBar : public CMFCOutlookBar
 {
 	virtual BOOL AllowShowOnPaneMenu() const { return TRUE; }
@@ -26,39 +29,35 @@ class COutlookBar : public CMFCOutlookBar
 class CMainFrame : public CMDIFrameWndEx
 {
 	DECLARE_DYNAMIC(CMainFrame)
+
 public:
 	CMainFrame() noexcept;
 
-// 특성입니다.
-public:
-
-// 작업입니다.
-public:
-
-// 재정의입니다.
-public:
-	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
-
-// 구현입니다.
 public:
 	virtual ~CMainFrame();
+
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-protected:  // 컨트롤 모음이 포함된 멤버입니다.
-	CMFCRibbonBar     m_wndRibbonBar;
-	CMFCRibbonApplicationButton m_MainButton;
-	CMFCToolBarImages m_PanelImages;
-	CMFCRibbonStatusBar  m_wndStatusBar;
-	COutputWnd        m_wndOutput;
-	COutlookBar       m_wndNavigationBar;
-	CMFCShellTreeCtrl m_wndTree;
-	CCalendarBar      m_wndCalendar;
-	CMFCCaptionBar    m_wndCaptionBar;
+public:
+	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
 
-// 생성된 메시지 맵 함수
+protected:
+	BOOL CreateDockingWindows();
+	void SetDockingWindowIcons(BOOL bHiColorIcons);
+	BOOL CreateOutlookBar(CMFCOutlookBar& bar, UINT uiID, CMFCShellTreeCtrl& tree, CCalendarBar& calendar, int nInitialWidth);
+	BOOL CreateCaptionBar();
+
+	int FindFocusedOutlookWnd(CMFCOutlookBarTabCtrl** ppOutlookWnd);
+
+	CMFCOutlookBarTabCtrl* FindOutlookParent(CWnd* pWnd);
+
+
+private:
+	void SetRibbonMenu();
+
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnWindowManager();
@@ -68,18 +67,25 @@ protected:
 	afx_msg void OnUpdateViewCaptionBar(CCmdUI* pCmdUI);
 	afx_msg void OnOptions();
 	afx_msg void OnSettingChange(UINT uFlags, LPCTSTR lpszSection);
+
 	DECLARE_MESSAGE_MAP()
 
-	BOOL CreateDockingWindows();
-	void SetDockingWindowIcons(BOOL bHiColorIcons);
-	BOOL CreateOutlookBar(CMFCOutlookBar& bar, UINT uiID, CMFCShellTreeCtrl& tree, CCalendarBar& calendar, int nInitialWidth);
-	BOOL CreateCaptionBar();
-
-	int FindFocusedOutlookWnd(CMFCOutlookBarTabCtrl** ppOutlookWnd);
-
-	CMFCOutlookBarTabCtrl* FindOutlookParent(CWnd* pWnd);
+private:
 	CMFCOutlookBarTabCtrl* m_pCurrOutlookWnd;
-	CMFCOutlookBarPane*    m_pCurrOutlookPage;
+	CMFCOutlookBarPane* m_pCurrOutlookPage;
+
+protected:  // 컨트롤 모음이 포함된 멤버입니다.
+	CMFCToolBarImages m_PanelImages;
+	CMFCRibbonStatusBar  m_wndStatusBar;
+	COutputWnd        m_wndOutput;
+	COutlookBar       m_wndNavigationBar;
+	CMFCShellTreeCtrl m_wndTree;
+	CCalendarBar      m_wndCalendar;
+	CMFCCaptionBar    m_wndCaptionBar;
+
+	CMFCRibbonApplicationButton m_MainButton;
+	CMFCRibbonBar m_wndRibbonBar;
+
+	std::shared_ptr<CHEMRibbonManager> m_pRibbonManager;
+
 };
-
-
