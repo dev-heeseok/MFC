@@ -14,8 +14,9 @@
 
 #pragma once
 
+#include "../HEM_RENDER/HEMView.h"
 
-class CHEModelerView : public CView
+class CHEModelerView : public CHEMView
 {
 protected: // serialization에서만 만들어집니다.
 	CHEModelerView() noexcept;

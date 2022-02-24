@@ -281,6 +281,9 @@
     <ProjectReference Include="..\HEM_LIB\HEM_LIB.vcxproj">
       <Project>{459b2cd6-7d33-46ce-bf25-4fb3d2bcf147}</Project>
     </ProjectReference>
+    <ProjectReference Include="..\HEM_RENDER\HEM_RENDER.vcxproj">
+      <Project>{811d6efa-c4d6-471e-a23a-6238d0c6d8a0}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

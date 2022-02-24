@@ -1,55 +1,71 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="소스 파일">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;c++;cppm;ixx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
+    <Filter Include="__meta__">
+      <UniqueIdentifier>{7c303be3-462a-40d0-8881-fd45e0f667b9}</UniqueIdentifier>
     </Filter>
-    <Filter Include="헤더 파일">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;h++;hm;inl;inc;ipp;xsd</Extensions>
-    </Filter>
-    <Filter Include="리소스 파일">
+    <Filter Include="__resource file__">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="__resource__">
+      <UniqueIdentifier>{c2fa473b-c7e8-4d96-aed0-d7399b97377e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GL">
+      <UniqueIdentifier>{da0db258-4496-46e2-a587-4d0ff3aff608}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="HEM_RENDER.cpp">
-      <Filter>소스 파일</Filter>
-    </ClCompile>
     <ClCompile Include="pch.cpp">
-      <Filter>소스 파일</Filter>
+      <Filter>__meta__</Filter>
+    </ClCompile>
+    <ClCompile Include="HEM_RENDER.cpp">
+      <Filter>__meta__</Filter>
+    </ClCompile>
+    <ClCompile Include="WGLView.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="HEMView.cpp">
+      <Filter>GL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="HEM_RENDER.def">
-      <Filter>소스 파일</Filter>
-    </None>
     <None Include="res\HEM_RENDER.rc2">
-      <Filter>리소스 파일</Filter>
+      <Filter>__resource__</Filter>
+    </None>
+    <None Include="HEM_RENDER.def">
+      <Filter>__meta__</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="framework.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
     <ClInclude Include="targetver.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>헤더 파일</Filter>
-    </ClInclude>
-    <ClInclude Include="HEM_RENDER.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>__meta__</Filter>
     </ClInclude>
     <ClInclude Include="pch.h">
-      <Filter>헤더 파일</Filter>
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="HEM_RENDER.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>__resource__</Filter>
+    </ClInclude>
+    <ClInclude Include="WGLView.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="AllHeaderGL.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="HEMView.h">
+      <Filter>GL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HEM_RENDER.rc">
-      <Filter>리소스 파일</Filter>
+      <Filter>__resource__</Filter>
     </ResourceCompile>
   </ItemGroup>
 </Project>
