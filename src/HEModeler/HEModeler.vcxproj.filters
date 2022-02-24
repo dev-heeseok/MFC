@@ -40,16 +40,7 @@
     <ClInclude Include="calendarbar.h">
       <Filter>Main</Filter>
     </ClInclude>
-    <ClInclude Include="framework.h">
-      <Filter>Main</Filter>
-    </ClInclude>
     <ClInclude Include="OutputWnd.h">
-      <Filter>Main</Filter>
-    </ClInclude>
-    <ClInclude Include="pch.h">
-      <Filter>Main</Filter>
-    </ClInclude>
-    <ClInclude Include="targetver.h">
       <Filter>Main</Filter>
     </ClInclude>
     <ClInclude Include="ChildFrm.h">
@@ -70,6 +61,15 @@
     <ClInclude Include="HEMRibbonMenuDefine.h">
       <Filter>Frame\Ribbon</Filter>
     </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HEModelerView.cpp">
@@ -85,9 +85,6 @@
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="OutputWnd.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="pch.cpp">
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="ChildFrm.cpp">
@@ -107,6 +104,9 @@
     </ClCompile>
     <ClCompile Include="HEMRibbonMenuDefine.cpp">
       <Filter>Frame\Ribbon</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>__meta__</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
