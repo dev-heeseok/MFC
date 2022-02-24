@@ -7,6 +7,8 @@ Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HEModeler", "HEModeler\HEMo
 EndProject
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HEM_LIB", "HEM_LIB\HEM_LIB.vcxproj", "{459B2CD6-7D33-46CE-BF25-4FB3D2BCF147}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "HEM_RENDER", "HEM_RENDER\HEM_RENDER.vcxproj", "{811D6EFA-C4D6-471E-A23A-6238D0C6D8A0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|x64 = Debug|x64
@@ -31,6 +33,14 @@ Global
 		{459B2CD6-7D33-46CE-BF25-4FB3D2BCF147}.Release|x64.Build.0 = Release|x64
 		{459B2CD6-7D33-46CE-BF25-4FB3D2BCF147}.Release|x86.ActiveCfg = Release|Win32
 		{459B2CD6-7D33-46CE-BF25-4FB3D2BCF147}.Release|x86.Build.0 = Release|Win32
+		{811D6EFA-C4D6-471E-A23A-6238D0C6D8A0}.Debug|x64.ActiveCfg = Debug|x64
+		{811D6EFA-C4D6-471E-A23A-6238D0C6D8A0}.Debug|x64.Build.0 = Debug|x64
+		{811D6EFA-C4D6-471E-A23A-6238D0C6D8A0}.Debug|x86.ActiveCfg = Debug|Win32
+		{811D6EFA-C4D6-471E-A23A-6238D0C6D8A0}.Debug|x86.Build.0 = Debug|Win32
+		{811D6EFA-C4D6-471E-A23A-6238D0C6D8A0}.Release|x64.ActiveCfg = Release|x64
+		{811D6EFA-C4D6-471E-A23A-6238D0C6D8A0}.Release|x64.Build.0 = Release|x64
+		{811D6EFA-C4D6-471E-A23A-6238D0C6D8A0}.Release|x86.ActiveCfg = Release|Win32
+		{811D6EFA-C4D6-471E-A23A-6238D0C6D8A0}.Release|x86.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
