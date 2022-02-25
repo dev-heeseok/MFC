@@ -32,9 +32,9 @@
 
 // CHEModelerDoc
 
-IMPLEMENT_DYNCREATE(CHEModelerDoc, CDocument)
+IMPLEMENT_DYNCREATE(CHEModelerDoc, CHEMDocBase)
 
-BEGIN_MESSAGE_MAP(CHEModelerDoc, CDocument)
+BEGIN_MESSAGE_MAP(CHEModelerDoc, CHEMDocBase)
 #define ON_COMMAND_CATEGORY_DEV(id, func) ON_COMMAND_RANGE(id, id, func)
 	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_DEV_BTN, OnCategoryDev)
 
@@ -59,7 +59,7 @@ CHEModelerDoc::~CHEModelerDoc()
 
 BOOL CHEModelerDoc::OnNewDocument()
 {
-	if (!CDocument::OnNewDocument())
+	if (!CHEMDocBase::OnNewDocument())
 		return FALSE;
 
 	// TODO: 여기에 재초기화 코드를 추가합니다.
@@ -144,12 +144,12 @@ void CHEModelerDoc::SetSearchContent(const CString& value)
 #ifdef _DEBUG
 void CHEModelerDoc::AssertValid() const
 {
-	CDocument::AssertValid();
+	CHEMDocBase::AssertValid();
 }
 
 void CHEModelerDoc::Dump(CDumpContext& dc) const
 {
-	CDocument::Dump(dc);
+	CHEMDocBase::Dump(dc);
 }
 #endif //_DEBUG
 

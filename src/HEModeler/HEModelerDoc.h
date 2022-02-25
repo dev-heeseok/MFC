@@ -15,8 +15,9 @@
 
 #pragma once
 
+#include "../HEM_BASE/HEMDocBase.h"
 
-class CHEModelerDoc : public CDocument
+class CHEModelerDoc : public CHEMDocBase
 {
 	DECLARE_DYNCREATE(CHEModelerDoc)
 
