@@ -23,6 +23,12 @@
     <Filter Include="__resource file__\Ribbon Menu">
       <UniqueIdentifier>{d33c5ff8-3f94-43e6-bb9d-9e3b6cd05299}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Dialog">
+      <UniqueIdentifier>{26b1b3c7-4304-4be5-b733-17b2b8dc28a6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Dialog\Develop">
+      <UniqueIdentifier>{c972c9ce-278a-4fad-8788-74ec5c78c7c8}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Resource.h">
@@ -70,6 +76,9 @@
     <ClInclude Include="OutputWnd.h">
       <Filter>Frame</Filter>
     </ClInclude>
+    <ClInclude Include="HEMDevDialog.h">
+      <Filter>Dialog</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HEModelerView.cpp">
@@ -107,6 +116,9 @@
     </ClCompile>
     <ClCompile Include="OutputWnd.cpp">
       <Filter>Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="HEMDevDialog.cpp">
+      <Filter>Dialog</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

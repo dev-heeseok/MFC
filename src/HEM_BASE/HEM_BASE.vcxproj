@@ -213,6 +213,7 @@
   <ItemGroup>
     <ClCompile Include="HEMDialog.cpp" />
     <ClCompile Include="HEMDocBase.cpp" />
+    <ClCompile Include="HEMViewBase.cpp" />
     <ClCompile Include="HEM_BASE.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -229,6 +230,7 @@
     <ClInclude Include="HEMDialog.h" />
     <ClInclude Include="HEMDocBase.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="HEMViewBase.h" />
     <ClInclude Include="HEM_BASE.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
@@ -236,6 +238,11 @@
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HEM_BASE.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HEM_WGL\HEM_WGL.vcxproj">
+      <Project>{b2af68ce-b4e0-4d9d-bc26-e153e515c3f1}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

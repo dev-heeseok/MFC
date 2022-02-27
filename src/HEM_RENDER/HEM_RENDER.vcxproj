@@ -110,7 +110,7 @@
       <ModuleDefinitionFile>.\HEM_RENDER.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\common\$(Configuration);..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget)\$(TargetName).lib</ImportLibrary>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32d.lib%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -138,7 +138,7 @@
       <ModuleDefinitionFile>.\HEM_RENDER.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\common\$(Configuration);..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget)\$(TargetName).lib</ImportLibrary>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32d.lib%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -215,7 +215,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="HEMView.cpp" />
+    <ClCompile Include="MyFirstRender.cpp" />
     <ClCompile Include="HEM_RENDER.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -223,24 +223,26 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="WGLView.cpp" />
   </ItemGroup>
   <ItemGroup>
     <None Include="HEM_RENDER.def" />
     <None Include="res\HEM_RENDER.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AllHeaderGL.h" />
+    <ClInclude Include="MyFirstRender.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="HEMView.h" />
     <ClInclude Include="HEM_RENDER.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
-    <ClInclude Include="WGLView.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HEM_RENDER.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\HEM_WGL\HEM_WGL.vcxproj">
+      <Project>{b2af68ce-b4e0-4d9d-bc26-e153e515c3f1}</Project>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

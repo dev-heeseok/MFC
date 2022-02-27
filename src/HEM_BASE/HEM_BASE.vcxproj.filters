@@ -28,6 +28,9 @@
     <ClCompile Include="HEMDialog.cpp">
       <Filter>Interface</Filter>
     </ClCompile>
+    <ClCompile Include="HEMViewBase.cpp">
+      <Filter>Interface</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="HEM_BASE.def">
@@ -57,6 +60,9 @@
       <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="HEMDialog.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="HEMViewBase.h">
       <Filter>Interface</Filter>
     </ClInclude>
   </ItemGroup>

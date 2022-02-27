@@ -11,8 +11,11 @@
     <Filter Include="__resource__">
       <UniqueIdentifier>{c2fa473b-c7e8-4d96-aed0-d7399b97377e}</UniqueIdentifier>
     </Filter>
-    <Filter Include="GL">
-      <UniqueIdentifier>{da0db258-4496-46e2-a587-4d0ff3aff608}</UniqueIdentifier>
+    <Filter Include="Render">
+      <UniqueIdentifier>{b28bda5f-157d-4c71-bed6-6aca7bc442a2}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Render\LearnOpenGL">
+      <UniqueIdentifier>{ecc5cc1a-f608-4dd6-b7e4-2ef708375cfa}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -22,11 +25,8 @@
     <ClCompile Include="HEM_RENDER.cpp">
       <Filter>__meta__</Filter>
     </ClCompile>
-    <ClCompile Include="WGLView.cpp">
-      <Filter>GL</Filter>
-    </ClCompile>
-    <ClCompile Include="HEMView.cpp">
-      <Filter>GL</Filter>
+    <ClCompile Include="MyFirstRender.cpp">
+      <Filter>Render\LearnOpenGL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -53,14 +53,8 @@
     <ClInclude Include="Resource.h">
       <Filter>__resource__</Filter>
     </ClInclude>
-    <ClInclude Include="WGLView.h">
-      <Filter>GL</Filter>
-    </ClInclude>
-    <ClInclude Include="AllHeaderGL.h">
-      <Filter>__meta__</Filter>
-    </ClInclude>
-    <ClInclude Include="HEMView.h">
-      <Filter>GL</Filter>
+    <ClInclude Include="MyFirstRender.h">
+      <Filter>Render\LearnOpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
