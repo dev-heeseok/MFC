@@ -157,7 +157,7 @@ int CWGLView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CreateWGL();
 
 	BeginWGL();
-	
+
 	GLenum err = glewInit();
 	if (GLEW_OK != err)
 	{
@@ -187,7 +187,7 @@ void CWGLView::OnSize(UINT nType, int cx, int cy)
 	CView::OnSize(nType, cx, cy);
 
 	BeginWGL();
-	
+
 	glViewport(0, 0, cx, cy);
 
 	EndWGL();

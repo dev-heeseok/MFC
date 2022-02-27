@@ -159,19 +159,7 @@ void CHEModelerDoc::OnCategoryDev(UINT nID)
 	{
 	case ID_RIBBON_DEV_BTN:
 	{
-		auto pMainWnd = AfxGetMainWnd();
-		if (pMainWnd == nullptr && pMainWnd->IsKindOf(RUNTIME_CLASS(CMainFrame)) == FALSE)
-			break;
 
-
-		UpdateAllViews(NULL);
-
-		auto pMainFrm = static_cast<CMainFrame*>(pMainWnd);
-		auto pChildFrm = pMainFrm->GetActiveFrame();
-		auto pView = pChildFrm->GetActiveView();
-
-		if (pView && pView->IsKindOf(RUNTIME_CLASS(CHEModelerView)))
-			pView->Invalidate();
 	}
 	break;
 	default:

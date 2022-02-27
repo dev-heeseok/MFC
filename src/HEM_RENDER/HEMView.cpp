@@ -10,13 +10,14 @@ CHEMView::~CHEMView()
 }
 
 BEGIN_MESSAGE_MAP(CHEMView, CWGLView)
-	ON_WM_SIZE()
 END_MESSAGE_MAP()
 
 
 void CHEMView::OnDraw(CDC* /*pDC*/)
 {
 	BeginWGL();
+
+
 
 	SwapBuffers();
 
