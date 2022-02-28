@@ -30,12 +30,12 @@
 
 // CHEModelerView
 
-IMPLEMENT_DYNCREATE(CHEModelerView, CHEMViewBase)
+IMPLEMENT_DYNCREATE(CHEModelerView, CHEViewBase)
 
-BEGIN_MESSAGE_MAP(CHEModelerView, CHEMViewBase)
+BEGIN_MESSAGE_MAP(CHEModelerView, CHEViewBase)
 	// 표준 인쇄 명령입니다.
-	ON_COMMAND(ID_FILE_PRINT, &CHEMViewBase::OnFilePrint)
-	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CHEMViewBase::OnFilePrint)
+	ON_COMMAND(ID_FILE_PRINT, &CHEViewBase::OnFilePrint)
+	ON_COMMAND(ID_FILE_PRINT_DIRECT, &CHEViewBase::OnFilePrint)
 	ON_COMMAND(ID_FILE_PRINT_PREVIEW, &CHEModelerView::OnFilePrintPreview)
 	ON_WM_CONTEXTMENU()
 	ON_WM_RBUTTONUP()
@@ -58,7 +58,7 @@ BOOL CHEModelerView::PreCreateWindow(CREATESTRUCT& cs)
 	// TODO: CREATESTRUCT cs를 수정하여 여기에서
 	//  Window 클래스 또는 스타일을 수정합니다.
 
-	return CHEMViewBase::PreCreateWindow(cs);
+	return CHEViewBase::PreCreateWindow(cs);
 }
 
 // CHEModelerView 그리기
@@ -71,7 +71,7 @@ void CHEModelerView::OnDraw(CDC* pDC)
 		return;
 
 
-	CHEMViewBase::OnDraw(pDC);
+	CHEViewBase::OnDraw(pDC);
 }
 
 
@@ -120,12 +120,12 @@ void CHEModelerView::OnContextMenu(CWnd* /* pWnd */, CPoint point)
 #ifdef _DEBUG
 void CHEModelerView::AssertValid() const
 {
-	CHEMViewBase::AssertValid();
+	CHEViewBase::AssertValid();
 }
 
 void CHEModelerView::Dump(CDumpContext& dc) const
 {
-	CHEMViewBase::Dump(dc);
+	CHEViewBase::Dump(dc);
 }
 
 CHEModelerDoc* CHEModelerView::GetDocument() const // 디버그되지 않은 버전은 인라인으로 지정됩니다.
