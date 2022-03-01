@@ -1,0 +1,80 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="__resource file__">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="__resource__">
+      <UniqueIdentifier>{172c1490-62da-406b-a79a-666c381a37c8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="__meta__">
+      <UniqueIdentifier>{36febe63-1f06-4f6f-b56f-b421467bef83}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="GL">
+      <UniqueIdentifier>{387f6bca-944d-458c-af94-7d96e91de15c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{40720d26-0c71-4f79-81d7-4cd9bf796467}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="pch.cpp">
+      <Filter>__meta__</Filter>
+    </ClCompile>
+    <ClCompile Include="HE_WGL.cpp">
+      <Filter>__meta__</Filter>
+    </ClCompile>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>__meta__</Filter>
+    </ClCompile>
+    <ClCompile Include="WGLView.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="WGLMakeView.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="HE_WGL.def">
+      <Filter>__meta__</Filter>
+    </None>
+    <None Include="res\HE_WGL.rc2">
+      <Filter>__resource__</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="framework.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="Resource.h">
+      <Filter>__resource__</Filter>
+    </ClInclude>
+    <ClInclude Include="IRender.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IRenderManager.h">
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="WGLView.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="WGLMakeView.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="AllHeaderGL.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HE_WGL.rc">
+      <Filter>__resource__</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

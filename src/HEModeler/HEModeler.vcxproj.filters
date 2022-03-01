@@ -37,12 +37,6 @@
     <ClInclude Include="HEModeler.h">
       <Filter>Main</Filter>
     </ClInclude>
-    <ClInclude Include="calendarbar.h">
-      <Filter>Main</Filter>
-    </ClInclude>
-    <ClInclude Include="OutputWnd.h">
-      <Filter>Main</Filter>
-    </ClInclude>
     <ClInclude Include="ChildFrm.h">
       <Filter>Frame</Filter>
     </ClInclude>
@@ -70,6 +64,12 @@
     <ClInclude Include="framework.h">
       <Filter>__meta__</Filter>
     </ClInclude>
+    <ClInclude Include="calendarbar.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
+    <ClInclude Include="OutputWnd.h">
+      <Filter>Frame</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="HEModelerView.cpp">
@@ -79,12 +79,6 @@
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="HEModeler.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="calendarbar.cpp">
-      <Filter>Main</Filter>
-    </ClCompile>
-    <ClCompile Include="OutputWnd.cpp">
       <Filter>Main</Filter>
     </ClCompile>
     <ClCompile Include="ChildFrm.cpp">
@@ -107,6 +101,12 @@
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>__meta__</Filter>
+    </ClCompile>
+    <ClCompile Include="calendarbar.cpp">
+      <Filter>Frame</Filter>
+    </ClCompile>
+    <ClCompile Include="OutputWnd.cpp">
+      <Filter>Frame</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

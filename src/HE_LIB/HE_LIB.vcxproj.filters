@@ -1,0 +1,68 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="__resource file__">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="__resource__">
+      <UniqueIdentifier>{4a7e9ab0-aef3-42f8-94c0-b5dbc659ba27}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="__meta__">
+      <UniqueIdentifier>{61151c98-72a7-4aec-b8ad-61b13cd9f87b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Utility">
+      <UniqueIdentifier>{d68e59b0-cdc0-49e7-b816-33732247fc6a}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="dllmain.cpp">
+      <Filter>__meta__</Filter>
+    </ClCompile>
+    <ClCompile Include="HE_LIB.cpp">
+      <Filter>__meta__</Filter>
+    </ClCompile>
+    <ClCompile Include="pch.cpp">
+      <Filter>__meta__</Filter>
+    </ClCompile>
+    <ClCompile Include="HELib.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+    <ClCompile Include="HEMath.cpp">
+      <Filter>Utility</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\HE_LIB.rc2">
+      <Filter>__resource__</Filter>
+    </None>
+    <None Include="HE_LIB.def">
+      <Filter>__meta__</Filter>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>__resource__</Filter>
+    </ClInclude>
+    <ClInclude Include="framework.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="pch.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="targetver.h">
+      <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="HELib.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+    <ClInclude Include="HEMath.h">
+      <Filter>Utility</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="HE_LIB.rc">
+      <Filter>__resource__</Filter>
+    </ResourceCompile>
+  </ItemGroup>
+</Project>

@@ -26,15 +26,17 @@
 
 #include <propkey.h>
 
+#include "../HEM_UI/HEMuiDialog.h"
+
 #ifdef _DEBUG
 #define new DEBUG_NEW
 #endif
 
 // CHEModelerDoc
 
-IMPLEMENT_DYNCREATE(CHEModelerDoc, CDocument)
+IMPLEMENT_DYNCREATE(CHEModelerDoc, CHEDocBase)
 
-BEGIN_MESSAGE_MAP(CHEModelerDoc, CDocument)
+BEGIN_MESSAGE_MAP(CHEModelerDoc, CHEDocBase)
 #define ON_COMMAND_CATEGORY_DEV(id, func) ON_COMMAND_RANGE(id, id, func)
 	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_DEV_BTN, OnCategoryDev)
 
@@ -59,7 +61,7 @@ CHEModelerDoc::~CHEModelerDoc()
 
 BOOL CHEModelerDoc::OnNewDocument()
 {
-	if (!CDocument::OnNewDocument())
+	if (!CHEDocBase::OnNewDocument())
 		return FALSE;
 
 	// TODO: 여기에 재초기화 코드를 추가합니다.
@@ -144,12 +146,12 @@ void CHEModelerDoc::SetSearchContent(const CString& value)
 #ifdef _DEBUG
 void CHEModelerDoc::AssertValid() const
 {
-	CDocument::AssertValid();
+	CHEDocBase::AssertValid();
 }
 
 void CHEModelerDoc::Dump(CDumpContext& dc) const
 {
-	CDocument::Dump(dc);
+	CHEDocBase::Dump(dc);
 }
 #endif //_DEBUG
 
@@ -159,19 +161,7 @@ void CHEModelerDoc::OnCategoryDev(UINT nID)
 	{
 	case ID_RIBBON_DEV_BTN:
 	{
-		auto pMainWnd = AfxGetMainWnd();
-		if (pMainWnd == nullptr && pMainWnd->IsKindOf(RUNTIME_CLASS(CMainFrame)) == FALSE)
-			break;
-
-
-		UpdateAllViews(NULL);
-
-		auto pMainFrm = static_cast<CMainFrame*>(pMainWnd);
-		auto pChildFrm = pMainFrm->GetActiveFrame();
-		auto pView = pChildFrm->GetActiveView();
-
-		if (pView && pView->IsKindOf(RUNTIME_CLASS(CHEModelerView)))
-			pView->Invalidate();
+		CHEMuiDialog::DoModal(this, _T("CHEMuiDevDialog"));
 	}
 	break;
 	default:
