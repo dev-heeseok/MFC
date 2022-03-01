@@ -64,19 +64,19 @@
 #define IDS_FIND_TAB                    302
 #define IDS_EDIT_MENU                   306
 #define IDR_RIBBON                      307
-#define ID_RIBBON_DEV_BTN               310
 #define IDB_RIBBON_MENU_SMALL           310
 #define IDB_RIBBON_NORMAL               311
 #define IDB_RIBBON_MENU_NORMAL          311
 #define ID_WRITE_PASTEASHYPERLINK       32770
+#define ID_RIBBON_DEV_BTN               32771
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
 #define _APS_NEXT_RESOURCE_VALUE        312
-#define _APS_NEXT_COMMAND_VALUE         32771
+#define _APS_NEXT_COMMAND_VALUE         32772
 #define _APS_NEXT_CONTROL_VALUE         1000
-#define _APS_NEXT_SYMED_VALUE           311
+#define _APS_NEXT_SYMED_VALUE           32772
 #endif
 #endif
