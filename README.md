@@ -7,9 +7,57 @@ MFC based package program
 
 ## Project 구성
 
-- HEModeler : Main Project
-- HEM_LIB : HEM (HEModeler) Library Project
-- HEM_RENDER : HEM (HEModeler) Render Project
+- HEModeler : 메인 프로젝트
+- HE_LIB : Library 프로젝트
+- HE_WGL : WGL 관리 프로젝트
+- HE_RENDER : Render 관리 프로젝트
+- HE_BASE : 기반 프로젝트
+- HEM_UI : UI 관리 프로젝트
+
+### 리소스 관리
+
+프로젝트별 Resource 관리를 위해 ID 의 범위를 지정하여 사용한다.
+
+#### _APS_NEXT_RESOURCE_VALUE
+
+LOW BIT IDD_XXX, IDB_XXX, ... (1~28,671)
+
+- 1~4999 : HEModeler 프로젝트
+- 5000~9999 : HEM_UI 프로젝트
+- 10000~14999
+- 15000~19999
+- 20000~28671
+
+#### _APS_NEXT_COMMAND_VALUE
+
+ID_XXX, ... (32,768~57,343)
+
+- 32768~34999 : HEModeler 프로젝트
+- 35000~39999 : HEM_UI 프로젝트
+- 40000~44999
+- 45000~50000
+- 50000~57343
+
+#### _APS_NEXT_CONTROL_VALUE
+
+IDC_XXX, ... (8~57,343)
+
+- 8~9999 : HEModeler 프로젝트
+- 10000~19999 : HEM_UI 프로젝트
+- 20000~29999
+- 30000~39999
+- 40000~49999
+- 50000~57343
+
+#### _APS_NEXT_SYMED_VALUE
+
+ID_XXX, ... (32,768~57,343)
+
+- 32768~34999 : HEModeler 프로젝트
+- 35000~39999 : HEM_UI 프로젝트
+- 40000~44999
+- 45000~50000
+- 50000~57343
 
 ## Library 구성
 
