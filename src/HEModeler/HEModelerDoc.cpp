@@ -26,7 +26,7 @@
 
 #include <propkey.h>
 
-#include "../HEM_UI/HEMDevDlg.h"
+#include "../HEM_UI/HEMuiDialog.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -161,8 +161,7 @@ void CHEModelerDoc::OnCategoryDev(UINT nID)
 	{
 	case ID_RIBBON_DEV_BTN:
 	{
-		CHEMDevDlg dlg(this);
-		dlg.DoModal();
+		CHEMuiDialog::DoModal(this, _T("CHEMuiDevDialog"));
 	}
 	break;
 	default:

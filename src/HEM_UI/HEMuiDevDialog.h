@@ -1,15 +1,17 @@
 #pragma once
 
-#include "resource.h"
 #include "../HE_BASE/HEDialog.h"
 
-class AFX_EXT_CLASS CHEMDevDlg : public CHEDialog
+class AFX_EXT_CLASS CHEMuiDevDialog : public CHEDialog
 {
-public:
-	CHEMDevDlg(CHEDocBase* pDoc, CWnd* pParent = nullptr);
-	virtual ~CHEMDevDlg();
+	enum class ListCol { Title = 0, Desc, Num };
+	enum class ListRow;
 
-	enum { IDD = IDD_HEMUI_DEVELOP };
+public:
+	CHEMuiDevDialog(CHEDocBase* pDoc, CWnd* pParent = nullptr);
+	virtual ~CHEMuiDevDialog();
+
+	enum { IDD = IDD_HEMUI_LEARN_OPENGL };
 
 private:
 	virtual void DoDataExchange(CDataExchange* pDX) override;
@@ -22,9 +24,11 @@ private:
 	void SetControl();
 	void SetData2Dlg();
 
-
 private:
 	DECLARE_MESSAGE_MAP();
+
+private:
+	CListCtrl m_lstItem;
 
 };
 

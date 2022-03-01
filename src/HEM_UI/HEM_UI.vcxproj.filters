@@ -14,6 +14,9 @@
     <Filter Include="Implement">
       <UniqueIdentifier>{f2698cfe-c65a-49a6-a0b6-6fdc46b46121}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Interface">
+      <UniqueIdentifier>{98ee374d-6029-496a-8447-baa5e32a1efe}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -25,8 +28,11 @@
     <ClCompile Include="pch.cpp">
       <Filter>__meta__</Filter>
     </ClCompile>
-    <ClCompile Include="HEMDevDlg.cpp">
+    <ClCompile Include="HEMuiDevDialog.cpp">
       <Filter>Implement</Filter>
+    </ClCompile>
+    <ClCompile Include="HEMuiDialog.cpp">
+      <Filter>Interface</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -50,8 +56,11 @@
     <ClInclude Include="Resource.h">
       <Filter>__resource__</Filter>
     </ClInclude>
-    <ClInclude Include="HEMDevDlg.h">
+    <ClInclude Include="HEMuiDevDialog.h">
       <Filter>Implement</Filter>
+    </ClInclude>
+    <ClInclude Include="HEMuiDialog.h">
+      <Filter>Interface</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

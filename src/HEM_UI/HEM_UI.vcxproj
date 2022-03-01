@@ -225,7 +225,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="HEMDevDlg.cpp" />
+    <ClCompile Include="HEMuiDevDialog.cpp" />
+    <ClCompile Include="HEMuiDialog.cpp" />
     <ClCompile Include="HEM_UI.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
@@ -240,7 +241,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
-    <ClInclude Include="HEMDevDlg.h" />
+    <ClInclude Include="HEMuiDevDialog.h" />
+    <ClInclude Include="HEMuiDialog.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
