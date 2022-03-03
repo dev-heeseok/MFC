@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="__resource file__">
@@ -14,8 +14,8 @@
     <Filter Include="GL">
       <UniqueIdentifier>{387f6bca-944d-458c-af94-7d96e91de15c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Interface">
-      <UniqueIdentifier>{40720d26-0c71-4f79-81d7-4cd9bf796467}</UniqueIdentifier>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{ef52fe5d-da74-40e5-9d75-d72433f540cd}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -34,6 +34,12 @@
     <ClCompile Include="WGLMakeView.cpp">
       <Filter>GL</Filter>
     </ClCompile>
+    <ClCompile Include="ShaderManager.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="Shader.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="HE_WGL.def">
@@ -42,6 +48,8 @@
     <None Include="res\HE_WGL.rc2">
       <Filter>__resource__</Filter>
     </None>
+    <None Include="res\GLSL\scene.vert" />
+    <None Include="res\GLSL\scene.frag" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -56,12 +64,6 @@
     <ClInclude Include="Resource.h">
       <Filter>__resource__</Filter>
     </ClInclude>
-    <ClInclude Include="IRender.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="IRenderManager.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
     <ClInclude Include="WGLView.h">
       <Filter>GL</Filter>
     </ClInclude>
@@ -70,6 +72,12 @@
     </ClInclude>
     <ClInclude Include="AllHeaderGL.h">
       <Filter>__meta__</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderManager.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="Shader.h">
+      <Filter>Shader</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

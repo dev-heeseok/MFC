@@ -36,7 +36,15 @@ void CHEMRenderManager::CreateRender()
 		});
 }
 
-void CHEMRenderManager::WGLRenderDraw()
+void CHEMRenderManager::WGLBuildBuffer()
+{
+	for (auto [_, pRender] : m_mRender)
+	{
+		pRender->WGLBuild();
+	}
+}
+
+void CHEMRenderManager::WGLDrawScene()
 {
 	for (auto [_, pRender] : m_mRender)
 	{

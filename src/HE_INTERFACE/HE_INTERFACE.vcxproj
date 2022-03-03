@@ -20,9 +20,9 @@
   </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>16.0</VCProjectVersion>
-    <ProjectGuid>{F1D65F4B-6600-42F7-8093-327E12B66A48}</ProjectGuid>
+    <ProjectGuid>{1FDB10FA-BE37-4C00-A8DC-4B601CB08826}</ProjectGuid>
     <Keyword>MFCDLLProj</Keyword>
-    <RootNamespace>HEMUI</RootNamespace>
+    <RootNamespace>HEINTERFACE</RootNamespace>
     <WindowsTargetPlatformVersion>10.0</WindowsTargetPlatformVersion>
   </PropertyGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
@@ -107,10 +107,9 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <ModuleDefinitionFile>.\HEM_UI.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\HE_INTERFACE.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\common\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget)\$(TargetName).lib</ImportLibrary>
-      <AdditionalOptions>/verbose:lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -135,10 +134,9 @@
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
-      <ModuleDefinitionFile>.\HEM_UI.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\HE_INTERFACE.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\common\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget)\$(TargetName).lib</ImportLibrary>
-      <AdditionalOptions>/verbose:lib %(AdditionalOptions)</AdditionalOptions>
     </Link>
     <Midl>
       <MkTypLibCompatible>false</MkTypLibCompatible>
@@ -167,7 +165,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ModuleDefinitionFile>.\HEM_UI.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\HE_INTERFACE.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\common\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget)\$(TargetName).lib</ImportLibrary>
     </Link>
@@ -198,7 +196,7 @@
       <SubSystem>Windows</SubSystem>
       <EnableCOMDATFolding>true</EnableCOMDATFolding>
       <OptimizeReferences>true</OptimizeReferences>
-      <ModuleDefinitionFile>.\HEM_UI.def</ModuleDefinitionFile>
+      <ModuleDefinitionFile>.\HE_INTERFACE.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\common\$(Configuration);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
       <ImportLibrary>..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget)\$(TargetName).lib</ImportLibrary>
     </Link>
@@ -227,10 +225,7 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="HEMuiDevelopDlg.cpp" />
-    <ClCompile Include="HEMuiTutorialDlg.cpp" />
-    <ClCompile Include="HEMuiDialog.cpp" />
-    <ClCompile Include="HEM_UI.cpp" />
+    <ClCompile Include="HE_INTERFACE.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -239,28 +234,20 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="HEM_UI.def" />
-    <None Include="res\HEM_UI.rc2" />
+    <None Include="HE_INTERFACE.def" />
+    <None Include="res\HE_INTERFACE.rc2" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h" />
-    <ClInclude Include="HEMuiDevelopDlg.h" />
-    <ClInclude Include="HEMuiTutorialDlg.h" />
-    <ClInclude Include="HEMuiDialog.h" />
+    <ClInclude Include="IRender.h" />
+    <ClInclude Include="IRenderManager.h" />
+    <ClInclude Include="NotifyDefine.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="HEM_UI.rc" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\HE_BASE\HE_BASE.vcxproj">
-      <Project>{12dd5f81-cb26-42ff-a502-36fc9daa1830}</Project>
-    </ProjectReference>
-    <ProjectReference Include="..\HE_LIB\HE_LIB.vcxproj">
-      <Project>{390a0dde-6954-4276-b30b-d84892e4b443}</Project>
-    </ProjectReference>
+    <ResourceCompile Include="HE_INTERFACE.rc" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

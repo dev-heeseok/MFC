@@ -4,8 +4,8 @@
 #include <typeindex>
 #include <unordered_map>
 
-#include "../HE_WGL/IRender.h"
-#include "../HE_WGL/IRenderManager.h"
+#include "../HE_INTERFACE/IRender.h"
+#include "../HE_INTERFACE/IRenderManager.h"
 
 class AFX_EXT_CLASS CHEMRenderManager : public IRenderManager
 {
@@ -19,7 +19,8 @@ public:
 public:
 	virtual void CreateRender() override;
 
-	virtual void WGLRenderDraw() override;
+	virtual void WGLBuildBuffer() override;
+	virtual void WGLDrawScene() override;
 
 private:
 	RENDER_MAP m_mRender;

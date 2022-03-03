@@ -6,47 +6,41 @@
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="__resource__">
-      <UniqueIdentifier>{8153e220-e6f3-4363-aa01-d25128d01eb0}</UniqueIdentifier>
+      <UniqueIdentifier>{0228d225-89f8-4856-be29-9701e00165c3}</UniqueIdentifier>
     </Filter>
     <Filter Include="__meta__">
-      <UniqueIdentifier>{b7795d94-a7a6-4277-adaa-f1f6802adb89}</UniqueIdentifier>
+      <UniqueIdentifier>{3aa5e95a-b92c-4971-b251-dbb1a0e01259}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Implement">
-      <UniqueIdentifier>{f2698cfe-c65a-49a6-a0b6-6fdc46b46121}</UniqueIdentifier>
+    <Filter Include="Render">
+      <UniqueIdentifier>{4e539286-f5fc-41c2-ae1f-0d7a1314e869}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Interface">
-      <UniqueIdentifier>{98ee374d-6029-496a-8447-baa5e32a1efe}</UniqueIdentifier>
+    <Filter Include="Notify">
+      <UniqueIdentifier>{7a0aafe6-dcfe-460b-be41-83471ec942b4}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
       <Filter>__meta__</Filter>
     </ClCompile>
-    <ClCompile Include="HEM_UI.cpp">
+    <ClCompile Include="HE_INTERFACE.cpp">
       <Filter>__meta__</Filter>
     </ClCompile>
     <ClCompile Include="pch.cpp">
       <Filter>__meta__</Filter>
     </ClCompile>
-    <ClCompile Include="HEMuiTutorialDlg.cpp">
-      <Filter>Implement</Filter>
-    </ClCompile>
-    <ClCompile Include="HEMuiDialog.cpp">
-      <Filter>Interface</Filter>
-    </ClCompile>
-    <ClCompile Include="HEMuiDevelopDlg.cpp">
-      <Filter>Implement</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <None Include="HEM_UI.def">
-      <Filter>__meta__</Filter>
-    </None>
-    <None Include="res\HEM_UI.rc2">
+    <None Include="res\HE_INTERFACE.rc2">
       <Filter>__resource__</Filter>
     </None>
+    <None Include="HE_INTERFACE.def">
+      <Filter>__meta__</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Resource.h">
+      <Filter>__resource__</Filter>
+    </ClInclude>
     <ClInclude Include="framework.h">
       <Filter>__meta__</Filter>
     </ClInclude>
@@ -56,21 +50,18 @@
     <ClInclude Include="targetver.h">
       <Filter>__meta__</Filter>
     </ClInclude>
-    <ClInclude Include="Resource.h">
-      <Filter>__resource__</Filter>
+    <ClInclude Include="IRender.h">
+      <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="HEMuiTutorialDlg.h">
-      <Filter>Implement</Filter>
+    <ClInclude Include="IRenderManager.h">
+      <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="HEMuiDialog.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="HEMuiDevelopDlg.h">
-      <Filter>Implement</Filter>
+    <ClInclude Include="NotifyDefine.h">
+      <Filter>Notify</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
-    <ResourceCompile Include="HEM_UI.rc">
+    <ResourceCompile Include="HE_INTERFACE.rc">
       <Filter>__resource__</Filter>
     </ResourceCompile>
   </ItemGroup>

@@ -38,10 +38,12 @@ IMPLEMENT_DYNCREATE(CHEModelerDoc, CHEDocBase)
 
 BEGIN_MESSAGE_MAP(CHEModelerDoc, CHEDocBase)
 #define ON_COMMAND_CATEGORY_DEV(id, func) ON_COMMAND_RANGE(id, id, func)
-	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_DEV_BTN, OnCategoryDev)
+	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_DEVELOP_BTN, OnCategoryDev)
+	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_TUTORIAL_BTN, OnCategoryDev)
 
 #define ON_UPDATE_CATEGORY_DEV(id, func) ON_UPDATE_COMMAND_UI_RANGE(id, id, func)
-	ON_UPDATE_CATEGORY_DEV(ID_RIBBON_DEV_BTN, OnUpdateCategoryDev)
+	ON_UPDATE_CATEGORY_DEV(ID_RIBBON_DEVELOP_BTN, OnUpdateCategoryDev)
+	ON_UPDATE_CATEGORY_DEV(ID_RIBBON_TUTORIAL_BTN, OnUpdateCategoryDev)
 
 
 END_MESSAGE_MAP()
@@ -159,9 +161,14 @@ void CHEModelerDoc::OnCategoryDev(UINT nID)
 {
 	switch (nID)
 	{
-	case ID_RIBBON_DEV_BTN:
+	case ID_RIBBON_DEVELOP_BTN:
 	{
-		CHEMuiDialog::DoModal(this, _T("CHEMuiDevDialog"));
+		CHEMuiDialog::DoModeless(this, _T("CHEMuiDevelopDlg"));
+	}
+	break;
+	case ID_RIBBON_TUTORIAL_BTN:
+	{
+		CHEMuiDialog::DoModal(this, _T("CHEMuiTutorialDlg"));
 	}
 	break;
 	default:
@@ -176,7 +183,8 @@ void CHEModelerDoc::OnUpdateCategoryDev(CCmdUI* pCmdUI)
 {
 	switch (pCmdUI->m_nID)
 	{
-	case ID_RIBBON_DEV_BTN:
+	case ID_RIBBON_DEVELOP_BTN:
+	case ID_RIBBON_TUTORIAL_BTN:
 	{
 		pCmdUI->Enable(TRUE);
 	}

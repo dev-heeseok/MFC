@@ -109,7 +109,7 @@
       <SubSystem>Windows</SubSystem>
       <ModuleDefinitionFile>.\HE_RENDER.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\common\$(Configuration);..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget)\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
@@ -137,7 +137,7 @@
       <SubSystem>Windows</SubSystem>
       <ModuleDefinitionFile>.\HE_RENDER.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\common\$(Configuration);..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32d.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget)\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
@@ -169,7 +169,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <ModuleDefinitionFile>.\HE_RENDER.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\common\$(Configuration);..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget)\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>
@@ -201,7 +201,7 @@
       <OptimizeReferences>true</OptimizeReferences>
       <ModuleDefinitionFile>.\HE_RENDER.def</ModuleDefinitionFile>
       <AdditionalLibraryDirectories>..\..\lib\common;..\..\lib\common\$(Configuration);..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget);%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
-      <AdditionalDependencies>opengl32.lib;glfw3.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalDependencies>opengl32.lib;glew32.lib;%(AdditionalDependencies)</AdditionalDependencies>
       <ImportLibrary>..\..\lib\$(PlatformToolset)\$(Configuration)\$(PlatformTarget)\$(TargetName).lib</ImportLibrary>
     </Link>
     <Midl>

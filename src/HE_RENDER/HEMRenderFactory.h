@@ -4,7 +4,7 @@
 #include <functional>
 #include <unordered_map>
 
-#include "../HE_WGL/IRender.h"
+#include "../HE_INTERFACE/IRender.h"
 
 class AFX_EXT_CLASS CHEMRenderFactory
 {
