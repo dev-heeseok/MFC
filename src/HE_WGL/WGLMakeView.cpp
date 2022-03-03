@@ -157,19 +157,19 @@ int CWGLMakeView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	CreateWGL();
 
 	WGLBegin();
-
-	GLenum err = glewInit();
-	if (GLEW_OK != err)
 	{
-		AfxMessageBox(_T("GLEW is not initialized!"));
+		GLenum err = glewInit();
+		if (GLEW_OK != err)
+		{
+			AfxMessageBox(_T("GLEW is not initialized!"));
+		}
+
+		// Create the palette if needed
+		WGLInitialPalette();
+
+		// Default 
+		glClearColor(0.f, 0.f, 0.f, 1.f);
 	}
-
-	// Create the palette if needed
-	WGLInitialPalette();
-
-	// Default 
-	glClearColor(0.f, 0.f, 0.f, 1.f);
-
 	WGLEnd();
 
 	return 0;

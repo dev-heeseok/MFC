@@ -1,7 +1,6 @@
 #include "pch.h"
 #include "Shader.h"
 
-#include <memory>
 #include <string>
 
 #ifdef _DEBUG
@@ -132,4 +131,82 @@ void CShader::WGLLinkShader()
 
 	for (auto shader : m_shaders)
 		glDeleteShader(shader);
+}
+
+void CShader::WGLBind()
+{
+	ASSERT(m_program > 0);
+
+	glUseProgram(m_program);
+}
+
+void CShader::WGLUnbind()
+{
+	glUseProgram(0);
+}
+
+BOOL CShader::WGLSetInt(const GLchar* aName, int nData)
+{
+	auto location = glGetUniformLocation(m_program, aName);
+	if (location == -1)
+		return FALSE;
+
+	glUniform1i(location, nData);
+
+	return TRUE;
+}
+
+BOOL CShader::WGLSetBoolean(const GLchar* aName, bool bData)
+{
+	auto location = glGetUniformLocation(m_program, aName);
+	if (location == -1)
+		return FALSE;
+
+	glUniform1i(location, bData);
+
+	return TRUE;
+}
+
+BOOL CShader::WGLSetFloat(const GLchar* aName, float fData)
+{
+	auto location = glGetUniformLocation(m_program, aName);
+	if (location == -1)
+		return FALSE;
+
+	glUniform1f(location, fData);
+
+	return TRUE;
+}
+
+BOOL CShader::WGLSetDouble(const GLchar* aName, double dData)
+{
+	auto location = glGetUniformLocation(m_program, aName);
+	if (location == -1)
+		return FALSE;
+
+	glUniform1d(location, dData);
+
+	return TRUE;
+}
+
+BOOL CShader::WGLSetVector3(const GLchar* aName, glm::vec3& vec3)
+{
+	auto location = glGetUniformLocation(m_program, aName);
+	if (location == -1)
+		return FALSE;
+
+	glUniform3fv(location, 1, glm::value_ptr(vec3));
+
+	return TRUE;
+}
+
+BOOL CShader::WGLSetMatrix4(const GLchar* aName, glm::mat4& mat4)
+{
+	auto location = glGetUniformLocation(m_program, aName);
+	if (location == -1)
+		return FALSE;
+
+	glUniformMatrix4fv(location, 1, GL_FALSE, glm::value_ptr(mat4));
+
+	return TRUE;
 }

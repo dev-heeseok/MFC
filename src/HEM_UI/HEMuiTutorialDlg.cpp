@@ -91,7 +91,7 @@ void CHEMuiTutorialDlg::Apply(ListRow row)
 	{
 	case ListRow::first_render:
 	{
-		pDoc->UpdateAllViews(NULL, static_cast<WPARAM>(ViewNotify::changed_database), 0);
+		pDoc->UpdateAllViews(nullptr, static_cast<WPARAM>(NotifyType::changed_database), NULL);
 	}
 	break;
 	}

@@ -248,11 +248,11 @@
     <None Include="res\HE_WGL.rc2" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="AllHeaderGL.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="Shader.h" />
+    <ClInclude Include="ShaderDefine.h" />
     <ClInclude Include="ShaderManager.h" />
     <ClInclude Include="targetver.h" />
     <ClInclude Include="WGLView.h" />

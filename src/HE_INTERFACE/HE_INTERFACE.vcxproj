@@ -238,6 +238,8 @@
     <None Include="res\HE_INTERFACE.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="includeAll.h" />
+    <ClInclude Include="includeGL.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="IRender.h" />
     <ClInclude Include="IRenderManager.h" />

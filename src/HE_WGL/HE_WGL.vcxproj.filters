@@ -3,7 +3,7 @@
   <ItemGroup>
     <Filter Include="__resource file__">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+      <Extensions>vert;frag;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="__resource__">
       <UniqueIdentifier>{172c1490-62da-406b-a79a-666c381a37c8}</UniqueIdentifier>
@@ -16,6 +16,9 @@
     </Filter>
     <Filter Include="Shader">
       <UniqueIdentifier>{ef52fe5d-da74-40e5-9d75-d72433f540cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="__resource file__\GLSL">
+      <UniqueIdentifier>{c5e2fe31-551a-4e08-a310-aea3cdab6b58}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -48,8 +51,12 @@
     <None Include="res\HE_WGL.rc2">
       <Filter>__resource__</Filter>
     </None>
-    <None Include="res\GLSL\scene.vert" />
-    <None Include="res\GLSL\scene.frag" />
+    <None Include="res\GLSL\scene.frag">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\scene.vert">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="framework.h">
@@ -70,13 +77,13 @@
     <ClInclude Include="WGLMakeView.h">
       <Filter>GL</Filter>
     </ClInclude>
-    <ClInclude Include="AllHeaderGL.h">
-      <Filter>__meta__</Filter>
-    </ClInclude>
     <ClInclude Include="ShaderManager.h">
       <Filter>Shader</Filter>
     </ClInclude>
     <ClInclude Include="Shader.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderDefine.h">
       <Filter>Shader</Filter>
     </ClInclude>
   </ItemGroup>

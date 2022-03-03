@@ -11,11 +11,17 @@
     <Filter Include="__meta__">
       <UniqueIdentifier>{3aa5e95a-b92c-4971-b251-dbb1a0e01259}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Render">
+    <Filter Include="Define">
+      <UniqueIdentifier>{0280b460-f8b7-4b9d-b6f3-6441f6d3b37c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Include">
+      <UniqueIdentifier>{7a0aafe6-dcfe-460b-be41-83471ec942b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Interface">
       <UniqueIdentifier>{4e539286-f5fc-41c2-ae1f-0d7a1314e869}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Notify">
-      <UniqueIdentifier>{7a0aafe6-dcfe-460b-be41-83471ec942b4}</UniqueIdentifier>
+    <Filter Include="Interface\Render">
+      <UniqueIdentifier>{63d5ba94-0d57-481e-b9e4-e72a73fae309}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -50,14 +56,20 @@
     <ClInclude Include="targetver.h">
       <Filter>__meta__</Filter>
     </ClInclude>
+    <ClInclude Include="NotifyDefine.h">
+      <Filter>Define</Filter>
+    </ClInclude>
+    <ClInclude Include="includeAll.h">
+      <Filter>Include</Filter>
+    </ClInclude>
+    <ClInclude Include="includeGL.h">
+      <Filter>Include</Filter>
+    </ClInclude>
     <ClInclude Include="IRender.h">
-      <Filter>Render</Filter>
+      <Filter>Interface\Render</Filter>
     </ClInclude>
     <ClInclude Include="IRenderManager.h">
-      <Filter>Render</Filter>
-    </ClInclude>
-    <ClInclude Include="NotifyDefine.h">
-      <Filter>Notify</Filter>
+      <Filter>Interface\Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

@@ -1,10 +1,9 @@
 #pragma once
 
-#include <memory>
-
 #include "WGLMakeView.h"
 
 class IRenderManager;
+class CShaderManager;
 class AFX_EXT_CLASS CWGLView : public CWGLMakeView
 {
 public:
@@ -21,6 +20,7 @@ protected:
 	DECLARE_MESSAGE_MAP();
 
 protected:
+	std::shared_ptr<CShaderManager> m_pShaderMgr;
 	std::shared_ptr<IRenderManager> m_pRenderMgr;
 
 };

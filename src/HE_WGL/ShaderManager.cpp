@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "ShaderManager.h"
+#include "Shader.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -13,4 +14,18 @@ CShaderManager::CShaderManager()
 
 CShaderManager::~CShaderManager()
 {
+}
+
+void CShaderManager::WGLRemoveAll()
+{
+}
+
+void CShaderManager::WGLBuildAll()
+{
+}
+
+void CShaderManager::WGLBuild(ShaderType type)
+{
+
+
 }

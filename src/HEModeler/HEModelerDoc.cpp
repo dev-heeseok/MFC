@@ -26,6 +26,7 @@
 
 #include <propkey.h>
 
+#include "../HE_INTERFACE/NotifyDefine.h"
 #include "../HEM_UI/HEMuiDialog.h"
 
 #ifdef _DEBUG
@@ -37,6 +38,7 @@
 IMPLEMENT_DYNCREATE(CHEModelerDoc, CHEDocBase)
 
 BEGIN_MESSAGE_MAP(CHEModelerDoc, CHEDocBase)
+
 #define ON_COMMAND_CATEGORY_DEV(id, func) ON_COMMAND_RANGE(id, id, func)
 	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_DEVELOP_BTN, OnCategoryDev)
 	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_TUTORIAL_BTN, OnCategoryDev)
@@ -44,7 +46,6 @@ BEGIN_MESSAGE_MAP(CHEModelerDoc, CHEDocBase)
 #define ON_UPDATE_CATEGORY_DEV(id, func) ON_UPDATE_COMMAND_UI_RANGE(id, id, func)
 	ON_UPDATE_CATEGORY_DEV(ID_RIBBON_DEVELOP_BTN, OnUpdateCategoryDev)
 	ON_UPDATE_CATEGORY_DEV(ID_RIBBON_TUTORIAL_BTN, OnUpdateCategoryDev)
-
 
 END_MESSAGE_MAP()
 
@@ -72,7 +73,12 @@ BOOL CHEModelerDoc::OnNewDocument()
 	return TRUE;
 }
 
+void CHEModelerDoc::OnCloseDocument()
+{
+	UpdateAllViews(nullptr, static_cast<WPARAM>(NotifyType::closed_document), NULL);
 
+	CHEDocBase::OnCloseDocument();
+}
 
 
 // CHEModelerDoc serialization

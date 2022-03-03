@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "WGLView.h"
+#include "ShaderManager.h"
 
 #include "../HE_INTERFACE/NotifyDefine.h"
 #include "../HE_INTERFACE/IRenderManager.h"
@@ -12,6 +13,7 @@ static char THIS_FILE[] = __FILE__;
 
 CWGLView::CWGLView(IRenderManager* pRenderMgr)
 {
+	m_pShaderMgr = std::make_shared<CShaderManager>();
 	m_pRenderMgr = std::shared_ptr<IRenderManager>(pRenderMgr);
 }
 
@@ -26,24 +28,33 @@ END_MESSAGE_MAP()
 void CWGLView::OnDraw(CDC* /*pDC*/)
 {
 	WGLBegin();
-
-	m_pRenderMgr->WGLDrawScene();
-
+	{
+		m_pRenderMgr->WGLDrawScene();
+	}
 	WGLSwapBuffers();
 	WGLEnd();
 }
 
 void CWGLView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 {
-	auto nf = static_cast<ViewNotify>(lHint);
+	auto nf = static_cast<NotifyType>(lHint);
 	switch (nf)
 	{
-	case ViewNotify::changed_database:
+	case NotifyType::closed_document:
 	{
 		WGLBegin();
-
-		m_pRenderMgr->WGLBuildBuffer();
-
+		{
+			m_pShaderMgr->WGLRemoveAll();
+		}
+		WGLEnd();
+	}
+	break;
+	case NotifyType::changed_database:
+	{
+		WGLBegin();
+		{
+			m_pRenderMgr->WGLBuildBuffer();
+		}
 		WGLEnd();
 	}
 	break;
@@ -58,6 +69,12 @@ int CWGLView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		return -1;
 
 	m_pRenderMgr->CreateRender();
+
+	WGLBegin();
+	{
+		m_pShaderMgr->WGLBuildAll();
+	}
+	WGLEnd();
 
 	return 0;
 }

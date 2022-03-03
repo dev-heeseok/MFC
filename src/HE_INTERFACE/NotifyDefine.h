@@ -3,14 +3,12 @@
 #ifndef DEF_NOTIFY
 #define DEF_NOTIFY
 
-enum class ViewNotify
+enum class NotifyType
 {
-	initial_update = 0,
+	closed_document = 1,
 	changed_database,
+	
 
-
-
-	view_notify_num
 };
 
 #endif // !DEF_NOTIFY

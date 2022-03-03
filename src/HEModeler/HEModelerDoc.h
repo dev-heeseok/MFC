@@ -28,8 +28,9 @@ public:
 	virtual ~CHEModelerDoc();
 
 public:
-	virtual BOOL OnNewDocument();
-	virtual void Serialize(CArchive& ar);
+	virtual BOOL OnNewDocument() override;
+	virtual void OnCloseDocument() override;
+	virtual void Serialize(CArchive& ar) override;
 
 public:
 #ifdef _DEBUG
