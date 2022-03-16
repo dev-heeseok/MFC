@@ -44,7 +44,7 @@ void CWGLView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	{
 		WGLBegin();
 		{
-			m_pShaderMgr->WGLRemoveAll();
+			m_pShaderMgr->WGLClearAll();
 		}
 		WGLEnd();
 	}

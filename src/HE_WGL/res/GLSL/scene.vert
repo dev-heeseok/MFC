@@ -7,6 +7,7 @@ out vec2 aTexCoordinate;
 
 void main()
 {
-	gl_Position = vec4(attrPos.x, attrPos.y, 0.f, 1.f);
 	aTexCoordinate = attrTexCord;
+
+	gl_Position = vec4(attrPos.x, attrPos.y, 0.f, 1.f);
 }

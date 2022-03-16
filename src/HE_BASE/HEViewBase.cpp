@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "HEViewBase.h"
 
-#include "../HE_RENDER/HEMRenderManager.h"
+#include "../HE_RENDER/RenderManager.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -10,7 +10,7 @@ static char THIS_FILE[] = __FILE__;
 #endif
 
 CHEViewBase::CHEViewBase()
-	: CWGLView(new CHEMRenderManager)
+	: CWGLView(new CRenderManager)
 {
 }
 

@@ -6,20 +6,22 @@
 #include "../HE_INTERFACE/IRender.h"
 #include "../HE_INTERFACE/IRenderManager.h"
 
-class AFX_EXT_CLASS CHEMRenderManager : public IRenderManager
+class AFX_EXT_CLASS CRenderManager : public IRenderManager
 {
-	using RENDER_BUFFER = std::shared_ptr<IRender>;
-	using RENDER_MAP = std::unordered_map<std::type_index, RENDER_BUFFER>;
+	using RENDER_MAP = std::unordered_map<RenderType, std::shared_ptr<IRender>>;
 
 public:
-	CHEMRenderManager();
-	virtual ~CHEMRenderManager();
+	CRenderManager();
+	virtual ~CRenderManager();
 
 public:
 	virtual void CreateRender() override;
 
 	virtual void WGLBuildBuffer() override;
 	virtual void WGLDrawScene() override;
+
+public:
+	IRender* GetRender(RenderType render_type);
 
 private:
 	RENDER_MAP m_mRender;

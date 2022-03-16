@@ -12,8 +12,8 @@ public:
 	void WGLCreate();
 	void WGLDelete();
 
-	void WGLAttachShader(GLenum shader_type, UINT res_id);
-	void WGLLinkShader();
+	void WGLAttach(GLenum shader_type, UINT res_id);
+	void WGLLink();
 
 	void WGLBind();
 	void WGLUnbind();

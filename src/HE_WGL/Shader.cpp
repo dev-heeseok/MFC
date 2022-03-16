@@ -31,7 +31,7 @@ void CShader::WGLDelete()
 	m_program = 0;
 }
 
-void CShader::WGLAttachShader(GLenum shader_type, UINT res_id)
+void CShader::WGLAttach(GLenum shader_type, UINT res_id)
 {
 	auto lambda_source = [](UINT res_id, std::string& source)
 	{
@@ -63,7 +63,7 @@ void CShader::WGLAttachShader(GLenum shader_type, UINT res_id)
 		GLint res_compile = 0;
 		glGetShaderiv(shader, ptype, &res_compile);
 
-		if (res_compile == 0)
+		if (res_compile == GL_TRUE)
 			return TRUE;
 
 		GLint log_length = 0;
@@ -99,13 +99,13 @@ void CShader::WGLAttachShader(GLenum shader_type, UINT res_id)
 	m_shaders.push_back(shader);
 }
 
-void CShader::WGLLinkShader()
+void CShader::WGLLink()
 {
 	auto lambda_status = [](GLuint id, GLenum ptype)
 	{
 		GLint res_link = 0;
 		glGetProgramiv(id, ptype, &res_link);
-		if (res_link == 0)
+		if (res_link == GL_TRUE)
 			return TRUE;
 
 		GLint log_length = 0;

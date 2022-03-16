@@ -215,6 +215,7 @@
     </ResourceCompile>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="BasicRender.cpp" />
     <ClCompile Include="dllmain.cpp">
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">false</CompileAsManaged>
       <CompileAsManaged Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</CompileAsManaged>
@@ -229,10 +230,10 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
-    <ClCompile Include="HEMRenderFactory.cpp" />
-    <ClCompile Include="HEMRenderManager.cpp" />
+    <ClCompile Include="RenderFactory.cpp" />
+    <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="HE_RENDER.cpp" />
-    <ClCompile Include="MyFirstRender.cpp" />
+    <ClCompile Include="HelloWorldRender.cpp" />
     <ClCompile Include="pch.cpp">
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
@@ -245,10 +246,12 @@
     <None Include="res\HE_RENDER.rc2" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="BasicRender.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="HEMRenderFactory.h" />
-    <ClInclude Include="HEMRenderManager.h" />
-    <ClInclude Include="MyFirstRender.h" />
+    <ClInclude Include="RenderDefine.h" />
+    <ClInclude Include="RenderFactory.h" />
+    <ClInclude Include="RenderManager.h" />
+    <ClInclude Include="HelloWorldRender.h" />
     <ClInclude Include="pch.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />

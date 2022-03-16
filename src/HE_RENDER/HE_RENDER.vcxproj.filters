@@ -28,13 +28,16 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>__meta__</Filter>
     </ClCompile>
-    <ClCompile Include="HEMRenderFactory.cpp">
+    <ClCompile Include="RenderFactory.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-    <ClCompile Include="HEMRenderManager.cpp">
+    <ClCompile Include="RenderManager.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-    <ClCompile Include="MyFirstRender.cpp">
+    <ClCompile Include="HelloWorldRender.cpp">
+      <Filter>LearnOpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicRender.cpp">
       <Filter>LearnOpenGL</Filter>
     </ClCompile>
   </ItemGroup>
@@ -59,14 +62,20 @@
     <ClInclude Include="Resource.h">
       <Filter>__meta__</Filter>
     </ClInclude>
-    <ClInclude Include="HEMRenderFactory.h">
+    <ClInclude Include="RenderFactory.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="HEMRenderManager.h">
+    <ClInclude Include="RenderManager.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="MyFirstRender.h">
+    <ClInclude Include="HelloWorldRender.h">
       <Filter>LearnOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicRender.h">
+      <Filter>LearnOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderDefine.h">
+      <Filter>Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
