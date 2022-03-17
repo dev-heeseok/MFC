@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "resource.h"
-#include "HEMuiDialog.h"
+#include "UIDialog.h"
+#include "UITutorialDlg.h"
 #include "HEMuiDevelopDlg.h"
-#include "HEMuiTutorialDlg.h"
 
 #include "../HE_BASE/HEViewBase.h"
 
@@ -12,7 +12,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-INT_PTR CHEMuiDialog::DoModal(CHEDocBase* pDoc, CString szDialog, WPARAM wParam, LPARAM lParam)
+INT_PTR CUIDialog::DoModal(CHEDocBase* pDoc, CString szDialog, WPARAM wParam, LPARAM lParam)
 {
 	// TODO. Parameter 贸府 鞘夸
 	ASSERT(wParam == NULL && lParam == NULL);
@@ -20,16 +20,16 @@ INT_PTR CHEMuiDialog::DoModal(CHEDocBase* pDoc, CString szDialog, WPARAM wParam,
 	auto pApp = AfxGetApp();
 	auto pMainWnd = pApp->GetMainWnd();
 
-	if (szDialog.CompareNoCase(_T("CHEMuiTutorialDlg")) == 0)
+	if (szDialog.CompareNoCase(_T("CUITutorialDlg")) == 0)
 	{
-		CHEMuiTutorialDlg dlg(pDoc, pMainWnd);
+		CUITutorialDlg dlg(pDoc, pMainWnd);
 		return dlg.DoModal();
 	}
 
 	return -1;
 }
 
-INT_PTR CHEMuiDialog::DoModeless(CHEDocBase* pDoc, CString szDialog, WPARAM wParam, LPARAM lParam)
+INT_PTR CUIDialog::DoModeless(CHEDocBase* pDoc, CString szDialog, WPARAM wParam, LPARAM lParam)
 {
 	// TODO. Parameter 贸府 鞘夸
 	ASSERT(wParam == NULL && lParam == NULL);

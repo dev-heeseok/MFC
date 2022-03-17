@@ -14,6 +14,9 @@ protected:
 	virtual void OnDraw(CDC* /*pDC*/) override;
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) override;
 
+public:
+	IRenderManager* GetRenderManager() { return m_pRenderMgr.get(); }
+
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 

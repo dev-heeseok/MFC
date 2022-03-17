@@ -2,14 +2,14 @@
 
 #include "../HE_BASE/HEDialog.h"
 
-class CHEMuiTutorialDlg : public CHEDialog
+enum class RenderType;
+class CUITutorialDlg : public CHEDialog
 {
 	enum class ListCol { title = 0, desc, col_num };
-	enum class ListRow;
 
 public:
-	CHEMuiTutorialDlg(CHEDocBase* pDoc, CWnd* pParent = nullptr);
-	virtual ~CHEMuiTutorialDlg();
+	CUITutorialDlg(CHEDocBase* pDoc, CWnd* pParent = nullptr);
+	virtual ~CUITutorialDlg();
 
 	enum { IDD = IDD_HEMUI_LEARN_OPENGL };
 
@@ -24,10 +24,12 @@ private:
 	void SetControl();
 	void SetData2Dlg();
 
-	void Apply(ListRow row);
+	void Apply(RenderType render_type);
+	void PickRender(RenderType render_type);
 
 private:
 	afx_msg void OnDblClickedList(NMHDR* pNMHDR, LRESULT* pResult);
+	afx_msg void OnDestroy();
 
 	DECLARE_MESSAGE_MAP();
 

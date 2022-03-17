@@ -27,7 +27,7 @@
 #include <propkey.h>
 
 #include "../HE_INTERFACE/NotifyDefine.h"
-#include "../HEM_UI/HEMuiDialog.h"
+#include "../HEM_UI/UIDialog.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -169,12 +169,12 @@ void CHEModelerDoc::OnCategoryDev(UINT nID)
 	{
 	case ID_RIBBON_DEVELOP_BTN:
 	{
-		CHEMuiDialog::DoModeless(this, _T("CHEMuiDevelopDlg"));
+		CUIDialog::DoModeless(this, _T("CHEMuiDevelopDlg"));
 	}
 	break;
 	case ID_RIBBON_TUTORIAL_BTN:
 	{
-		CHEMuiDialog::DoModal(this, _T("CHEMuiTutorialDlg"));
+		CUIDialog::DoModal(this, _T("CUITutorialDlg"));
 	}
 	break;
 	default:

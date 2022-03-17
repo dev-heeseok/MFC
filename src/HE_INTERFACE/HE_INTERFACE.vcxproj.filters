@@ -71,6 +71,9 @@
     <ClInclude Include="IRenderManager.h">
       <Filter>Interface\Render</Filter>
     </ClInclude>
+    <ClInclude Include="RenderDefine.h">
+      <Filter>Interface\Render</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HE_INTERFACE.rc">

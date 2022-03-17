@@ -74,9 +74,6 @@
     <ClInclude Include="BasicRender.h">
       <Filter>LearnOpenGL</Filter>
     </ClInclude>
-    <ClInclude Include="RenderDefine.h">
-      <Filter>Render</Filter>
-    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="HE_RENDER.rc">

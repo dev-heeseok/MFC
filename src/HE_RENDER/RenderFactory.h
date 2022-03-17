@@ -4,8 +4,7 @@
 #include <functional>
 #include <unordered_map>
 
-#include "RenderDefine.h"
-
+#include "../HE_INTERFACE/RenderDefine.h"
 #include "../HE_INTERFACE/IRender.h"
 
 class AFX_EXT_CLASS CRenderFactory
@@ -38,9 +37,14 @@ private:
 
 #define DECLARE_DYNAMIC_RENDER(class_name)\
 DECLARE_DYNCREATE(class_name)\
-private: virtual RenderType GetType() override;
+virtual RenderType GetType() override;\
+virtual RenderGroup GetGroup() override;
 
-#define IMPLEMENT_DYNAMIC_RENDER(class_name, render_type)\
+#define IMPLEMENT_DYNAMIC_RENDER_GROUP(class_name, render_type, render_group)\
 IMPLEMENT_DYNCREATE(class_name, IRender);\
 RenderType class_name::GetType() { return render_type; }\
+RenderGroup class_name::GetGroup() { return render_group; }\
 BOOL b##class_name = CRenderFactory::GetInstance().Register(render_type, RUNTIME_CLASS(class_name));
+
+#define IMPLEMENT_DYNAMIC_RENDER(class_name, render_type)\
+IMPLEMENT_DYNAMIC_RENDER_GROUP(class_name, render_type, RenderGroup::general)

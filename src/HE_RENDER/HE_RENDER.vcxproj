@@ -248,7 +248,6 @@
   <ItemGroup>
     <ClInclude Include="BasicRender.h" />
     <ClInclude Include="framework.h" />
-    <ClInclude Include="RenderDefine.h" />
     <ClInclude Include="RenderFactory.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="HelloWorldRender.h" />

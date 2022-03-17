@@ -14,4 +14,15 @@ enum class RenderType
 	end_render
 };
 
+enum class RenderGroup
+{
+	unknown = -1,
+	begin_group = 0,
+
+	general = begin_group,
+	learn_opengl,
+
+	end_group
+};
+
 #endif // !DEF_RENDER

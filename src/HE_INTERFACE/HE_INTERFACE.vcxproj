@@ -245,6 +245,7 @@
     <ClInclude Include="IRenderManager.h" />
     <ClInclude Include="NotifyDefine.h" />
     <ClInclude Include="pch.h" />
+    <ClInclude Include="RenderDefine.h" />
     <ClInclude Include="Resource.h" />
     <ClInclude Include="targetver.h" />
   </ItemGroup>

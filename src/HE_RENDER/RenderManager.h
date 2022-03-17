@@ -15,10 +15,14 @@ public:
 	virtual ~CRenderManager();
 
 public:
-	virtual void CreateRender() override;
-
 	virtual void WGLBuildBuffer() override;
 	virtual void WGLDrawScene() override;
+
+protected:
+	virtual void CreateRender() override;
+	virtual void EnableRender(RenderType render_type) override;
+	virtual void EnableOnlyFromGroup(RenderType render_type) override;
+	virtual void DisableRender(RenderGroup render_group)  override;
 
 public:
 	IRender* GetRender(RenderType render_type);
@@ -26,5 +30,6 @@ public:
 private:
 	RENDER_MAP m_mRender;
 
+	std::vector<bool> m_aEnable;
 };
 
