@@ -12,6 +12,12 @@ protected:
 	virtual void OnDraw(CDC* pDC) override;
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) override;
 
+public:
+	void InitScene();
+
+	IRenderManager* GetRenderManager();
+
+
 protected:
 	DECLARE_MESSAGE_MAP();
 

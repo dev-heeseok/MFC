@@ -1,13 +1,12 @@
 #pragma once
 
-#include "WGLMakeView.h"
-
 class IRenderManager;
-class CShaderManager;
-class AFX_EXT_CLASS CWGLView : public CWGLMakeView
+class CWGLRenderEngine;
+class CWGLRenderContext;
+class AFX_EXT_CLASS CWGLView : public CView
 {
 public:
-	CWGLView(IRenderManager* pRenderMgr);
+	CWGLView(CWGLRenderEngine* pRenderEngine);
 	virtual ~CWGLView();
 
 protected:
@@ -15,16 +14,21 @@ protected:
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) override;
 
 public:
-	IRenderManager* GetRenderManager() { return m_pRenderMgr.get(); }
+	void BeginWglCurrent();
+	void EndWglCurrent();
+	void SwapBuffer();
 
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
+	afx_msg void OnDestroy();
 
 	DECLARE_MESSAGE_MAP();
 
 protected:
-	std::shared_ptr<CShaderManager> m_pShaderMgr;
-	std::shared_ptr<IRenderManager> m_pRenderMgr;
+	HDC m_hDC = nullptr;
+	std::shared_ptr<CWGLRenderContext> m_pRenderContext = nullptr;
+	std::shared_ptr<CWGLRenderEngine> m_pRenderEngine = nullptr;
+
 
 };
 

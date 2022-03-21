@@ -67,8 +67,17 @@ BOOL CHEModelerDoc::OnNewDocument()
 	if (!CHEDocBase::OnNewDocument())
 		return FALSE;
 
-	// TODO: 여기에 재초기화 코드를 추가합니다.
-	// SDI 문서는 이 문서를 다시 사용합니다.
+	InitScene();
+
+	return TRUE;
+}
+
+BOOL CHEModelerDoc::OnOpenDocument(LPCTSTR lpszPathName)
+{
+	if (!CHEDocBase::OnOpenDocument(lpszPathName))
+		return FALSE;
+
+	InitScene();
 
 	return TRUE;
 }
@@ -149,8 +158,6 @@ void CHEModelerDoc::SetSearchContent(const CString& value)
 
 #endif // SHARED_HANDLERS
 
-// CHEModelerDoc 진단
-
 #ifdef _DEBUG
 void CHEModelerDoc::AssertValid() const
 {
@@ -162,6 +169,20 @@ void CHEModelerDoc::Dump(CDumpContext& dc) const
 	CHEDocBase::Dump(dc);
 }
 #endif //_DEBUG
+
+void CHEModelerDoc::InitScene()
+{
+	auto pApp = AfxGetApp();
+	auto pMainWnd = static_cast<CMDIFrameWnd*>(pApp->GetMainWnd());
+	auto pChildWnd = static_cast<CMDIChildWnd*>(pMainWnd->GetActiveFrame());
+
+	auto pView = pChildWnd->GetActiveView();
+	if (pView && pView->IsKindOf(RUNTIME_CLASS(CHEViewBase)))
+	{
+		auto pViewBase = static_cast<CHEViewBase*>(pView);
+		pViewBase->InitScene();
+	}
+}
 
 void CHEModelerDoc::OnCategoryDev(UINT nID)
 {

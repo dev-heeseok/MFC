@@ -34,14 +34,20 @@
     <ClCompile Include="WGLView.cpp">
       <Filter>GL</Filter>
     </ClCompile>
-    <ClCompile Include="WGLMakeView.cpp">
-      <Filter>GL</Filter>
-    </ClCompile>
     <ClCompile Include="ShaderManager.cpp">
       <Filter>Shader</Filter>
     </ClCompile>
     <ClCompile Include="Shader.cpp">
       <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="WGLRenderContext.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="WGLRenderScene.cpp">
+      <Filter>GL</Filter>
+    </ClCompile>
+    <ClCompile Include="WGLRenderEngine.cpp">
+      <Filter>GL</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -74,9 +80,6 @@
     <ClInclude Include="WGLView.h">
       <Filter>GL</Filter>
     </ClInclude>
-    <ClInclude Include="WGLMakeView.h">
-      <Filter>GL</Filter>
-    </ClInclude>
     <ClInclude Include="ShaderManager.h">
       <Filter>Shader</Filter>
     </ClInclude>
@@ -85,6 +88,15 @@
     </ClInclude>
     <ClInclude Include="ShaderDefine.h">
       <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="WGLRenderContext.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="WGLRenderScene.h">
+      <Filter>GL</Filter>
+    </ClInclude>
+    <ClInclude Include="WGLRenderEngine.h">
+      <Filter>GL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

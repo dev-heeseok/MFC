@@ -230,6 +230,8 @@
       <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
       </PrecompiledHeader>
     </ClCompile>
+    <ClCompile Include="HelloTriangleRender.cpp" />
+    <ClCompile Include="RenderEngine.cpp" />
     <ClCompile Include="RenderFactory.cpp" />
     <ClCompile Include="RenderManager.cpp" />
     <ClCompile Include="HE_RENDER.cpp" />
@@ -248,6 +250,8 @@
   <ItemGroup>
     <ClInclude Include="BasicRender.h" />
     <ClInclude Include="framework.h" />
+    <ClInclude Include="HelloTriangleRender.h" />
+    <ClInclude Include="RenderEngine.h" />
     <ClInclude Include="RenderFactory.h" />
     <ClInclude Include="RenderManager.h" />
     <ClInclude Include="HelloWorldRender.h" />

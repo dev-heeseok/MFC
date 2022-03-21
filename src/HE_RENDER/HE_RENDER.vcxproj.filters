@@ -40,6 +40,12 @@
     <ClCompile Include="BasicRender.cpp">
       <Filter>LearnOpenGL</Filter>
     </ClCompile>
+    <ClCompile Include="HelloTriangleRender.cpp">
+      <Filter>LearnOpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\HE_RENDER.rc2">
@@ -73,6 +79,12 @@
     </ClInclude>
     <ClInclude Include="BasicRender.h">
       <Filter>LearnOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="HelloTriangleRender.h">
+      <Filter>LearnOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine.h">
+      <Filter>Render</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

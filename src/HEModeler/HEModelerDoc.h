@@ -29,22 +29,24 @@ public:
 
 public:
 	virtual BOOL OnNewDocument() override;
+	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName) override;
 	virtual void OnCloseDocument() override;
 	virtual void Serialize(CArchive& ar) override;
 
-public:
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-public:
 #ifdef SHARED_HANDLERS
 	virtual void InitializeSearchContent();
 	virtual void OnDrawThumbnail(CDC& dc, LPRECT lprcBounds);
 #endif // SHARED_HANDLERS
 
+
 protected:
+	void InitScene();
+
 #ifdef SHARED_HANDLERS
 	// 검색 처리기에 대한 검색 콘텐츠를 설정하는 도우미 함수
 	void SetSearchContent(const CString& value);

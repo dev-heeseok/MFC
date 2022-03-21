@@ -1,5 +1,7 @@
 #include "pch.h"
 #include "WGLView.h"
+#include "WGLRenderContext.h"
+#include "WGLRenderEngine.h"
 #include "ShaderManager.h"
 
 #include "../HE_INTERFACE/NotifyDefine.h"
@@ -11,31 +13,23 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-CWGLView::CWGLView(IRenderManager* pRenderMgr)
+CWGLView::CWGLView(CWGLRenderEngine* pRenderEngine)
 {
-	m_pShaderMgr = std::make_shared<CShaderManager>();
-	m_pRenderMgr = std::shared_ptr<IRenderManager>(pRenderMgr);
+	m_pRenderEngine = std::shared_ptr<CWGLRenderEngine>(pRenderEngine);
 }
 
 CWGLView::~CWGLView()
 {
 }
 
-BEGIN_MESSAGE_MAP(CWGLView, CWGLMakeView)
+BEGIN_MESSAGE_MAP(CWGLView, CView)
 	ON_WM_CREATE()
+	ON_WM_DESTROY()
 END_MESSAGE_MAP()
 
 void CWGLView::OnDraw(CDC* /*pDC*/)
 {
-	WGLBegin();
-	{
-		glClearColor(0.f, 0.f, 0.f, 1.f);
-		glClear(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT | GL_STENCIL_BUFFER_BIT);
-
-		m_pRenderMgr->WGLDrawScene();
-	}
-	WGLSwapBuffers();
-	WGLEnd();
+	m_pRenderEngine->OnDraw();
 }
 
 void CWGLView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
@@ -45,39 +39,63 @@ void CWGLView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	{
 	case NotifyType::closed_document:
 	{
-		WGLBegin();
-		{
-			m_pShaderMgr->WGLClearAll();
-		}
-		WGLEnd();
+
 	}
 	break;
 	case NotifyType::changed_database:
 	{
-		WGLBegin();
-		{
-			m_pRenderMgr->WGLBuildBuffer();
-		}
-		WGLEnd();
+		auto pRenderMgr = m_pRenderEngine->GetRenderManager();
+		pRenderMgr->WGLBuildBuffer();
 	}
 	break;
 	}
 
-	CWGLMakeView::OnUpdate(pSender, lHint, pHint);
+	CView::OnUpdate(pSender, lHint, pHint);
+}
+
+void CWGLView::BeginWglCurrent()
+{
+	ASSERT(m_pRenderContext);
+	m_pRenderContext->WGLBind();
+}
+
+void CWGLView::EndWglCurrent()
+{
+	ASSERT(m_pRenderContext);
+	m_pRenderContext->WGLUnbind();
+}
+
+void CWGLView::SwapBuffer()
+{
+	ASSERT(m_pRenderContext);
+	m_pRenderContext->SwapBuffer();
 }
 
 int CWGLView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 {
-	if (CWGLMakeView::OnCreate(lpCreateStruct) == -1)
+	if (CView::OnCreate(lpCreateStruct) == -1)
 		return -1;
 
-	m_pRenderMgr->CreateRender();
+	m_hDC = ::GetDC(m_hWnd);
 
-	WGLBegin();
-	{
-		m_pShaderMgr->WGLBuildAll();
-	}
-	WGLEnd();
+	m_pRenderContext = std::make_shared<CWGLRenderContext>(m_hDC);
+	m_pRenderContext->OnCreate();
+
+	m_pRenderEngine->InitScene(m_pRenderContext);
 
 	return 0;
+}
+
+void CWGLView::OnDestroy()
+{
+	if (m_pRenderContext)
+		m_pRenderContext->OnDestroy();
+
+	if (m_hDC != nullptr)
+	{
+		::ReleaseDC(m_hWnd, m_hDC);
+		m_hDC = nullptr;
+	}
+
+	CView::OnDestroy();
 }

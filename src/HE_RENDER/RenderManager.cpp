@@ -71,9 +71,8 @@ void CRenderManager::CreateRender()
 				return;
 			}
 
-			auto render_group = pRender->GetGroup();
-
 			// TODO. general 만 Enable 상태로 셋팅, 나머지는 EnableRender 를 이용하여 직접변경
+			auto render_group = pRender->GetGroup();
 			m_aEnable[EnumIndex(index)] = render_group == RenderGroup::general;
 			m_mRender.insert({ index, pRender });
 		});

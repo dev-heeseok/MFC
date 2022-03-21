@@ -8,8 +8,9 @@ enum class RenderType
 	unknown = -1,
 	begin_render = 0,
 
-	HelloWorld = begin_render,
-	Basic,
+	Basic = begin_render,
+	HelloWorld,	
+	HelloTriangle,
 
 	end_render
 };

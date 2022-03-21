@@ -18,11 +18,17 @@
 
 class CHEModelerView : public CHEViewBase
 {
-protected: // serialization에서만 만들어집니다.
-	CHEModelerView() noexcept;
 	DECLARE_DYNCREATE(CHEModelerView)
 
-// 특성입니다.
+protected:
+	CHEModelerView() noexcept;
+
+public:
+	virtual ~CHEModelerView();
+
+protected:
+	virtual void OnInitialUpdate() override;
+
 public:
 	CHEModelerDoc* GetDocument() const;
 
@@ -40,7 +46,6 @@ protected:
 
 // 구현입니다.
 public:
-	virtual ~CHEModelerView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;

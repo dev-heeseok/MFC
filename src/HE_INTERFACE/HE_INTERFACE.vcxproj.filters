@@ -20,9 +20,6 @@
     <Filter Include="Interface">
       <UniqueIdentifier>{4e539286-f5fc-41c2-ae1f-0d7a1314e869}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Interface\Render">
-      <UniqueIdentifier>{63d5ba94-0d57-481e-b9e4-e72a73fae309}</UniqueIdentifier>
-    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="dllmain.cpp">
@@ -65,14 +62,14 @@
     <ClInclude Include="includeGL.h">
       <Filter>Include</Filter>
     </ClInclude>
-    <ClInclude Include="IRender.h">
-      <Filter>Interface\Render</Filter>
-    </ClInclude>
     <ClInclude Include="IRenderManager.h">
-      <Filter>Interface\Render</Filter>
+      <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="IRender.h">
+      <Filter>Interface</Filter>
     </ClInclude>
     <ClInclude Include="RenderDefine.h">
-      <Filter>Interface\Render</Filter>
+      <Filter>Define</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

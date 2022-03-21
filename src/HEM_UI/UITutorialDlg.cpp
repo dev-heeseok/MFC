@@ -77,8 +77,10 @@ void CUITutorialDlg::SetData2Dlg()
 		lstctrl.SetItemData(item, static_cast<DWORD_PTR>(itemData));
 	};
 
-	lambda_add(m_lstTutorial, _T("HelloWorld Render"), _T("Tutorial"), EnumIndex(RenderType::HelloWorld));
 	lambda_add(m_lstTutorial, _T("Basic Render"), _T("Tutorial"), EnumIndex(RenderType::Basic));
+	lambda_add(m_lstTutorial, _T("HelloWorld Render"), _T("Tutorial"), EnumIndex(RenderType::HelloWorld));
+	lambda_add(m_lstTutorial, _T("HelloTriangle Render"), _T("Tutorial"), EnumIndex(RenderType::HelloTriangle));
+	
 }
 
 void CUITutorialDlg::Apply(RenderType render_type)
@@ -87,8 +89,9 @@ void CUITutorialDlg::Apply(RenderType render_type)
 
 	switch (render_type)
 	{
-	case RenderType::HelloWorld:
 	case RenderType::Basic:
+	case RenderType::HelloWorld:	
+	case RenderType::HelloTriangle:
 	{
 		PickRender(render_type);
 
