@@ -1,5 +1,6 @@
 #include "pch.h"
 #include "HelloWorldRender.h"
+#include "RenderEngine.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -19,6 +20,9 @@ CHelloWorldRender::~CHelloWorldRender()
 
 void CHelloWorldRender::OnInitialUpdate(IRenderEngine* pRenderEngine)
 {
+	auto pRenderEngineEx = static_cast<CRenderEngine*>(pRenderEngine);
+	auto pShaderManager = pRenderEngineEx->GetShaderManager();
+
 }
 
 void CHelloWorldRender::WGLDraw()

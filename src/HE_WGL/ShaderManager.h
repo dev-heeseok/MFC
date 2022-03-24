@@ -5,7 +5,7 @@
 enum class ShaderType;
 
 class CShader;
-class CShaderManager
+class AFX_EXT_CLASS CShaderManager
 {
 	using SHADER_MAP = std::unordered_map<ShaderType, std::shared_ptr<CShader>>;
 
