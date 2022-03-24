@@ -11,6 +11,8 @@ public:
 	virtual ~CBasicRender();
 
 private:
+	virtual void OnInitialUpdate(IRenderEngine* pRenderEngine) override;
+
 	virtual void WGLDraw() override;
 	virtual void WGLBuild() override;
 	virtual void WGLRelease() override;

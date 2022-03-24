@@ -1,12 +1,11 @@
 #pragma once
 
-class IRenderManager;
-class CWGLRenderEngine;
-class CWGLRenderContext;
+class IRenderEngine;
+class IRenderContext;
 class AFX_EXT_CLASS CWGLView : public CView
 {
 public:
-	CWGLView(CWGLRenderEngine* pRenderEngine);
+	CWGLView(IRenderEngine* pRenderEngine);
 	virtual ~CWGLView();
 
 protected:
@@ -26,9 +25,9 @@ protected:
 
 protected:
 	HDC m_hDC = nullptr;
-	std::shared_ptr<CWGLRenderContext> m_pRenderContext = nullptr;
-	std::shared_ptr<CWGLRenderEngine> m_pRenderEngine = nullptr;
 
+	std::shared_ptr<IRenderEngine> m_pRenderEngine = nullptr;
+	std::shared_ptr<IRenderContext> m_pRenderContext = nullptr;
 
 };
 

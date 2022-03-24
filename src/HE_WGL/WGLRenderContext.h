@@ -1,18 +1,21 @@
 #pragma once
 
-class CWGLRenderContext
+#include "../HE_INTERFACE/IRenderContext.h"
+
+class CWGLRenderContext : public IRenderContext
 {
 public:
 	CWGLRenderContext(HDC hDC);
 	virtual ~CWGLRenderContext();
 
 public:
+	virtual void wglBind() override;
+	virtual void wglUnbind() override;
+	virtual void wglSwapBuffer() override;
+
+public:
 	void OnCreate();
 	void OnDestroy();
-
-	void WGLBind();
-	void WGLUnbind();
-	void SwapBuffer();
 
 protected:
 	HDC m_hDC = nullptr;

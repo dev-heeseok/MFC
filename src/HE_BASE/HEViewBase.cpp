@@ -31,13 +31,24 @@ void CHEViewBase::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	CWGLView::OnUpdate(pSender, lHint, pHint);
 }
 
-void CHEViewBase::InitScene()
+IRenderEngine* CHEViewBase::GetRenderEngine()
 {
-	if (m_pRenderEngine)
-		m_pRenderEngine->InitScene(m_pRenderContext);
+	ASSERT(m_pRenderEngine);
+	return m_pRenderEngine.get();
 }
 
-IRenderManager* CHEViewBase::GetRenderManager()
+IRenderContext* CHEViewBase::GetRenderContext()
 {
-	return m_pRenderEngine->GetRenderManager();
+	ASSERT(m_pRenderContext);
+	return m_pRenderContext.get();
+}
+
+void CHEViewBase::InitScene()
+{
+	if (auto pRenderEngine = m_pRenderEngine.get())
+	{
+		auto pRenderEngineEx = static_cast<CRenderEngine*>(pRenderEngine);
+		pRenderEngineEx->SetRenderContext(m_pRenderContext);
+		pRenderEngineEx->InitScene();
+	}
 }

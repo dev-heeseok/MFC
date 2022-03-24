@@ -55,7 +55,7 @@ void CRenderManager::WGLDrawScene()
 	}
 }
 
-void CRenderManager::CreateRender()
+void CRenderManager::CreateRender(IRenderEngine* pRenderEngine)
 {
 	auto& instance = CRenderFactory::GetInstance();
 
@@ -63,16 +63,18 @@ void CRenderManager::CreateRender()
 		[&](RenderType index, IRender* pTemplate) -> void
 		{
 			auto pRender = std::shared_ptr<IRender>(pTemplate);
-
+			auto render_group = pRender->GetGroup();
+			
 			auto it = m_mRender.find(index);
 			if (it != m_mRender.cend())
 			{
 				ASSERT(FALSE);
 				return;
 			}
+			
+			pRender->OnInitialUpdate(pRenderEngine);
 
 			// TODO. general 만 Enable 상태로 셋팅, 나머지는 EnableRender 를 이용하여 직접변경
-			auto render_group = pRender->GetGroup();
 			m_aEnable[EnumIndex(index)] = render_group == RenderGroup::general;
 			m_mRender.insert({ index, pRender });
 		});
@@ -88,7 +90,7 @@ void CRenderManager::EnableRender(RenderType render_type)
 		m_aEnable[EnumIndex(render_type)] = it->second != nullptr;
 }
 
-void CRenderManager::EnableOnlyFromGroup(RenderType render_type)
+void CRenderManager::EnableOnlyAtGroup(RenderType render_type)
 {
 	auto it = m_mRender.find(render_type);
 	if (it == m_mRender.cend())

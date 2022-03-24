@@ -170,17 +170,31 @@ void CHEModelerDoc::Dump(CDumpContext& dc) const
 }
 #endif //_DEBUG
 
+int CHEModelerDoc::GetViewCount()
+{
+	auto count = 0;
+	auto pos = GetFirstViewPosition();
+	while (pos)
+	{
+		auto pView = GetNextView(pos);
+		if (pView && IsWindow(pView->GetSafeHwnd()))
+			count++;
+	}
+
+	return count;
+}
+
 void CHEModelerDoc::InitScene()
 {
-	auto pApp = AfxGetApp();
-	auto pMainWnd = static_cast<CMDIFrameWnd*>(pApp->GetMainWnd());
-	auto pChildWnd = static_cast<CMDIChildWnd*>(pMainWnd->GetActiveFrame());
-
-	auto pView = pChildWnd->GetActiveView();
-	if (pView && pView->IsKindOf(RUNTIME_CLASS(CHEViewBase)))
+	auto pos = GetFirstViewPosition();
+	while (pos)
 	{
-		auto pViewBase = static_cast<CHEViewBase*>(pView);
-		pViewBase->InitScene();
+		auto pView = GetNextView(pos);
+		if (pView == nullptr || IsWindow(pView->GetSafeHwnd()) == FALSE)
+			continue;
+
+		auto pHEModelerView = static_cast<CHEModelerView*>(pView);
+		pHEModelerView->InitScene();
 	}
 }
 

@@ -43,12 +43,6 @@
     <ClCompile Include="WGLRenderContext.cpp">
       <Filter>GL</Filter>
     </ClCompile>
-    <ClCompile Include="WGLRenderScene.cpp">
-      <Filter>GL</Filter>
-    </ClCompile>
-    <ClCompile Include="WGLRenderEngine.cpp">
-      <Filter>GL</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="HE_WGL.def">
@@ -90,12 +84,6 @@
       <Filter>Shader</Filter>
     </ClInclude>
     <ClInclude Include="WGLRenderContext.h">
-      <Filter>GL</Filter>
-    </ClInclude>
-    <ClInclude Include="WGLRenderScene.h">
-      <Filter>GL</Filter>
-    </ClInclude>
-    <ClInclude Include="WGLRenderEngine.h">
       <Filter>GL</Filter>
     </ClInclude>
   </ItemGroup>

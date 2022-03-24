@@ -38,6 +38,21 @@ CWGLRenderContext::~CWGLRenderContext()
 {
 }
 
+void CWGLRenderContext::wglBind()
+{
+	VERIFY(::wglMakeCurrent(m_hDC, m_hRC));
+}
+
+void CWGLRenderContext::wglUnbind()
+{
+	VERIFY(::wglMakeCurrent(m_hDC, NULL));
+}
+
+void CWGLRenderContext::wglSwapBuffer()
+{
+	::SwapBuffers(m_hDC);
+}
+
 void CWGLRenderContext::OnCreate()
 {
 	do
@@ -55,7 +70,7 @@ void CWGLRenderContext::OnCreate()
 		m_hRC = wglCreateContext(m_hDC);
 
 
-		WGLBind();
+		wglBind();
 		{
 			GLenum err = glewInit();
 			if (GLEW_OK != err)
@@ -63,11 +78,8 @@ void CWGLRenderContext::OnCreate()
 				AfxMessageBox(_T("GLEW is not initialized!"));
 				break;
 			}
-
-			// Default 
-			glClearColor(0.f, 0.f, 0.f, 1.f);
 		}
-		WGLUnbind();
+		wglUnbind();
 
 	} while (false);
 }
@@ -75,19 +87,4 @@ void CWGLRenderContext::OnCreate()
 void CWGLRenderContext::OnDestroy()
 {
 	wglDeleteContext(m_hRC);
-}
-
-void CWGLRenderContext::WGLBind()
-{
-	VERIFY(::wglMakeCurrent(m_hDC, m_hRC));
-}
-
-void CWGLRenderContext::WGLUnbind()
-{
-	VERIFY(::wglMakeCurrent(m_hDC, NULL));
-}
-
-void CWGLRenderContext::SwapBuffer()
-{
-	::SwapBuffers(m_hDC);
 }

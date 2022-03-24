@@ -17,6 +17,10 @@ CBasicRender::~CBasicRender()
 {
 }
 
+void CBasicRender::OnInitialUpdate(IRenderEngine* pRenderEngine)
+{
+}
+
 void CBasicRender::WGLDraw()
 {
 	glClearColor(0.5f, 0.3f, 0.3f, 1.f);

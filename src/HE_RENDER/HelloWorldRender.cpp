@@ -17,6 +17,10 @@ CHelloWorldRender::~CHelloWorldRender()
 {
 }
 
+void CHelloWorldRender::OnInitialUpdate(IRenderEngine* pRenderEngine)
+{
+}
+
 void CHelloWorldRender::WGLDraw()
 {
 	glClearColor(0.2f, 0.3f, 0.3f, 1.f);

@@ -242,6 +242,8 @@
     <ClInclude Include="includeGL.h" />
     <ClInclude Include="framework.h" />
     <ClInclude Include="IRender.h" />
+    <ClInclude Include="IRenderContext.h" />
+    <ClInclude Include="IRenderEngine.h" />
     <ClInclude Include="IRenderManager.h" />
     <ClInclude Include="NotifyDefine.h" />
     <ClInclude Include="pch.h" />

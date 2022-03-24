@@ -20,9 +20,9 @@ public:
 	virtual void WGLDrawScene() override;
 
 protected:
-	virtual void CreateRender() override;
+	virtual void CreateRender(IRenderEngine* pRenderEngine) override;
 	virtual void EnableRender(RenderType render_type) override;
-	virtual void EnableOnlyFromGroup(RenderType render_type) override;
+	virtual void EnableOnlyAtGroup(RenderType render_type) override;
 	virtual void DisableRender(RenderGroup render_group)  override;
 
 public:

@@ -3,9 +3,10 @@
 #include "UITutorialDlg.h"
 
 #include "../HE_LIB/HELib.h"
-#include "../HE_INTERFACE/RenderDefine.h"
-#include "../HE_INTERFACE/IRenderManager.h"
 #include "../HE_INTERFACE/NotifyDefine.h"
+#include "../HE_INTERFACE/RenderDefine.h"
+#include "../HE_INTERFACE/IRenderEngine.h"
+#include "../HE_INTERFACE/IRenderManager.h"
 #include "../HE_BASE/HEDocBase.h"
 #include "../HE_BASE/HEViewBase.h"
 
@@ -80,7 +81,7 @@ void CUITutorialDlg::SetData2Dlg()
 	lambda_add(m_lstTutorial, _T("Basic Render"), _T("Tutorial"), EnumIndex(RenderType::Basic));
 	lambda_add(m_lstTutorial, _T("HelloWorld Render"), _T("Tutorial"), EnumIndex(RenderType::HelloWorld));
 	lambda_add(m_lstTutorial, _T("HelloTriangle Render"), _T("Tutorial"), EnumIndex(RenderType::HelloTriangle));
-	
+
 }
 
 void CUITutorialDlg::Apply(RenderType render_type)
@@ -90,7 +91,7 @@ void CUITutorialDlg::Apply(RenderType render_type)
 	switch (render_type)
 	{
 	case RenderType::Basic:
-	case RenderType::HelloWorld:	
+	case RenderType::HelloWorld:
 	case RenderType::HelloTriangle:
 	{
 		PickRender(render_type);
@@ -111,9 +112,9 @@ void CUITutorialDlg::PickRender(RenderType render_type)
 	if (pView && pView->IsKindOf(RUNTIME_CLASS(CHEViewBase)))
 	{
 		auto pViewBase = static_cast<CHEViewBase*>(pView);
-		auto pRenderMgr = pViewBase->GetRenderManager();
+		auto pRenderEngine = pViewBase->GetRenderEngine();
 
-		pRenderMgr->EnableOnlyFromGroup(render_type);
+		pRenderEngine->EnableOnlyAtGroup(render_type);
 	}
 }
 
@@ -140,9 +141,10 @@ void CUITutorialDlg::OnDestroy()
 	if (pView && pView->IsKindOf(RUNTIME_CLASS(CHEViewBase)))
 	{
 		auto pViewBase = static_cast<CHEViewBase*>(pView);
-		auto pRenderMgr = pViewBase->GetRenderManager();
+		auto pRenderEngine = pViewBase->GetRenderEngine();
 
-		pRenderMgr->DisableRender(RenderGroup::learn_opengl);
+		pRenderEngine->DisableRender(RenderGroup::learn_opengl);
+		pRenderEngine->InitializeData(); // TODO. tutorial 에 의해 변경된 값을 초기화
 
 		pViewBase->Invalidate();
 	}

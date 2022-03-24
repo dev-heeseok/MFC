@@ -17,6 +17,10 @@ CHelloTriangleRender::~CHelloTriangleRender()
 {
 }
 
+void CHelloTriangleRender::OnInitialUpdate(IRenderEngine* pRenderEngine)
+{
+}
+
 void CHelloTriangleRender::WGLDraw()
 {
 

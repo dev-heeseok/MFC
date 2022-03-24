@@ -13,10 +13,10 @@ protected:
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) override;
 
 public:
+	IRenderEngine* GetRenderEngine();
+	IRenderContext* GetRenderContext();
+
 	void InitScene();
-
-	IRenderManager* GetRenderManager();
-
 
 protected:
 	DECLARE_MESSAGE_MAP();

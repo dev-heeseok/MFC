@@ -1,10 +1,10 @@
 #include "pch.h"
 #include "WGLView.h"
 #include "WGLRenderContext.h"
-#include "WGLRenderEngine.h"
 #include "ShaderManager.h"
 
 #include "../HE_INTERFACE/NotifyDefine.h"
+#include "../HE_INTERFACE/IRenderEngine.h"
 #include "../HE_INTERFACE/IRenderManager.h"
 
 #ifdef _DEBUG
@@ -13,9 +13,9 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-CWGLView::CWGLView(CWGLRenderEngine* pRenderEngine)
+CWGLView::CWGLView(IRenderEngine* pRenderEngine)
 {
-	m_pRenderEngine = std::shared_ptr<CWGLRenderEngine>(pRenderEngine);
+	m_pRenderEngine = std::shared_ptr<IRenderEngine>(pRenderEngine);
 }
 
 CWGLView::~CWGLView()
@@ -44,8 +44,7 @@ void CWGLView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	break;
 	case NotifyType::changed_database:
 	{
-		auto pRenderMgr = m_pRenderEngine->GetRenderManager();
-		pRenderMgr->WGLBuildBuffer();
+
 	}
 	break;
 	}
@@ -56,19 +55,19 @@ void CWGLView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 void CWGLView::BeginWglCurrent()
 {
 	ASSERT(m_pRenderContext);
-	m_pRenderContext->WGLBind();
+	m_pRenderContext->wglBind();
 }
 
 void CWGLView::EndWglCurrent()
 {
 	ASSERT(m_pRenderContext);
-	m_pRenderContext->WGLUnbind();
+	m_pRenderContext->wglUnbind();
 }
 
 void CWGLView::SwapBuffer()
 {
 	ASSERT(m_pRenderContext);
-	m_pRenderContext->SwapBuffer();
+	m_pRenderContext->wglSwapBuffer();
 }
 
 int CWGLView::OnCreate(LPCREATESTRUCT lpCreateStruct)
@@ -78,18 +77,19 @@ int CWGLView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 
 	m_hDC = ::GetDC(m_hWnd);
 
-	m_pRenderContext = std::make_shared<CWGLRenderContext>(m_hDC);
-	m_pRenderContext->OnCreate();
+	auto pRenderContext = std::make_shared<CWGLRenderContext>(m_hDC);
+	if (pRenderContext)
+		pRenderContext->OnCreate();
 
-	m_pRenderEngine->InitScene(m_pRenderContext);
+	m_pRenderContext = pRenderContext;
 
 	return 0;
 }
 
 void CWGLView::OnDestroy()
 {
-	if (m_pRenderContext)
-		m_pRenderContext->OnDestroy();
+	auto pRenderContext = std::static_pointer_cast<CWGLRenderContext>(m_pRenderContext);
+	pRenderContext->OnDestroy();
 
 	if (m_hDC != nullptr)
 	{
