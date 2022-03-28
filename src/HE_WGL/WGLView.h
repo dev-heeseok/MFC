@@ -9,8 +9,8 @@ public:
 	virtual ~CWGLView();
 
 protected:
-	virtual void OnDraw(CDC* /*pDC*/) override;
 	virtual void OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint) override;
+	virtual void OnDraw(CDC* /*pDC*/) override;
 
 public:
 	void BeginWglCurrent();
@@ -20,6 +20,8 @@ public:
 protected:
 	afx_msg int OnCreate(LPCREATESTRUCT lpCreateStruct);
 	afx_msg void OnDestroy();
+	afx_msg void OnSize(UINT nType, int cx, int cy);
+	afx_msg BOOL OnEraseBkgnd(CDC* pDC);
 
 	DECLARE_MESSAGE_MAP();
 

@@ -57,6 +57,15 @@ INT_PTR CUIDialog::DoModeless(CHEDocBase* pDoc, CString szDialog, WPARAM wParam,
 			pDialog->ShowWindow(SW_SHOW);
 		}
 	}
+	else if (szDialog.CompareNoCase(_T("CUITutorialDlg")) == 0)
+	{
+		if (auto pDialog = new CUITutorialDlg(pDoc, pMainWnd))
+		{
+			pDialog->Create(pMainWnd);
+			pDialog->SetWindowPos(NULL, rect.left, rect.top, 0, 0, SWP_NOSIZE | SWP_NOZORDER);
+			pDialog->ShowWindow(SW_SHOW);
+		}
+	}
 
 	return 0;
 }

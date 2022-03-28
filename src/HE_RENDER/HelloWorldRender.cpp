@@ -18,24 +18,9 @@ CHelloWorldRender::~CHelloWorldRender()
 {
 }
 
-void CHelloWorldRender::OnInitialUpdate(IRenderEngine* pRenderEngine)
-{
-	auto pRenderEngineEx = static_cast<CRenderEngine*>(pRenderEngine);
-	auto pShaderManager = pRenderEngineEx->GetShaderManager();
-
-}
-
-void CHelloWorldRender::WGLDraw()
+void CHelloWorldRender::wglDraw()
 {
 	glClearColor(0.2f, 0.3f, 0.3f, 1.f);
 	glClear(GL_COLOR_BUFFER_BIT);
 
-}
-
-void CHelloWorldRender::WGLBuild()
-{
-}
-
-void CHelloWorldRender::WGLRelease()
-{
 }

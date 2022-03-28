@@ -25,12 +25,9 @@ CWGLView::~CWGLView()
 BEGIN_MESSAGE_MAP(CWGLView, CView)
 	ON_WM_CREATE()
 	ON_WM_DESTROY()
+	ON_WM_SIZE()
+	ON_WM_ERASEBKGND()
 END_MESSAGE_MAP()
-
-void CWGLView::OnDraw(CDC* /*pDC*/)
-{
-	m_pRenderEngine->OnDraw();
-}
 
 void CWGLView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 {
@@ -39,17 +36,22 @@ void CWGLView::OnUpdate(CView* pSender, LPARAM lHint, CObject* pHint)
 	{
 	case NotifyType::closed_document:
 	{
-
+		m_pRenderEngine->OnDestroy();
 	}
 	break;
 	case NotifyType::changed_database:
 	{
-
+		m_pRenderEngine->OnUpdate();
 	}
 	break;
 	}
 
 	CView::OnUpdate(pSender, lHint, pHint);
+}
+
+void CWGLView::OnDraw(CDC* /*pDC*/)
+{
+	m_pRenderEngine->OnDraw();
 }
 
 void CWGLView::BeginWglCurrent()
@@ -78,6 +80,7 @@ int CWGLView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_hDC = ::GetDC(m_hWnd);
 
 	auto pRenderContext = std::make_shared<CWGLRenderContext>(m_hDC);
+	
 	if (pRenderContext)
 		pRenderContext->OnCreate();
 
@@ -89,7 +92,9 @@ int CWGLView::OnCreate(LPCREATESTRUCT lpCreateStruct)
 void CWGLView::OnDestroy()
 {
 	auto pRenderContext = std::static_pointer_cast<CWGLRenderContext>(m_pRenderContext);
-	pRenderContext->OnDestroy();
+	
+	if (pRenderContext)
+		pRenderContext->OnDestroy();
 
 	if (m_hDC != nullptr)
 	{
@@ -98,4 +103,16 @@ void CWGLView::OnDestroy()
 	}
 
 	CView::OnDestroy();
+}
+
+void CWGLView::OnSize(UINT nType, int cx, int cy)
+{
+	m_pRenderEngine->OnSize(cx, cy);
+
+	CView::OnSize(nType, cx, cy);
+}
+
+BOOL CWGLView::OnEraseBkgnd(CDC* /*pDC*/)
+{
+	return TRUE; 
 }

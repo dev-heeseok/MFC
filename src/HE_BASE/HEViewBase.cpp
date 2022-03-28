@@ -45,10 +45,9 @@ IRenderContext* CHEViewBase::GetRenderContext()
 
 void CHEViewBase::InitScene()
 {
-	if (auto pRenderEngine = m_pRenderEngine.get())
-	{
-		auto pRenderEngineEx = static_cast<CRenderEngine*>(pRenderEngine);
-		pRenderEngineEx->SetRenderContext(m_pRenderContext);
-		pRenderEngineEx->InitScene();
-	}
+	auto pRenderEngine = m_pRenderEngine.get();
+	auto pRenderEngineImpl = static_cast<CRenderEngine*>(pRenderEngine);
+
+	pRenderEngineImpl->SetRenderContext(m_pRenderContext);
+	pRenderEngineImpl->InitScene();
 }

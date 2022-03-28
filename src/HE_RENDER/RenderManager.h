@@ -16,11 +16,12 @@ public:
 	virtual ~CRenderManager();
 
 public:
-	virtual void WGLBuildBuffer() override;
-	virtual void WGLDrawScene() override;
+	virtual void wglCreateRender(IRenderEngine* pRenderEngine) override;
+	virtual void wglClearRender() override;
+	virtual void wglBuildRender() override;
+	virtual void wglDrawScene() override;
 
 protected:
-	virtual void CreateRender(IRenderEngine* pRenderEngine) override;
 	virtual void EnableRender(RenderType render_type) override;
 	virtual void EnableOnlyAtGroup(RenderType render_type) override;
 	virtual void DisableRender(RenderGroup render_group)  override;

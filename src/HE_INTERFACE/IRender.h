@@ -10,10 +10,9 @@ public: // TODO. implementation from macro
 	virtual RenderGroup GetGroup() = 0;
 
 public:
-	virtual void OnInitialUpdate(IRenderEngine* pRenderEngine) = 0;
-
-	virtual void WGLDraw() = 0;
-	virtual void WGLBuild() = 0;
-	virtual void WGLRelease() = 0;
+	virtual void wglInitialUpdate(IRenderEngine* pRenderEngine) = 0;
+	virtual void wglRelease() = 0;
+	virtual void wglBuild() = 0;
+	virtual void wglDraw() = 0;
 
 };

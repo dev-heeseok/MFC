@@ -3,15 +3,16 @@
 #ifndef DEF_SHADER
 #define DEF_SHADER
 
-enum class ShaderType
+enum class ProgramType
 {
 	unknown = -1,
-	begin_shader = 0,
+	begin_iterate = 0,
 
-	scene = begin_shader,
+	scene = begin_iterate,
+	triangle,
 
 
-	end_shader
+	end_iterate
 };
 
 #endif // !DEF_SHADER

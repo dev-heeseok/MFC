@@ -2,6 +2,7 @@
 
 #include "RenderFactory.h"
 
+class CShaderProgram;
 class AFX_EXT_CLASS CHelloTriangleRender : public IRender
 {
 	DECLARE_DYNAMIC_RENDER(CHelloTriangleRender)
@@ -11,10 +12,17 @@ public:
 	virtual ~CHelloTriangleRender();
 
 private:
-	virtual void OnInitialUpdate(IRenderEngine* pRenderEngine) override;
+	virtual void wglInitialUpdate(IRenderEngine* pRenderEngine) override;
+	virtual void wglRelease() override;
+	virtual void wglBuild() override;
+	virtual void wglDraw() override;
 
-	virtual void WGLDraw() override;
-	virtual void WGLBuild() override;
-	virtual void WGLRelease() override;
+private:
+	CShaderProgram* m_pProgram = nullptr;
+
+	GLuint m_vbo = 0;
+	GLuint m_vao = 0;
+	GLuint m_ebo = 0;
+
 };
 

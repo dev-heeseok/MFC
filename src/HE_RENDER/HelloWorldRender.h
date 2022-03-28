@@ -11,11 +11,10 @@ public:
 	virtual ~CHelloWorldRender();
 
 protected:
-	virtual void OnInitialUpdate(IRenderEngine* pRenderEngine) override;
-
-	virtual void WGLDraw() override;
-	virtual void WGLBuild() override;
-	virtual void WGLRelease() override;
+	virtual void wglInitialUpdate(IRenderEngine* /*pRenderEngine*/) override {}
+	virtual void wglRelease() override {}
+	virtual void wglBuild() override {}
+	virtual void wglDraw() override;
 
 };
 

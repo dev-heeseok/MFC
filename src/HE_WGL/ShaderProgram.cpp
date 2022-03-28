@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "Shader.h"
+#include "ShaderProgram.h"
 
 #include <string>
 
@@ -9,20 +9,20 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-CShader::CShader()
+CShaderProgram::CShaderProgram()
 {
 }
 
-CShader::~CShader()
+CShaderProgram::~CShaderProgram()
 {
 }
 
-void CShader::WGLCreate()
+void CShaderProgram::wglCreate()
 {
 	m_program = glCreateProgram();
 }
 
-void CShader::WGLDelete()
+void CShaderProgram::wglDelete()
 {
 	if (m_program == 0)
 		return;
@@ -31,7 +31,7 @@ void CShader::WGLDelete()
 	m_program = 0;
 }
 
-void CShader::WGLAttach(GLenum shader_type, UINT res_id)
+void CShaderProgram::wglAttach(GLenum shader_type, UINT res_id)
 {
 	auto lambda_source = [](UINT res_id, std::string& source)
 	{
@@ -99,7 +99,7 @@ void CShader::WGLAttach(GLenum shader_type, UINT res_id)
 	m_shaders.push_back(shader);
 }
 
-void CShader::WGLLink()
+void CShaderProgram::wglLink()
 {
 	auto lambda_status = [](GLuint id, GLenum ptype)
 	{
@@ -133,19 +133,19 @@ void CShader::WGLLink()
 		glDeleteShader(shader);
 }
 
-void CShader::WGLBind()
+void CShaderProgram::wglBind()
 {
 	ASSERT(m_program > 0);
 
 	glUseProgram(m_program);
 }
 
-void CShader::WGLUnbind()
+void CShaderProgram::wglUnbind()
 {
 	glUseProgram(0);
 }
 
-BOOL CShader::WGLSetInt(const GLchar* aName, int nData)
+BOOL CShaderProgram::wglUniformInt(const GLchar* aName, int nData)
 {
 	auto location = glGetUniformLocation(m_program, aName);
 	if (location == -1)
@@ -156,7 +156,7 @@ BOOL CShader::WGLSetInt(const GLchar* aName, int nData)
 	return TRUE;
 }
 
-BOOL CShader::WGLSetBoolean(const GLchar* aName, bool bData)
+BOOL CShaderProgram::wglUniformBoolean(const GLchar* aName, bool bData)
 {
 	auto location = glGetUniformLocation(m_program, aName);
 	if (location == -1)
@@ -167,7 +167,7 @@ BOOL CShader::WGLSetBoolean(const GLchar* aName, bool bData)
 	return TRUE;
 }
 
-BOOL CShader::WGLSetFloat(const GLchar* aName, float fData)
+BOOL CShaderProgram::wglUniformFloat(const GLchar* aName, float fData)
 {
 	auto location = glGetUniformLocation(m_program, aName);
 	if (location == -1)
@@ -178,7 +178,7 @@ BOOL CShader::WGLSetFloat(const GLchar* aName, float fData)
 	return TRUE;
 }
 
-BOOL CShader::WGLSetDouble(const GLchar* aName, double dData)
+BOOL CShaderProgram::wglUniformDouble(const GLchar* aName, double dData)
 {
 	auto location = glGetUniformLocation(m_program, aName);
 	if (location == -1)
@@ -189,7 +189,7 @@ BOOL CShader::WGLSetDouble(const GLchar* aName, double dData)
 	return TRUE;
 }
 
-BOOL CShader::WGLSetVector3(const GLchar* aName, glm::vec3& vec3)
+BOOL CShaderProgram::wglUniformVector3(const GLchar* aName, glm::vec3& vec3)
 {
 	auto location = glGetUniformLocation(m_program, aName);
 	if (location == -1)
@@ -200,7 +200,7 @@ BOOL CShader::WGLSetVector3(const GLchar* aName, glm::vec3& vec3)
 	return TRUE;
 }
 
-BOOL CShader::WGLSetMatrix4(const GLchar* aName, glm::mat4& mat4)
+BOOL CShaderProgram::wglUniformMatrix4(const GLchar* aName, glm::mat4& mat4)
 {
 	auto location = glGetUniformLocation(m_program, aName);
 	if (location == -1)

@@ -1,7 +1,7 @@
 #include "pch.h"
 #include "resource.h"
 #include "ShaderManager.h"
-#include "Shader.h"
+#include "ShaderProgram.h"
 
 #include "../HE_LIB/HELib.h"
 
@@ -19,41 +19,54 @@ CShaderManager::CShaderManager()
 
 CShaderManager::~CShaderManager()
 {
+	wglDeleteProgramAll();
 }
 
-void CShaderManager::WGLClearAll()
+CShaderProgram* CShaderManager::wglGetShaderProgram(ProgramType type)
 {
-	for (auto [_, pShader] : m_mShader)
-		pShader->WGLDelete();
-}
-
-void CShaderManager::WGLBuildAll()
-{
-	constexpr auto idxBegin = EnumIndex(ShaderType::begin_shader);
-	constexpr auto idxEnd = EnumIndex(ShaderType::end_shader);
-
-	for (auto idx = idxBegin; idx < idxEnd; ++idx)
-		WGLBuild(static_cast<ShaderType>(idx));
-}
-
-void CShaderManager::WGLBuild(ShaderType type)
-{
-	if (m_mShader.find(type) != m_mShader.cend())
+	auto it = m_mShader.find(type);
+	if (it == m_mShader.end())
 	{
-		ASSERT(FALSE);
-		return;
+		auto pShader = wglCreateProgram(type);
+		it = m_mShader.insert({ type, pShader }).first;
 	}
 
-	auto pShader = std::make_shared<CShader>();
-	
-	pShader->WGLCreate();
+	return it->second.get();
+}
+
+void CShaderManager::wglCreateProgramAll()
+{
+	constexpr auto idxBegin = EnumIndex(ProgramType::begin_iterate);
+	constexpr auto idxEnd = EnumIndex(ProgramType::end_iterate);
+
+	for (auto idx = idxBegin; idx < idxEnd; ++idx)
+		wglCreateProgram(static_cast<ProgramType>(idx));
+}
+
+void CShaderManager::wglDeleteProgramAll()
+{
+	for (auto [_, pShader] : m_mShader)
+		pShader->wglDelete();
+}
+
+std::shared_ptr<CShaderProgram> CShaderManager::wglCreateProgram(ProgramType type)
+{
+	auto pShader = std::make_shared<CShaderProgram>();
+
+	pShader->wglCreate();
 
 	switch (type)
 	{
-	case ShaderType::scene:
+	case ProgramType::scene:
 	{
-		pShader->WGLAttach(GL_VERTEX_SHADER, IDR_SCENE_VERT);
-		pShader->WGLAttach(GL_FRAGMENT_SHADER, IDR_SCENE_FRAG);
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_SCENE_VERT);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_SCENE_FRAG);
+	}
+	break;
+	case ProgramType::triangle:
+	{
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_LEARN_TRIANGLE_VERT);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_LEARN_TRIANGLE_FRAG);
 	}
 	break;
 	default:
@@ -63,8 +76,7 @@ void CShaderManager::WGLBuild(ShaderType type)
 	break;
 	}
 
-	pShader->WGLLink();
+	pShader->wglLink();
 
-	if (pShader != nullptr)
-		m_mShader.insert({ type, pShader });
-} 
+	return pShader;
+}

@@ -37,7 +37,7 @@
     <ClCompile Include="ShaderManager.cpp">
       <Filter>Shader</Filter>
     </ClCompile>
-    <ClCompile Include="Shader.cpp">
+    <ClCompile Include="ShaderProgram.cpp">
       <Filter>Shader</Filter>
     </ClCompile>
     <ClCompile Include="WGLRenderContext.cpp">
@@ -55,6 +55,12 @@
       <Filter>__resource file__\GLSL</Filter>
     </None>
     <None Include="res\GLSL\scene.vert">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\learn_triangle.frag">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\learn_triangle.vert">
       <Filter>__resource file__\GLSL</Filter>
     </None>
   </ItemGroup>
@@ -77,7 +83,7 @@
     <ClInclude Include="ShaderManager.h">
       <Filter>Shader</Filter>
     </ClInclude>
-    <ClInclude Include="Shader.h">
+    <ClInclude Include="ShaderProgram.h">
       <Filter>Shader</Filter>
     </ClInclude>
     <ClInclude Include="ShaderDefine.h">

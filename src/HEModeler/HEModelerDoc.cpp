@@ -209,7 +209,7 @@ void CHEModelerDoc::OnCategoryDev(UINT nID)
 	break;
 	case ID_RIBBON_TUTORIAL_BTN:
 	{
-		CUIDialog::DoModal(this, _T("CUITutorialDlg"));
+		CUIDialog::DoModeless(this, _T("CUITutorialDlg"));
 	}
 	break;
 	default:

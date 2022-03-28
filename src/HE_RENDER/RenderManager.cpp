@@ -14,7 +14,7 @@ static char THIS_FILE[] = __FILE__;
 
 CRenderManager::CRenderManager()
 {
-	m_aEnable.resize(EnumIndex(RenderType::end_render));
+	m_aEnable.resize(EnumIndex(RenderType::end_iterate));
 	std::fill(m_aEnable.begin(), m_aEnable.end(), false);
 }
 
@@ -22,40 +22,7 @@ CRenderManager::~CRenderManager()
 {
 }
 
-void CRenderManager::WGLBuildBuffer()
-{
-	auto idxBegin = static_cast<int>(RenderType::begin_render);
-	auto idxEnd = static_cast<int>(RenderType::end_render);
-	for (auto idx = idxBegin; idx < idxEnd; ++idx)
-	{
-		auto it = m_mRender.find(static_cast<RenderType>(idx));
-		if (it == m_mRender.end())
-			continue;
-
-		auto lpRender = it->second;
-		lpRender->WGLBuild();
-	}
-}
-
-void CRenderManager::WGLDrawScene()
-{
-	auto idxBegin = static_cast<int>(RenderType::begin_render);
-	auto idxEnd = static_cast<int>(RenderType::end_render);
-	for (auto idx = idxBegin; idx < idxEnd; ++idx)
-	{
-		if (m_aEnable[idx] == false)
-			continue;
-
-		auto it = m_mRender.find(static_cast<RenderType>(idx));
-		if (it != m_mRender.end())
-		{
-			auto lpRender = it->second;
-			lpRender->WGLDraw();
-		}
-	}
-}
-
-void CRenderManager::CreateRender(IRenderEngine* pRenderEngine)
+void CRenderManager::wglCreateRender(IRenderEngine* pRenderEngine)
 {
 	auto& instance = CRenderFactory::GetInstance();
 
@@ -72,12 +39,61 @@ void CRenderManager::CreateRender(IRenderEngine* pRenderEngine)
 				return;
 			}
 			
-			pRender->OnInitialUpdate(pRenderEngine);
+			pRender->wglInitialUpdate(pRenderEngine);
 
 			// TODO. general 만 Enable 상태로 셋팅, 나머지는 EnableRender 를 이용하여 직접변경
 			m_aEnable[EnumIndex(index)] = render_group == RenderGroup::general;
 			m_mRender.insert({ index, pRender });
 		});
+}
+
+void CRenderManager::wglClearRender()
+{
+	auto idxBegin = static_cast<int>(RenderType::begin_iterate);
+	auto idxEnd = static_cast<int>(RenderType::end_iterate);
+	for (auto idx = idxBegin; idx < idxEnd; ++idx)
+	{
+		auto it = m_mRender.find(static_cast<RenderType>(idx));
+		if (it == m_mRender.end())
+			continue;
+
+		auto pRender = it->second;
+		pRender->wglRelease();
+	}
+}
+
+void CRenderManager::wglBuildRender()
+{
+	auto idxBegin = static_cast<int>(RenderType::begin_iterate);
+	auto idxEnd = static_cast<int>(RenderType::end_iterate);
+	for (auto idx = idxBegin; idx < idxEnd; ++idx)
+	{
+		auto it = m_mRender.find(static_cast<RenderType>(idx));
+		if (it == m_mRender.end())
+			continue;
+
+		auto pRender = it->second;
+		pRender->wglRelease();
+		pRender->wglBuild();
+	}
+}
+
+void CRenderManager::wglDrawScene()
+{
+	auto idxBegin = static_cast<int>(RenderType::begin_iterate);
+	auto idxEnd = static_cast<int>(RenderType::end_iterate);
+	for (auto idx = idxBegin; idx < idxEnd; ++idx)
+	{
+		if (m_aEnable[idx] == false)
+			continue;
+
+		auto it = m_mRender.find(static_cast<RenderType>(idx));
+		if (it != m_mRender.end())
+		{
+			auto pRender = it->second;
+			pRender->wglDraw();
+		}
+	}
 }
 
 void CRenderManager::EnableRender(RenderType render_type)

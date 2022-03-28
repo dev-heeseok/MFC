@@ -17,20 +17,8 @@ CBasicRender::~CBasicRender()
 {
 }
 
-void CBasicRender::OnInitialUpdate(IRenderEngine* pRenderEngine)
-{
-}
-
-void CBasicRender::WGLDraw()
+void CBasicRender::wglDraw()
 {
 	glClearColor(0.5f, 0.3f, 0.3f, 1.f);
 	glClear(GL_COLOR_BUFFER_BIT);
-}
-
-void CBasicRender::WGLBuild()
-{
-}
-
-void CBasicRender::WGLRelease()
-{
 }

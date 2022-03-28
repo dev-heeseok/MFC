@@ -2,7 +2,6 @@
 
 enum class RenderGroup;
 enum class RenderType;
-class IRenderManager;
 class IRenderEngine
 {
 public:
@@ -16,5 +15,8 @@ public:
 	virtual void EnableOnlyAtGroup(RenderType render_type) = 0;
 
 	virtual void OnDraw() = 0;
+	virtual void OnUpdate() = 0;
+	virtual void OnSize(int cx, int cy) = 0;
+	virtual void OnDestroy() = 0;
 
 };

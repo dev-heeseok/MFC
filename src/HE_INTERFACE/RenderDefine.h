@@ -6,24 +6,24 @@
 enum class RenderType
 {
 	unknown = -1,
-	begin_render = 0,
+	begin_iterate = 0,
 
-	Basic = begin_render,
+	Basic = begin_iterate,
 	HelloWorld,	
 	HelloTriangle,
 
-	end_render
+	end_iterate
 };
 
 enum class RenderGroup
 {
 	unknown = -1,
-	begin_group = 0,
+	begin_iterate = 0,
 
-	general = begin_group,
+	general = begin_iterate,
 	learn_opengl,
 
-	end_group
+	end_iterate
 };
 
 #endif // !DEF_RENDER
