@@ -1,8 +1,8 @@
 #include "pch.h"
 #include "resource.h"
 #include "UIDialog.h"
+#include "UIDevelopDlg.h"
 #include "UITutorialDlg.h"
-#include "HEMuiDevelopDlg.h"
 
 #include "../HE_BASE/HEViewBase.h"
 
@@ -48,9 +48,9 @@ INT_PTR CUIDialog::DoModeless(CHEDocBase* pDoc, CString szDialog, WPARAM wParam,
 	CRect rect;
 	pView->GetWindowRect(rect);
 
-	if (szDialog.CompareNoCase(_T("CHEMuiDevelopDlg")) == 0)
+	if (szDialog.CompareNoCase(_T("CUIDevelopDlg")) == 0)
 	{
-		if (auto pDialog = new CHEMuiDevelopDlg(pDoc, pMainWnd))
+		if (auto pDialog = new CUIDevelopDlg(pDoc, pMainWnd))
 		{
 			pDialog->Create(pMainWnd);
 			pDialog->SetWindowPos(NULL, rect.left, rect.top, 0, 0, SWP_NOSIZE | SWP_NOZORDER);

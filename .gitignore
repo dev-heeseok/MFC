@@ -29,6 +29,7 @@
 # Template Folder
 /temp
 /src/.vs
+image
 
 # Executables
 *.exe
@@ -37,9 +38,6 @@
 *.pdb
 *.user
 *.aps
-
 *.exp
-
 *.ilk
-
 *.tmp

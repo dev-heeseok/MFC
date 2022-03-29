@@ -204,7 +204,7 @@ void CHEModelerDoc::OnCategoryDev(UINT nID)
 	{
 	case ID_RIBBON_DEVELOP_BTN:
 	{
-		CUIDialog::DoModeless(this, _T("CHEMuiDevelopDlg"));
+		CUIDialog::DoModeless(this, _T("CUIDevelopDlg"));
 	}
 	break;
 	case ID_RIBBON_TUTORIAL_BTN:

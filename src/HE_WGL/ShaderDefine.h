@@ -9,8 +9,9 @@ enum class ProgramType
 	begin_iterate = 0,
 
 	scene = begin_iterate,
-	triangle,
-
+	tutorial_triangle,
+	tutorial_shader,
+	tutorial_textures,
 
 	end_iterate
 };

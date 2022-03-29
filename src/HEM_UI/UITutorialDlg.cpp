@@ -78,9 +78,10 @@ void CUITutorialDlg::SetData2Dlg()
 		lstctrl.SetItemData(item, static_cast<DWORD_PTR>(itemData));
 	};
 
-	lambda_add(m_lstTutorial, _T("Basic Render"), _T("Tutorial"), EnumIndex(RenderType::Basic));
-	lambda_add(m_lstTutorial, _T("HelloWorld Render"), _T("Tutorial"), EnumIndex(RenderType::HelloWorld));
-	lambda_add(m_lstTutorial, _T("HelloTriangle Render"), _T("Tutorial"), EnumIndex(RenderType::HelloTriangle));
+	lambda_add(m_lstTutorial, _T("Basic"), _T("LearnOpenGL"), EnumIndex(RenderType::Tutorial_Basic));
+	lambda_add(m_lstTutorial, _T("HelloWorld"), _T("LearnOpenGL"), EnumIndex(RenderType::Tutorial_HelloWorld));
+	lambda_add(m_lstTutorial, _T("HelloTriangle"), _T("LearnOpenGL"), EnumIndex(RenderType::Tutorial_HelloTriangle));	lambda_add(m_lstTutorial, _T("Shaders"), _T("LearnOpenGL"), EnumIndex(RenderType::Tutorial_Shaders));
+	lambda_add(m_lstTutorial, _T("Textures"), _T("LearnOpenGL"), EnumIndex(RenderType::Tutorial_Textures));
 
 }
 
@@ -90,9 +91,11 @@ void CUITutorialDlg::Apply(RenderType render_type)
 
 	switch (render_type)
 	{
-	case RenderType::Basic:
-	case RenderType::HelloWorld:
-	case RenderType::HelloTriangle:
+	case RenderType::Tutorial_Basic:
+	case RenderType::Tutorial_HelloWorld:
+	case RenderType::Tutorial_HelloTriangle:
+	case RenderType::Tutorial_Shaders:
+	case RenderType::Tutorial_Textures:
 	{
 		PickRender(render_type);
 

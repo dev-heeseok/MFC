@@ -8,9 +8,11 @@ enum class RenderType
 	unknown = -1,
 	begin_iterate = 0,
 
-	Basic = begin_iterate,
-	HelloWorld,	
-	HelloTriangle,
+	Tutorial_Basic = begin_iterate,
+	Tutorial_HelloWorld,	
+	Tutorial_HelloTriangle,
+	Tutorial_Shaders,
+	Tutorial_Textures,
 
 	end_iterate
 };

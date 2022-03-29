@@ -2,13 +2,13 @@
 
 #include "LearnOpenGLRender.h"
 
-class AFX_EXT_CLASS CHelloTriangleRender : public CLearnOpenGLRender
+class AFX_EXT_CLASS CShadersRender : public CLearnOpenGLRender
 {
-	DECLARE_DYNAMIC_RENDER(CHelloTriangleRender)
+	DECLARE_DYNAMIC_RENDER(CShadersRender)
 
 public:
-	CHelloTriangleRender();
-	virtual ~CHelloTriangleRender();
+	CShadersRender();
+	virtual ~CShadersRender();
 
 private:
 	virtual void wglInitialUpdate(IRenderEngine* pRenderEngine) override;

@@ -34,7 +34,7 @@
     <ClCompile Include="UIDialog.cpp">
       <Filter>Interface</Filter>
     </ClCompile>
-    <ClCompile Include="HEMuiDevelopDlg.cpp">
+    <ClCompile Include="UIDevelopDlg.cpp">
       <Filter>Implement</Filter>
     </ClCompile>
   </ItemGroup>
@@ -65,7 +65,7 @@
     <ClInclude Include="UIDialog.h">
       <Filter>Interface</Filter>
     </ClInclude>
-    <ClInclude Include="HEMuiDevelopDlg.h">
+    <ClInclude Include="UIDevelopDlg.h">
       <Filter>Implement</Filter>
     </ClInclude>
   </ItemGroup>

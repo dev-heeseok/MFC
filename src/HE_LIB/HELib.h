@@ -22,6 +22,25 @@ namespace lib
 	{
 		return std::wstring(CA2CT(str.c_str(), codepage));
 	}
+
+	inline CString GetModuleFilePath() noexcept
+	{
+		TCHAR szModuleFileName[MAX_PATH] = _T("");
+		::GetModuleFileName(0, szModuleFileName, MAX_PATH);
+		
+		CString strFilePath = _T("");
+		CString strModuleFileName = szModuleFileName;
+
+		int slash = strModuleFileName.ReverseFind('/');
+		int backslash = strModuleFileName.ReverseFind('\\');
+		if (slash != -1 || backslash != -1)
+		{
+			int item = backslash < slash ? slash : backslash;
+			strFilePath = strModuleFileName.Left(item);
+		}
+
+		return strFilePath;
+	}
 }
 
 #endif // !DEF_LIB

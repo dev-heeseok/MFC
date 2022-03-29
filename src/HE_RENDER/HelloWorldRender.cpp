@@ -8,7 +8,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-IMPLEMENT_DYNAMIC_RENDER_GROUP(CHelloWorldRender, RenderType::HelloWorld, RenderGroup::learn_opengl)
+IMPLEMENT_DYNAMIC_RENDER_GROUP(CHelloWorldRender, RenderType::Tutorial_HelloWorld, RenderGroup::learn_opengl)
 
 CHelloWorldRender::CHelloWorldRender()
 {

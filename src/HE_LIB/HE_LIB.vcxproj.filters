@@ -25,10 +25,10 @@
     <ClCompile Include="pch.cpp">
       <Filter>__meta__</Filter>
     </ClCompile>
-    <ClCompile Include="HELib.cpp">
+    <ClCompile Include="HEMath.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
-    <ClCompile Include="HEMath.cpp">
+    <ClCompile Include="HELib.cpp">
       <Filter>Utility</Filter>
     </ClCompile>
   </ItemGroup>

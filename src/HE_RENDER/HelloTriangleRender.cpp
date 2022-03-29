@@ -12,7 +12,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-IMPLEMENT_DYNAMIC_RENDER_GROUP(CHelloTriangleRender, RenderType::HelloTriangle, RenderGroup::learn_opengl)
+IMPLEMENT_DYNAMIC_RENDER_GROUP(CHelloTriangleRender, RenderType::Tutorial_HelloTriangle, RenderGroup::learn_opengl)
 
 CHelloTriangleRender::CHelloTriangleRender()
 {
@@ -27,7 +27,7 @@ void CHelloTriangleRender::wglInitialUpdate(IRenderEngine* pRenderEngine)
 	auto pRenderEngineImpl = static_cast<CRenderEngine*>(pRenderEngine);
 	auto pShaderManager = pRenderEngineImpl->GetShaderManager();
 
-	m_pProgram = pShaderManager->wglGetShaderProgram(ProgramType::triangle);
+	m_pProgram = pShaderManager->wglGetShaderProgram(ProgramType::tutorial_triangle);
 }
 
 void CHelloTriangleRender::wglRelease()

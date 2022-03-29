@@ -1,8 +1,8 @@
 #pragma once
 
-#include "RenderFactory.h"
+#include "LearnOpenGLRender.h"
 
-class AFX_EXT_CLASS CHelloWorldRender : public IRender
+class AFX_EXT_CLASS CHelloWorldRender : public CLearnOpenGLRender
 {
 	DECLARE_DYNAMIC_RENDER(CHelloWorldRender)
 

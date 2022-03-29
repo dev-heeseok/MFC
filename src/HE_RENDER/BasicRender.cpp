@@ -7,7 +7,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-IMPLEMENT_DYNAMIC_RENDER_GROUP(CBasicRender, RenderType::Basic, RenderGroup::learn_opengl)
+IMPLEMENT_DYNAMIC_RENDER_GROUP(CBasicRender, RenderType::Tutorial_Basic, RenderGroup::learn_opengl)
 
 CBasicRender::CBasicRender()
 {

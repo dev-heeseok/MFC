@@ -243,10 +243,14 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="HE_WGL.def" />
-    <None Include="res\GLSL\learn_triangle.frag" />
-    <None Include="res\GLSL\learn_triangle.vert" />
     <None Include="res\GLSL\scene.frag" />
     <None Include="res\GLSL\scene.vert" />
+    <None Include="res\GLSL\tutorial_shader.frag" />
+    <None Include="res\GLSL\tutorial_shader.vert" />
+    <None Include="res\GLSL\tutorial_texture.frag" />
+    <None Include="res\GLSL\tutorial_texture.vert" />
+    <None Include="res\GLSL\tutorial_triangle.frag" />
+    <None Include="res\GLSL\tutorial_triangle.vert" />
     <None Include="res\HE_WGL.rc2" />
   </ItemGroup>
   <ItemGroup>

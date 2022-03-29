@@ -2,14 +2,14 @@
 
 #include "../HE_BASE/HEDialog.h"
 
-class CHEMuiDevelopDlg : public CHEDialog
+class CUIDevelopDlg : public CHEDialog
 {
 	enum class ListCol { title = 0, desc, col_num };
 	enum class ListRow;
 
 public:
-	CHEMuiDevelopDlg(CHEDocBase* pDoc, CWnd* pParent = nullptr);
-	virtual ~CHEMuiDevelopDlg();
+	CUIDevelopDlg(CHEDocBase* pDoc, CWnd* pParent = nullptr);
+	virtual ~CUIDevelopDlg();
 
 	enum { IDD = IDD_HEMUI_DEVELOP };
 
@@ -32,8 +32,7 @@ private:
 	DECLARE_MESSAGE_MAP();
 
 private:
-	CListCtrl m_lstDevelop;
-
+	CListCtrl m_List;
 
 };
 

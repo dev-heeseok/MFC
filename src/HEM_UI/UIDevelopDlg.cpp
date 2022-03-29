@@ -1,6 +1,6 @@
 #include "pch.h"
 #include "resource.h"
-#include "HEMuiDevelopDlg.h"
+#include "UIDevelopDlg.h"
 
 #include "../HE_LIB/HELib.h"
 
@@ -12,34 +12,34 @@ static char THIS_FILE[] = __FILE__;
 
 using namespace lib;
 
-enum class CHEMuiDevelopDlg::ListRow
+enum class CUIDevelopDlg::ListRow
 {
 	module_name = 0,
 
 	row_num
 };
 
-CHEMuiDevelopDlg::CHEMuiDevelopDlg(CHEDocBase* pDoc, CWnd* pParent)
-	: CHEDialog(pDoc, CHEMuiDevelopDlg::IDD, pParent)
+CUIDevelopDlg::CUIDevelopDlg(CHEDocBase* pDoc, CWnd* pParent)
+	: CHEDialog(pDoc, CUIDevelopDlg::IDD, pParent)
 {
 }
 
-CHEMuiDevelopDlg::~CHEMuiDevelopDlg()
+CUIDevelopDlg::~CUIDevelopDlg()
 {
 }
 
-void CHEMuiDevelopDlg::DoDataExchange(CDataExchange* pDX)
+void CUIDevelopDlg::DoDataExchange(CDataExchange* pDX)
 {
 	CHEDialog::DoDataExchange(pDX);
 
-	DDX_Control(pDX, IDC_HEMUI_LIST, m_lstDevelop);
+	DDX_Control(pDX, IDC_HEMUI_LIST, m_List);
 }
 
-BEGIN_MESSAGE_MAP(CHEMuiDevelopDlg, CHEDialog)
+BEGIN_MESSAGE_MAP(CUIDevelopDlg, CHEDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_HEMUI_LIST, OnDblClickedList)
 END_MESSAGE_MAP()
 
-BOOL CHEMuiDevelopDlg::OnInitDialog()
+BOOL CUIDevelopDlg::OnInitDialog()
 {
 	CHEDialog::OnInitDialog();
 
@@ -50,25 +50,25 @@ BOOL CHEMuiDevelopDlg::OnInitDialog()
 	return TRUE;
 }
 
-BOOL CHEMuiDevelopDlg::Create(CWnd* pParentWnd)
+BOOL CUIDevelopDlg::Create(CWnd* pParentWnd)
 {
-	return CHEDialog::Create(CHEMuiDevelopDlg::IDD, pParentWnd);
+	return CHEDialog::Create(CUIDevelopDlg::IDD, pParentWnd);
 }
 
-void CHEMuiDevelopDlg::SetControl()
+void CUIDevelopDlg::SetControl()
 {
 	CRect rect;
-	m_lstDevelop.GetWindowRect(rect);
+	m_List.GetWindowRect(rect);
 
 	double width = rect.Width() * 0.98;
-	m_lstDevelop.InsertColumn(EnumIndex(ListCol::title), _T("Title"), LVCFMT_LEFT, static_cast<int>(width * 0.6));
-	m_lstDevelop.InsertColumn(EnumIndex(ListCol::desc), _T("Desc"), LVCFMT_LEFT, static_cast<int>(width * 0.4));
+	m_List.InsertColumn(EnumIndex(ListCol::title), _T("Title"), LVCFMT_LEFT, static_cast<int>(width * 0.6));
+	m_List.InsertColumn(EnumIndex(ListCol::desc), _T("Desc"), LVCFMT_LEFT, static_cast<int>(width * 0.4));
 
-	auto dwStyle = m_lstDevelop.GetExtendedStyle();
-	m_lstDevelop.SetExtendedStyle(dwStyle | LVS_EX_SINGLEROW | LVS_EX_GRIDLINES | LVS_EX_FULLROWSELECT);
+	auto dwStyle = m_List.GetExtendedStyle();
+	m_List.SetExtendedStyle(dwStyle | LVS_EX_SINGLEROW | LVS_EX_GRIDLINES | LVS_EX_FULLROWSELECT);
 }
 
-void CHEMuiDevelopDlg::SetData2Dlg()
+void CUIDevelopDlg::SetData2Dlg()
 {
 	auto lambda_add = [](auto& lstctrl, auto strTitle, auto strDesc, auto itemData)
 	{
@@ -78,10 +78,10 @@ void CHEMuiDevelopDlg::SetData2Dlg()
 		lstctrl.SetItemData(item, static_cast<DWORD_PTR>(itemData));
 	};
 
-	lambda_add(m_lstDevelop, _T("Module Name"), _T("Framework"), EnumIndex(ListRow::module_name));
+	lambda_add(m_List, _T("Module Name"), _T("Framework"), EnumIndex(ListRow::module_name));
 }
 
-void CHEMuiDevelopDlg::Apply(ListRow row)
+void CUIDevelopDlg::Apply(ListRow row)
 {
 	switch (row)
 	{
@@ -109,13 +109,13 @@ void CHEMuiDevelopDlg::Apply(ListRow row)
 	}
 }
 
-void CHEMuiDevelopDlg::OnDblClickedList(NMHDR* pNMHDR, LRESULT* pResult)
+void CUIDevelopDlg::OnDblClickedList(NMHDR* pNMHDR, LRESULT* pResult)
 {
 	LPNMITEMACTIVATE pNMItemActivate = reinterpret_cast<LPNMITEMACTIVATE>(pNMHDR);
 
 	if (pNMItemActivate->iItem != -1)
 	{
-		auto itemData = m_lstDevelop.GetItemData(pNMItemActivate->iItem);
+		auto itemData = m_List.GetItemData(pNMItemActivate->iItem);
 		Apply(static_cast<ListRow>(itemData));
 	}
 
