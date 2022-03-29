@@ -28,26 +28,32 @@ public:
 	virtual ~CHEModelerDoc();
 
 public:
-	virtual BOOL OnNewDocument();
-	virtual void Serialize(CArchive& ar);
+	virtual BOOL OnNewDocument() override;
+	virtual BOOL OnOpenDocument(LPCTSTR lpszPathName) override;
+	virtual void OnCloseDocument() override;
+	virtual void Serialize(CArchive& ar) override;
 
-public:
 #ifdef _DEBUG
+public:
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;
 #endif
 
-public:
 #ifdef SHARED_HANDLERS
+public:
 	virtual void InitializeSearchContent();
 	virtual void OnDrawThumbnail(CDC& dc, LPRECT lprcBounds);
-#endif // SHARED_HANDLERS
 
 protected:
-#ifdef SHARED_HANDLERS
 	// 검색 처리기에 대한 검색 콘텐츠를 설정하는 도우미 함수
 	void SetSearchContent(const CString& value);
 #endif // SHARED_HANDLERS
+
+public:
+	int GetViewCount();
+
+protected:
+	void InitScene();
 
 private:
 	afx_msg void OnCategoryDev(UINT nID);

@@ -53,6 +53,11 @@ CHEModelerView::~CHEModelerView()
 {
 }
 
+void CHEModelerView::OnInitialUpdate()
+{
+	CHEViewBase::OnInitialUpdate();
+}
+
 BOOL CHEModelerView::PreCreateWindow(CREATESTRUCT& cs)
 {
 	// TODO: CREATESTRUCT cs를 수정하여 여기에서

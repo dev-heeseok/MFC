@@ -18,11 +18,17 @@
 
 class CHEModelerView : public CHEViewBase
 {
-protected: // serialization에서만 만들어집니다.
-	CHEModelerView() noexcept;
 	DECLARE_DYNCREATE(CHEModelerView)
 
-// 특성입니다.
+protected:
+	CHEModelerView() noexcept;
+
+public:
+	virtual ~CHEModelerView();
+
+protected:
+	virtual void OnInitialUpdate() override;
+
 public:
 	CHEModelerDoc* GetDocument() const;
 
@@ -33,6 +39,7 @@ public:
 public:
 	virtual void OnDraw(CDC* pDC);  // 이 뷰를 그리기 위해 재정의되었습니다.
 	virtual BOOL PreCreateWindow(CREATESTRUCT& cs);
+
 protected:
 	virtual BOOL OnPreparePrinting(CPrintInfo* pInfo);
 	virtual void OnBeginPrinting(CDC* pDC, CPrintInfo* pInfo);
@@ -40,7 +47,6 @@ protected:
 
 // 구현입니다.
 public:
-	virtual ~CHEModelerView();
 #ifdef _DEBUG
 	virtual void AssertValid() const;
 	virtual void Dump(CDumpContext& dc) const;

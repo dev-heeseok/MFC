@@ -28,11 +28,14 @@
     <ClCompile Include="pch.cpp">
       <Filter>__meta__</Filter>
     </ClCompile>
-    <ClCompile Include="HEMuiDevDialog.cpp">
+    <ClCompile Include="UITutorialDlg.cpp">
       <Filter>Implement</Filter>
     </ClCompile>
-    <ClCompile Include="HEMuiDialog.cpp">
+    <ClCompile Include="UIDialog.cpp">
       <Filter>Interface</Filter>
+    </ClCompile>
+    <ClCompile Include="UIDevelopDlg.cpp">
+      <Filter>Implement</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -56,11 +59,14 @@
     <ClInclude Include="Resource.h">
       <Filter>__resource__</Filter>
     </ClInclude>
-    <ClInclude Include="HEMuiDevDialog.h">
+    <ClInclude Include="UITutorialDlg.h">
       <Filter>Implement</Filter>
     </ClInclude>
-    <ClInclude Include="HEMuiDialog.h">
+    <ClInclude Include="UIDialog.h">
       <Filter>Interface</Filter>
+    </ClInclude>
+    <ClInclude Include="UIDevelopDlg.h">
+      <Filter>Implement</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

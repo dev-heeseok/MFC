@@ -1,9 +1,9 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <Filter Include="__resource file__">
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+      <Extensions>vert;frag;rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
     <Filter Include="__resource__">
       <UniqueIdentifier>{172c1490-62da-406b-a79a-666c381a37c8}</UniqueIdentifier>
@@ -14,8 +14,11 @@
     <Filter Include="GL">
       <UniqueIdentifier>{387f6bca-944d-458c-af94-7d96e91de15c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="Interface">
-      <UniqueIdentifier>{40720d26-0c71-4f79-81d7-4cd9bf796467}</UniqueIdentifier>
+    <Filter Include="Shader">
+      <UniqueIdentifier>{ef52fe5d-da74-40e5-9d75-d72433f540cd}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="__resource file__\GLSL">
+      <UniqueIdentifier>{c5e2fe31-551a-4e08-a310-aea3cdab6b58}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
@@ -31,7 +34,13 @@
     <ClCompile Include="WGLView.cpp">
       <Filter>GL</Filter>
     </ClCompile>
-    <ClCompile Include="WGLMakeView.cpp">
+    <ClCompile Include="ShaderManager.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="ShaderProgram.cpp">
+      <Filter>Shader</Filter>
+    </ClCompile>
+    <ClCompile Include="WGLRenderContext.cpp">
       <Filter>GL</Filter>
     </ClCompile>
   </ItemGroup>
@@ -41,6 +50,30 @@
     </None>
     <None Include="res\HE_WGL.rc2">
       <Filter>__resource__</Filter>
+    </None>
+    <None Include="res\GLSL\scene.frag">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\scene.vert">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\tutorial_shader.frag">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\tutorial_shader.vert">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\tutorial_triangle.frag">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\tutorial_triangle.vert">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\tutorial_texture.vert">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\tutorial_texture.frag">
+      <Filter>__resource file__\GLSL</Filter>
     </None>
   </ItemGroup>
   <ItemGroup>
@@ -56,20 +89,20 @@
     <ClInclude Include="Resource.h">
       <Filter>__resource__</Filter>
     </ClInclude>
-    <ClInclude Include="IRender.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
-    <ClInclude Include="IRenderManager.h">
-      <Filter>Interface</Filter>
-    </ClInclude>
     <ClInclude Include="WGLView.h">
       <Filter>GL</Filter>
     </ClInclude>
-    <ClInclude Include="WGLMakeView.h">
-      <Filter>GL</Filter>
+    <ClInclude Include="ShaderManager.h">
+      <Filter>Shader</Filter>
     </ClInclude>
-    <ClInclude Include="AllHeaderGL.h">
-      <Filter>__meta__</Filter>
+    <ClInclude Include="ShaderProgram.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="ShaderDefine.h">
+      <Filter>Shader</Filter>
+    </ClInclude>
+    <ClInclude Include="WGLRenderContext.h">
+      <Filter>GL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

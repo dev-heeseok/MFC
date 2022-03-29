@@ -9,6 +9,8 @@
 
 // 여기에 미리 컴파일하려는 헤더 추가
 #include "framework.h"
-#include "AllHeaderGL.h"
+
+#include "../HE_INTERFACE/includeAll.h"
+#include "../HE_INTERFACE/includeGL.h"
 
 #endif //PCH_H

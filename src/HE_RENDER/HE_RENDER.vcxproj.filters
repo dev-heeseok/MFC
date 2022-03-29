@@ -17,6 +17,12 @@
     <Filter Include="LearnOpenGL">
       <UniqueIdentifier>{497c4981-83ec-4970-8eb6-5ab2625ee1b6}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Image">
+      <UniqueIdentifier>{2a5fd230-6e37-4729-9f2f-5e5902992ba6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="LearnOpenGL\Base">
+      <UniqueIdentifier>{e8bdd2d7-9a4d-4412-bdb2-c7dfa06523a4}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="pch.cpp">
@@ -28,14 +34,35 @@
     <ClCompile Include="dllmain.cpp">
       <Filter>__meta__</Filter>
     </ClCompile>
-    <ClCompile Include="HEMRenderFactory.cpp">
+    <ClCompile Include="RenderFactory.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-    <ClCompile Include="HEMRenderManager.cpp">
+    <ClCompile Include="RenderManager.cpp">
       <Filter>Render</Filter>
     </ClCompile>
-    <ClCompile Include="MyFirstRender.cpp">
+    <ClCompile Include="HelloWorldRender.cpp">
       <Filter>LearnOpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="BasicRender.cpp">
+      <Filter>LearnOpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="HelloTriangleRender.cpp">
+      <Filter>LearnOpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="RenderEngine.cpp">
+      <Filter>Render</Filter>
+    </ClCompile>
+    <ClCompile Include="ShadersRender.cpp">
+      <Filter>LearnOpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="TexturesRender.cpp">
+      <Filter>LearnOpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="ImageFile.cpp">
+      <Filter>Image</Filter>
+    </ClCompile>
+    <ClCompile Include="LearnOpenGLRender.cpp">
+      <Filter>LearnOpenGL\Base</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -59,14 +86,38 @@
     <ClInclude Include="Resource.h">
       <Filter>__meta__</Filter>
     </ClInclude>
-    <ClInclude Include="HEMRenderFactory.h">
+    <ClInclude Include="RenderFactory.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="HEMRenderManager.h">
+    <ClInclude Include="RenderManager.h">
       <Filter>Render</Filter>
     </ClInclude>
-    <ClInclude Include="MyFirstRender.h">
+    <ClInclude Include="HelloWorldRender.h">
       <Filter>LearnOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="BasicRender.h">
+      <Filter>LearnOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="HelloTriangleRender.h">
+      <Filter>LearnOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="RenderEngine.h">
+      <Filter>Render</Filter>
+    </ClInclude>
+    <ClInclude Include="ShadersRender.h">
+      <Filter>LearnOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="TexturesRender.h">
+      <Filter>LearnOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="ImageFile.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="stb_image.h">
+      <Filter>Image</Filter>
+    </ClInclude>
+    <ClInclude Include="LearnOpenGLRender.h">
+      <Filter>LearnOpenGL\Base</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

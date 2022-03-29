@@ -26,7 +26,8 @@
 
 #include <propkey.h>
 
-#include "../HEM_UI/HEMuiDialog.h"
+#include "../HE_INTERFACE/NotifyDefine.h"
+#include "../HEM_UI/UIDialog.h"
 
 #ifdef _DEBUG
 #define new DEBUG_NEW
@@ -37,12 +38,14 @@
 IMPLEMENT_DYNCREATE(CHEModelerDoc, CHEDocBase)
 
 BEGIN_MESSAGE_MAP(CHEModelerDoc, CHEDocBase)
+
 #define ON_COMMAND_CATEGORY_DEV(id, func) ON_COMMAND_RANGE(id, id, func)
-	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_DEV_BTN, OnCategoryDev)
+	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_DEVELOP_BTN, OnCategoryDev)
+	ON_COMMAND_CATEGORY_DEV(ID_RIBBON_TUTORIAL_BTN, OnCategoryDev)
 
 #define ON_UPDATE_CATEGORY_DEV(id, func) ON_UPDATE_COMMAND_UI_RANGE(id, id, func)
-	ON_UPDATE_CATEGORY_DEV(ID_RIBBON_DEV_BTN, OnUpdateCategoryDev)
-
+	ON_UPDATE_CATEGORY_DEV(ID_RIBBON_DEVELOP_BTN, OnUpdateCategoryDev)
+	ON_UPDATE_CATEGORY_DEV(ID_RIBBON_TUTORIAL_BTN, OnUpdateCategoryDev)
 
 END_MESSAGE_MAP()
 
@@ -64,13 +67,27 @@ BOOL CHEModelerDoc::OnNewDocument()
 	if (!CHEDocBase::OnNewDocument())
 		return FALSE;
 
-	// TODO: 여기에 재초기화 코드를 추가합니다.
-	// SDI 문서는 이 문서를 다시 사용합니다.
+	InitScene();
 
 	return TRUE;
 }
 
+BOOL CHEModelerDoc::OnOpenDocument(LPCTSTR lpszPathName)
+{
+	if (!CHEDocBase::OnOpenDocument(lpszPathName))
+		return FALSE;
 
+	InitScene();
+
+	return TRUE;
+}
+
+void CHEModelerDoc::OnCloseDocument()
+{
+	UpdateAllViews(nullptr, static_cast<WPARAM>(NotifyType::closed_document), NULL);
+
+	CHEDocBase::OnCloseDocument();
+}
 
 
 // CHEModelerDoc serialization
@@ -141,8 +158,6 @@ void CHEModelerDoc::SetSearchContent(const CString& value)
 
 #endif // SHARED_HANDLERS
 
-// CHEModelerDoc 진단
-
 #ifdef _DEBUG
 void CHEModelerDoc::AssertValid() const
 {
@@ -155,13 +170,46 @@ void CHEModelerDoc::Dump(CDumpContext& dc) const
 }
 #endif //_DEBUG
 
+int CHEModelerDoc::GetViewCount()
+{
+	auto count = 0;
+	auto pos = GetFirstViewPosition();
+	while (pos)
+	{
+		auto pView = GetNextView(pos);
+		if (pView && IsWindow(pView->GetSafeHwnd()))
+			count++;
+	}
+
+	return count;
+}
+
+void CHEModelerDoc::InitScene()
+{
+	auto pos = GetFirstViewPosition();
+	while (pos)
+	{
+		auto pView = GetNextView(pos);
+		if (pView == nullptr || IsWindow(pView->GetSafeHwnd()) == FALSE)
+			continue;
+
+		auto pHEModelerView = static_cast<CHEModelerView*>(pView);
+		pHEModelerView->InitScene();
+	}
+}
+
 void CHEModelerDoc::OnCategoryDev(UINT nID)
 {
 	switch (nID)
 	{
-	case ID_RIBBON_DEV_BTN:
+	case ID_RIBBON_DEVELOP_BTN:
 	{
-		CHEMuiDialog::DoModal(this, _T("CHEMuiDevDialog"));
+		CUIDialog::DoModeless(this, _T("CUIDevelopDlg"));
+	}
+	break;
+	case ID_RIBBON_TUTORIAL_BTN:
+	{
+		CUIDialog::DoModeless(this, _T("CUITutorialDlg"));
 	}
 	break;
 	default:
@@ -176,7 +224,8 @@ void CHEModelerDoc::OnUpdateCategoryDev(CCmdUI* pCmdUI)
 {
 	switch (pCmdUI->m_nID)
 	{
-	case ID_RIBBON_DEV_BTN:
+	case ID_RIBBON_DEVELOP_BTN:
+	case ID_RIBBON_TUTORIAL_BTN:
 	{
 		pCmdUI->Enable(TRUE);
 	}

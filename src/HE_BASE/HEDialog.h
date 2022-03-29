@@ -17,6 +17,9 @@ protected:
 	virtual BOOL Create(UINT nIDTemplate, CWnd* pParentWnd = NULL) override;
 
 protected:
+	CHEDocBase* GetDoc() { return m_pMyDoc; }
+
+protected:
 	afx_msg void OnNcDestroy();
 	afx_msg void OnDestroy();
 
