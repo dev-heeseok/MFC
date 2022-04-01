@@ -57,22 +57,28 @@
     <None Include="res\GLSL\scene.vert">
       <Filter>__resource file__\GLSL</Filter>
     </None>
-    <None Include="res\GLSL\tutorial_shader.frag">
+    <None Include="res\GLSL\2.1.triangle.frag">
       <Filter>__resource file__\GLSL</Filter>
     </None>
-    <None Include="res\GLSL\tutorial_shader.vert">
+    <None Include="res\GLSL\2.1.triangle.vert">
       <Filter>__resource file__\GLSL</Filter>
     </None>
-    <None Include="res\GLSL\tutorial_triangle.frag">
+    <None Include="res\GLSL\3.3.shaders.frag">
       <Filter>__resource file__\GLSL</Filter>
     </None>
-    <None Include="res\GLSL\tutorial_triangle.vert">
+    <None Include="res\GLSL\3.3.shaders.vert">
       <Filter>__resource file__\GLSL</Filter>
     </None>
-    <None Include="res\GLSL\tutorial_texture.vert">
+    <None Include="res\GLSL\4.2.textures.frag">
       <Filter>__resource file__\GLSL</Filter>
     </None>
-    <None Include="res\GLSL\tutorial_texture.frag">
+    <None Include="res\GLSL\4.2.textures.vert">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\5.1.transform.frag">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\5.1.transform.vert">
       <Filter>__resource file__\GLSL</Filter>
     </None>
   </ItemGroup>

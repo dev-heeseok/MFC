@@ -37,6 +37,7 @@ void CUITutorialDlg::DoDataExchange(CDataExchange* pDX)
 BEGIN_MESSAGE_MAP(CUITutorialDlg, CHEDialog)
 	ON_NOTIFY(NM_DBLCLK, IDC_HEMUI_LIST, OnDblClickedList)
 	ON_WM_DESTROY()
+	ON_WM_TIMER()
 END_MESSAGE_MAP()
 
 BOOL CUITutorialDlg::OnInitDialog()
@@ -46,6 +47,8 @@ BOOL CUITutorialDlg::OnInitDialog()
 	SetControl();
 
 	SetData2Dlg();
+
+	SetTimer(TIMER_REDRAW, 500, nullptr);
 
 	return TRUE;
 }
@@ -78,11 +81,12 @@ void CUITutorialDlg::SetData2Dlg()
 		lstctrl.SetItemData(item, static_cast<DWORD_PTR>(itemData));
 	};
 
-	lambda_add(m_lstTutorial, _T("Basic"), _T("LearnOpenGL"), EnumIndex(RenderType::Tutorial_Basic));
-	lambda_add(m_lstTutorial, _T("HelloWorld"), _T("LearnOpenGL"), EnumIndex(RenderType::Tutorial_HelloWorld));
-	lambda_add(m_lstTutorial, _T("HelloTriangle"), _T("LearnOpenGL"), EnumIndex(RenderType::Tutorial_HelloTriangle));	lambda_add(m_lstTutorial, _T("Shaders"), _T("LearnOpenGL"), EnumIndex(RenderType::Tutorial_Shaders));
-	lambda_add(m_lstTutorial, _T("Textures"), _T("LearnOpenGL"), EnumIndex(RenderType::Tutorial_Textures));
-
+	lambda_add(m_lstTutorial, _T("Basic"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_Basic));
+	lambda_add(m_lstTutorial, _T("HelloWorld"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_HelloWorld));
+	lambda_add(m_lstTutorial, _T("HelloTriangle"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_HelloTriangle));	
+	lambda_add(m_lstTutorial, _T("Shaders"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_Shaders));
+	lambda_add(m_lstTutorial, _T("Textures"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_Textures));
+	lambda_add(m_lstTutorial, _T("Transformations"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_transformations));
 }
 
 void CUITutorialDlg::Apply(RenderType render_type)
@@ -91,11 +95,12 @@ void CUITutorialDlg::Apply(RenderType render_type)
 
 	switch (render_type)
 	{
-	case RenderType::Tutorial_Basic:
-	case RenderType::Tutorial_HelloWorld:
-	case RenderType::Tutorial_HelloTriangle:
-	case RenderType::Tutorial_Shaders:
-	case RenderType::Tutorial_Textures:
+	case RenderType::tutorial_Basic:
+	case RenderType::tutorial_HelloWorld:
+	case RenderType::tutorial_HelloTriangle:
+	case RenderType::tutorial_Shaders:
+	case RenderType::tutorial_Textures:
+	case RenderType::tutorial_transformations:
 	{
 		PickRender(render_type);
 
@@ -136,6 +141,8 @@ void CUITutorialDlg::OnDblClickedList(NMHDR* pNMHDR, LRESULT* pResult)
 
 void CUITutorialDlg::OnDestroy()
 {
+	KillTimer(TIMER_REDRAW);
+
 	auto pApp = AfxGetApp();
 	auto pMainFrm = static_cast<CMDIFrameWnd*>(pApp->GetMainWnd());
 	auto pFrame = pMainFrm->GetActiveFrame();
@@ -153,4 +160,19 @@ void CUITutorialDlg::OnDestroy()
 	}
 
 	CHEDialog::OnDestroy();
+}
+
+void CUITutorialDlg::OnTimer(UINT_PTR nIDEvent)
+{
+	auto pDoc = GetDoc();
+	switch (nIDEvent)
+	{
+	case TIMER_REDRAW:
+	{
+		pDoc->UpdateAllViews(NULL);
+	}
+	break;
+	default:
+		break;
+	}
 }

@@ -64,6 +64,9 @@
     <ClCompile Include="LearnOpenGLRender.cpp">
       <Filter>LearnOpenGL\Base</Filter>
     </ClCompile>
+    <ClCompile Include="TransformationRender.cpp">
+      <Filter>LearnOpenGL</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="res\HE_RENDER.rc2">
@@ -118,6 +121,9 @@
     </ClInclude>
     <ClInclude Include="LearnOpenGLRender.h">
       <Filter>LearnOpenGL\Base</Filter>
+    </ClInclude>
+    <ClInclude Include="TransformationRender.h">
+      <Filter>LearnOpenGL</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

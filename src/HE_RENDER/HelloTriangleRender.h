@@ -4,7 +4,7 @@
 
 class AFX_EXT_CLASS CHelloTriangleRender : public CLearnOpenGLRender
 {
-	DECLARE_DYNAMIC_RENDER(CHelloTriangleRender)
+	DECLARE_DYNAMIC_RENDER(CHelloTriangleRender);
 
 public:
 	CHelloTriangleRender();
@@ -18,8 +18,8 @@ private:
 
 private:
 	CShaderProgram* m_pProgram = nullptr;
-	GLuint m_vbo = 0;
-	GLuint m_vao = 0;
-	GLuint m_ebo = 0;
+	GLuint m_VBO = 0;
+	GLuint m_VAO = 0;
+	GLuint m_EBO = 0;
 };
 

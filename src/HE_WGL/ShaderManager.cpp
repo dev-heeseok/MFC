@@ -63,22 +63,28 @@ std::shared_ptr<CShaderProgram> CShaderManager::wglCreateProgram(ProgramType typ
 		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_SCENE_FRAG);
 	}
 	break;
-	case ProgramType::tutorial_triangle:
+	case ProgramType::tutorial_2_1_triangle:
 	{
-		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_TRIANGLE_VERT);
-		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_TRIANGLE_FRAG);
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_2_1_TRIANGLE_VERT);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_2_1_TRIANGLE_FRAG);
 	}
 	break;
-	case ProgramType::tutorial_shader:
+	case ProgramType::tutorial_3_3_shaders:
 	{
-		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_SHADER_VERT);
-		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_SHADER_FRAG);
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_3_3_SHADERS_VERT);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_3_3_SHADERS_FRAG);
 	}
 	break;
-	case ProgramType::tutorial_textures:
+	case ProgramType::tutorial_4_2_textures:
 	{
-		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_TEXTURE_VERT);
-		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_TEXTURE_FRAG);
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_4_2_TEXTURES_VERT);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_4_2_TEXTURES_FRAG);
+	}
+	break;
+	case ProgramType::tutorial_5_1_transform:
+	{
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_5_1_TRANSFORM_VERT);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_5_1_TRANSFORM_FRAG);
 	}
 	break;
 	default:

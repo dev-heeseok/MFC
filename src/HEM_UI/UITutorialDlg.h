@@ -5,6 +5,8 @@
 enum class RenderType;
 class CUITutorialDlg : public CHEDialog
 {
+	const static UINT_PTR TIMER_REDRAW = 1;
+
 	enum class ListCol { title = 0, desc, col_num };
 
 public:
@@ -30,6 +32,7 @@ private:
 private:
 	afx_msg void OnDblClickedList(NMHDR* pNMHDR, LRESULT* pResult);
 	afx_msg void OnDestroy();
+	afx_msg void OnTimer(UINT_PTR nIDEvent);
 
 	DECLARE_MESSAGE_MAP();
 

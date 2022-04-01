@@ -4,7 +4,7 @@
 
 class AFX_EXT_CLASS CHelloWorldRender : public CLearnOpenGLRender
 {
-	DECLARE_DYNAMIC_RENDER(CHelloWorldRender)
+	DECLARE_DYNAMIC_RENDER(CHelloWorldRender);
 
 public:
 	CHelloWorldRender();

@@ -13,7 +13,7 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-IMPLEMENT_DYNAMIC_RENDER_GROUP(CTexturesRender, RenderType::Tutorial_Textures, RenderGroup::learn_opengl)
+IMPLEMENT_DYNAMIC_RENDER_GROUP(CTexturesRender, RenderType::tutorial_Textures, RenderGroup::learn_opengl)
 
 CTexturesRender::CTexturesRender()
 {
@@ -28,7 +28,7 @@ void CTexturesRender::wglInitialUpdate(IRenderEngine* pRenderEngine)
 	auto pRenderEngineImpl = static_cast<CRenderEngine*>(pRenderEngine);
 	auto pShaderManager = pRenderEngineImpl->GetShaderManager();
 	
-	m_pProgram = pShaderManager->wglGetShaderProgram(ProgramType::tutorial_textures);
+	m_pProgram = pShaderManager->wglGetShaderProgram(ProgramType::tutorial_4_2_textures);
 	
 	CString strWallPath = GetImagePath(_T("wall.jpg"));
 	m_imgWall = std::make_shared<CImageFile>(strWallPath);
@@ -39,16 +39,18 @@ void CTexturesRender::wglInitialUpdate(IRenderEngine* pRenderEngine)
 
 void CTexturesRender::wglRelease()
 {
-	if (m_vao)
-		glDeleteVertexArrays(1, &m_vao);
-	if (m_vbo)
-		glDeleteBuffers(1, &m_vbo);
-	if (m_ebo)
-		glDeleteBuffers(1, &m_ebo);
+	if (m_VAO)
+		glDeleteVertexArrays(1, &m_VAO);
+	if (m_VBO)
+		glDeleteBuffers(1, &m_VBO);
+	if (m_EBO)
+		glDeleteBuffers(1, &m_EBO);
 	if (m_t2d_wall)
 		glDeleteTextures(1, &m_t2d_wall);
+	if (m_t2d_awesome)
+		glDeleteTextures(1, &m_t2d_awesome);
 
-	m_vao = m_vbo = m_ebo = m_t2d_wall = 0;
+	m_VAO = m_VBO = m_EBO = m_t2d_wall = m_t2d_awesome = 0;
 }
 
 void CTexturesRender::wglBuild()
@@ -66,16 +68,16 @@ void CTexturesRender::wglBuild()
 	   1, 2, 3  // second triangle
 	};
 
-	glGenVertexArrays(1, &m_vao);
-	glGenBuffers(1, &m_vbo);
-	glGenBuffers(1, &m_ebo);
+	glGenVertexArrays(1, &m_VAO);
+	glGenBuffers(1, &m_VBO);
+	glGenBuffers(1, &m_EBO);
 
-	glBindVertexArray(m_vao);
+	glBindVertexArray(m_VAO);
 
-	glBindBuffer(GL_ARRAY_BUFFER, m_vbo);
+	glBindBuffer(GL_ARRAY_BUFFER, m_VBO);
 	glBufferData(GL_ARRAY_BUFFER, sizeof(vertices), vertices, GL_STATIC_DRAW);
 
-	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_ebo);
+	glBindBuffer(GL_ELEMENT_ARRAY_BUFFER, m_EBO);
 	glBufferData(GL_ELEMENT_ARRAY_BUFFER, sizeof(indices), indices, GL_STATIC_DRAW);
 
 	size_t stride = sizeof(float) * 8;
@@ -135,7 +137,7 @@ void CTexturesRender::wglDraw()
 	glActiveTexture(GL_TEXTURE0 + 1); // TODO. GL_TEXTURE1
 	glBindTexture(GL_TEXTURE_2D, m_t2d_awesome);
 
-	glBindVertexArray(m_vao);
+	glBindVertexArray(m_VAO);
 	glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
 
 	m_pProgram->wglUnbind();
