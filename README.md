@@ -81,3 +81,17 @@ Build 를 하지 않고 glm 파일만 include 시키면 사용할 수 있다.
 
 - GLEW v2.2.0
 - Attached on 22/02/24
+
+### stb (single-file public domain (or MIT licensed) libraries for C/C++)
+
+stb 는 image file 을 load 할 수 있는 라이브러리이다.
+
+**header** 를 추가하는 방법으로는 Project 에 stb_image 파일을 추가한 이후 #define 을 통해 필요한 전처리를 등록하면 된다.
+
+```cpp
+#define STB_IMAGE_IMPLEMENTATION
+#include "stb_image.h"
+```
+
+- STB v2.27
+- Attached on 22/04/01
