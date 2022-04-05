@@ -86,28 +86,16 @@ void CUITutorialDlg::SetData2Dlg()
 	lambda_add(m_lstTutorial, _T("HelloTriangle"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_HelloTriangle));	
 	lambda_add(m_lstTutorial, _T("Shaders"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_Shaders));
 	lambda_add(m_lstTutorial, _T("Textures"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_Textures));
-	lambda_add(m_lstTutorial, _T("Transformations"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_transformations));
+	lambda_add(m_lstTutorial, _T("Transformations"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_Transformations));
+	lambda_add(m_lstTutorial, _T("Coordinate Systems"), _T("LearnOpenGL"), EnumIndex(RenderType::tutorial_CoordinateSystems));
 }
 
 void CUITutorialDlg::Apply(RenderType render_type)
 {
+	PickRender(render_type);
+
 	auto pDoc = GetDoc();
-
-	switch (render_type)
-	{
-	case RenderType::tutorial_Basic:
-	case RenderType::tutorial_HelloWorld:
-	case RenderType::tutorial_HelloTriangle:
-	case RenderType::tutorial_Shaders:
-	case RenderType::tutorial_Textures:
-	case RenderType::tutorial_transformations:
-	{
-		PickRender(render_type);
-
-		pDoc->UpdateAllViews(nullptr, static_cast<WPARAM>(NotifyType::changed_database), NULL);
-	}
-	break;
-	}
+	pDoc->UpdateAllViews(nullptr, static_cast<WPARAM>(NotifyType::changed_database), NULL);
 }
 
 void CUITutorialDlg::PickRender(RenderType render_type)

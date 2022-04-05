@@ -75,10 +75,16 @@
     <None Include="res\GLSL\4.2.textures.vert">
       <Filter>__resource file__\GLSL</Filter>
     </None>
-    <None Include="res\GLSL\5.1.transform.frag">
+    <None Include="res\GLSL\5.1.transformations.frag">
       <Filter>__resource file__\GLSL</Filter>
     </None>
-    <None Include="res\GLSL\5.1.transform.vert">
+    <None Include="res\GLSL\5.1.transformations.vert">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\6.1.coordinate_systems.vert">
+      <Filter>__resource file__\GLSL</Filter>
+    </None>
+    <None Include="res\GLSL\6.1.coordinate_systems.frag">
       <Filter>__resource file__\GLSL</Filter>
     </None>
   </ItemGroup>

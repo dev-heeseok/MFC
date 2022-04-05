@@ -27,7 +27,7 @@ void CHelloTriangleRender::wglInitialUpdate(IRenderEngine* pRenderEngine)
 	auto pRenderEngineImpl = static_cast<CRenderEngine*>(pRenderEngine);
 	auto pShaderManager = pRenderEngineImpl->GetShaderManager();
 
-	m_pProgram = pShaderManager->wglGetShaderProgram(ProgramType::tutorial_2_1_triangle);
+	m_pProgram = pShaderManager->wglGetShaderProgram(ProgramType::tutorial_2_1_hello_triangle);
 }
 
 void CHelloTriangleRender::wglRelease()

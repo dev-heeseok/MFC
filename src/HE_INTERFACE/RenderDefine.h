@@ -13,7 +13,8 @@ enum class RenderType
 	tutorial_HelloTriangle,
 	tutorial_Shaders,
 	tutorial_Textures,
-	tutorial_transformations,
+	tutorial_Transformations,
+	tutorial_CoordinateSystems,
 
 	end_iterate
 };

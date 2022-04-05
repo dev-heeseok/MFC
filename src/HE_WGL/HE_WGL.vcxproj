@@ -249,8 +249,10 @@
     <None Include="res\GLSL\3.3.shaders.vert" />
     <None Include="res\GLSL\4.2.textures.frag" />
     <None Include="res\GLSL\4.2.textures.vert" />
-    <None Include="res\GLSL\5.1.transform.frag" />
-    <None Include="res\GLSL\5.1.transform.vert" />
+    <None Include="res\GLSL\5.1.transformations.frag" />
+    <None Include="res\GLSL\5.1.transformations.vert" />
+    <None Include="res\GLSL\6.1.coordinate_systems.frag" />
+    <None Include="res\GLSL\6.1.coordinate_systems.vert" />
     <None Include="res\GLSL\scene.frag" />
     <None Include="res\GLSL\scene.vert" />
     <None Include="res\HE_WGL.rc2" />

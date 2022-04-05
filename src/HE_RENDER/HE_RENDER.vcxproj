@@ -216,7 +216,8 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="BasicRender.cpp" />
-    <ClCompile Include="TransformationRender.cpp" />
+    <ClCompile Include="CoordinateSystemsRender.cpp" />
+    <ClCompile Include="TransformationsRender.cpp" />
     <ClCompile Include="ImageFile.cpp" />
     <ClCompile Include="LearnOpenGLRender.cpp" />
     <ClCompile Include="TexturesRender.cpp" />
@@ -254,7 +255,8 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="BasicRender.h" />
-    <ClInclude Include="TransformationRender.h" />
+    <ClInclude Include="CoordinateSystemsRender.h" />
+    <ClInclude Include="TransformationsRender.h" />
     <ClInclude Include="ImageFile.h" />
     <ClInclude Include="LearnOpenGLRender.h" />
     <ClInclude Include="stb_image.h" />

@@ -1,5 +1,5 @@
 #include "pch.h"
-#include "TransformationRender.h"
+#include "CoordinateSystemsRender.h"
 #include "RenderEngine.h"
 #include "ImageFile.h"
 
@@ -13,22 +13,26 @@
 static char THIS_FILE[] = __FILE__;
 #endif
 
-IMPLEMENT_DYNAMIC_RENDER_GROUP(CTransformationRender, RenderType::tutorial_transformations, RenderGroup::learn_opengl)
+IMPLEMENT_DYNAMIC_RENDER_GROUP(CCoordinateSystemsRender, RenderType::tutorial_CoordinateSystems, RenderGroup::learn_opengl)
 
-CTransformationRender::CTransformationRender()
+CCoordinateSystemsRender::CCoordinateSystemsRender()
 {
 }
 
-CTransformationRender::~CTransformationRender()
+CCoordinateSystemsRender::~CCoordinateSystemsRender()
 {
 }
 
-void CTransformationRender::wglInitialUpdate(IRenderEngine* pRenderEngine)
+void CCoordinateSystemsRender::wglInitialUpdate(IRenderEngine* pRenderEngine)
 {
+	m_pRenderEngine = pRenderEngine;
+
+	//////////////////////////////////////////////////////////////
+
 	auto pRenderEngineImpl = static_cast<CRenderEngine*>(pRenderEngine);
 	auto pShaderManager = pRenderEngineImpl->GetShaderManager();
 
-	m_pProgram = pShaderManager->wglGetShaderProgram(ProgramType::tutorial_5_1_transform);
+	m_pProgram = pShaderManager->wglGetShaderProgram(ProgramType::tutorial_6_1_coordinate_systems);
 
 	CString strContainer = GetImagePath(_T("container.jpg"));
 	m_imgContainer = std::make_shared<CImageFile>(strContainer);
@@ -37,7 +41,7 @@ void CTransformationRender::wglInitialUpdate(IRenderEngine* pRenderEngine)
 	m_imgAwesome = std::make_shared<CImageFile>(strAwesome);
 }
 
-void CTransformationRender::wglRelease()
+void CCoordinateSystemsRender::wglRelease()
 {
 	if (m_VAO)
 		glDeleteVertexArrays(1, &m_VAO);
@@ -53,7 +57,7 @@ void CTransformationRender::wglRelease()
 	m_VAO = m_VBO = m_EBO = m_t2d_container = m_t2d_awesome = 0;
 }
 
-void CTransformationRender::wglBuild()
+void CCoordinateSystemsRender::wglBuild()
 {
 	float vertices[] = {
 		// positions          // texture coords
@@ -88,9 +92,6 @@ void CTransformationRender::wglBuild()
 
 	glBindVertexArray(0);
 
-	m_t2d_container = 0;
-	m_t2d_awesome = 0;
-
 
 	// TODO. wall texture
 	glGenTextures(1, &m_t2d_container);
@@ -122,14 +123,12 @@ void CTransformationRender::wglBuild()
 	m_pProgram->wglUniformInt("u_t2d_container", 0);
 	m_pProgram->wglUniformInt("u_t2d_awesome", 1);
 	m_pProgram->wglUnbind();
-
 }
-#include <chrono>
-void CTransformationRender::wglDraw()
+
+void CCoordinateSystemsRender::wglDraw()
 {
-	auto since_epoch = std::chrono::system_clock::now().time_since_epoch();
-	auto msec_since_epoch = std::chrono::duration_cast<std::chrono::milliseconds>(since_epoch).count();
-	auto angle = static_cast<float>(msec_since_epoch % 720);
+	auto pRenderEngineImpl = static_cast<CRenderEngine*>(m_pRenderEngine);	
+	auto fov = pRenderEngineImpl->GetFov();
 
 	// render
 	glClearColor(0.2f, 0.3f, 0.3f, 1.0f);
@@ -142,13 +141,18 @@ void CTransformationRender::wglDraw()
 	glBindTexture(GL_TEXTURE_2D, m_t2d_awesome);
 
 	// create transformations
-	glm::mat4 transform = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
-	transform = glm::translate(transform, glm::vec3(0.5f, -0.5f, 0.0f));
-	transform = glm::rotate(transform, glm::radians(angle), glm::vec3(0.0f, 0.0f, 1.0f));
-
+	glm::mat4 model = glm::mat4(1.0f); // make sure to initialize matrix to identity matrix first
+	glm::mat4 view = glm::mat4(1.0f);
+	glm::mat4 projection = glm::mat4(1.0f);
+	model = glm::rotate(model, glm::radians(-55.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+	view = glm::translate(view, glm::vec3(0.0f, 0.0f, -3.0f));
+	projection = glm::perspective(glm::radians(45.0f), fov, 0.1f, 100.0f);
+	
 	// get matrix's uniform location and set matrix
 	m_pProgram->wglBind();
-	m_pProgram->wglUniformMatrix4("u_transform", transform);
+	m_pProgram->wglUniformMatrix4("u_model", model);
+	m_pProgram->wglUniformMatrix4("u_view", view);
+	m_pProgram->wglUniformMatrix4("u_projection", projection);
 
 	// render container
 	glBindVertexArray(m_VAO);

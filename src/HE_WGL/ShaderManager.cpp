@@ -59,32 +59,38 @@ std::shared_ptr<CShaderProgram> CShaderManager::wglCreateProgram(ProgramType typ
 	{
 	case ProgramType::scene:
 	{
-		pShader->wglAttach(GL_VERTEX_SHADER, IDR_SCENE_VERT);
-		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_SCENE_FRAG);
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_SCENE_VS);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_SCENE_FS);
 	}
 	break;
-	case ProgramType::tutorial_2_1_triangle:
+	case ProgramType::tutorial_2_1_hello_triangle:
 	{
-		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_2_1_TRIANGLE_VERT);
-		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_2_1_TRIANGLE_FRAG);
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_2_1_HELLO_TRIANGLE_VS);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_2_1_HELLO_TRIANGLE_FS);
 	}
 	break;
 	case ProgramType::tutorial_3_3_shaders:
 	{
-		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_3_3_SHADERS_VERT);
-		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_3_3_SHADERS_FRAG);
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_3_3_SHADERS_VS);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_3_3_SHADERS_FS);
 	}
 	break;
 	case ProgramType::tutorial_4_2_textures:
 	{
-		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_4_2_TEXTURES_VERT);
-		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_4_2_TEXTURES_FRAG);
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_4_2_TEXTURES_VS);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_4_2_TEXTURES_FS);
 	}
 	break;
-	case ProgramType::tutorial_5_1_transform:
+	case ProgramType::tutorial_5_1_transformations:
 	{
-		pShader->wglAttach(GL_VERTEX_SHADER, IDR_TUTORIAL_5_1_TRANSFORM_VERT);
-		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_TUTORIAL_5_1_TRANSFORM_FRAG);
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_5_1_TRANSFORMATIONS_VS);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_5_1_TRANSFORMATIONS_FS);
+	}
+	break;
+	case ProgramType::tutorial_6_1_coordinate_systems:
+	{
+		pShader->wglAttach(GL_VERTEX_SHADER, IDR_6_1_COORDINATE_SYSTEMS_VS);
+		pShader->wglAttach(GL_FRAGMENT_SHADER, IDR_6_1_COORDINATE_SYSTEMS_FS);
 	}
 	break;
 	default:

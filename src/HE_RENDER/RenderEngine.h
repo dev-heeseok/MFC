@@ -29,9 +29,13 @@ public:
 	std::shared_ptr<IRenderManager> GetRenderManager() { return m_pRenderManager; }
 	std::shared_ptr<CShaderManager> GetShaderManager() { return m_pShaderManager; }
 
+	float GetFov() { return m_ptScreen.y != 0 ? static_cast<float>(m_ptScreen.x) / m_ptScreen.y : 1.f; }
+
 private:
 	std::weak_ptr<IRenderContext> m_pRenderContext;
 	std::shared_ptr<IRenderManager> m_pRenderManager = nullptr;
 	std::shared_ptr<CShaderManager> m_pShaderManager = nullptr;
+
+	CPoint m_ptScreen;
 
 };

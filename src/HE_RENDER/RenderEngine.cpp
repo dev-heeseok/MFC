@@ -95,6 +95,8 @@ void CRenderEngine::OnUpdate()
 
 void CRenderEngine::OnSize(int cx, int cy)
 {
+	m_ptScreen.SetPoint(cx, cy);
+
 	auto pRenderContext = GetRenderContext();
 	if (pRenderContext == nullptr)
 		return;

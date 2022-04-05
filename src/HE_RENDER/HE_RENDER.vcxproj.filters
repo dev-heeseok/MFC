@@ -64,7 +64,10 @@
     <ClCompile Include="LearnOpenGLRender.cpp">
       <Filter>LearnOpenGL\Base</Filter>
     </ClCompile>
-    <ClCompile Include="TransformationRender.cpp">
+    <ClCompile Include="TransformationsRender.cpp">
+      <Filter>LearnOpenGL</Filter>
+    </ClCompile>
+    <ClCompile Include="CoordinateSystemsRender.cpp">
       <Filter>LearnOpenGL</Filter>
     </ClCompile>
   </ItemGroup>
@@ -122,7 +125,10 @@
     <ClInclude Include="LearnOpenGLRender.h">
       <Filter>LearnOpenGL\Base</Filter>
     </ClInclude>
-    <ClInclude Include="TransformationRender.h">
+    <ClInclude Include="TransformationsRender.h">
+      <Filter>LearnOpenGL</Filter>
+    </ClInclude>
+    <ClInclude Include="CoordinateSystemsRender.h">
       <Filter>LearnOpenGL</Filter>
     </ClInclude>
   </ItemGroup>

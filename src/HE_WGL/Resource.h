@@ -2,22 +2,24 @@
 // Microsoft Visual C++에서 생성한 포함 파일입니다.
 // HE_WGL.rc에서 사용되고 있습니다.
 //
-#define IDR_SCENE_VERT                  10000
-#define IDR_SCENE_FRAG                  10001
-#define IDR_TUTORIAL_2_1_TRIANGLE_FRAG  10002
-#define IDR_TUTORIAL_2_1_TRIANGLE_VERT  10003
-#define IDR_TUTORIAL_3_3_SHADERS_FRAG   10004
-#define IDR_TUTORIAL_3_3_SHADERS_VERT   10005
-#define IDR_TUTORIAL_4_2_TEXTURES_FRAG  10006
-#define IDR_TUTORIAL_4_2_TEXTURES_VERT  10007
-#define IDR_TUTORIAL_5_1_TRANSFORM_FRAG 10008
-#define IDR_TUTORIAL_5_1_TRANSFORM_VERT 10009
+#define IDR_SCENE_VS                    10000
+#define IDR_SCENE_FS                    10001
+#define IDR_2_1_HELLO_TRIANGLE_FS       10002
+#define IDR_2_1_HELLO_TRIANGLE_VS       10003
+#define IDR_3_3_SHADERS_FS              10004
+#define IDR_3_3_SHADERS_VS              10005
+#define IDR_4_2_TEXTURES_FS             10006
+#define IDR_4_2_TEXTURES_VS             10007
+#define IDR_5_1_TRANSFORMATIONS_FS      10008
+#define IDR_5_1_TRANSFORMATIONS_VS      10009
+#define IDR_6_1_COORDINATE_SYSTEMS_FS   10010
+#define IDR_6_1_COORDINATE_SYSTEMS_VS   10011
 
 // Next default values for new objects
 // 
 #ifdef APSTUDIO_INVOKED
 #ifndef APSTUDIO_READONLY_SYMBOLS
-#define _APS_NEXT_RESOURCE_VALUE        10010
+#define _APS_NEXT_RESOURCE_VALUE        10012
 #define _APS_NEXT_COMMAND_VALUE         40000
 #define _APS_NEXT_CONTROL_VALUE         20000
 #define _APS_NEXT_SYMED_VALUE           40000

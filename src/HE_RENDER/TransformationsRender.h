@@ -2,13 +2,13 @@
 
 #include "LearnOpenGLRender.h"
 
-class AFX_EXT_CLASS CTransformationRender : public CLearnOpenGLRender
+class AFX_EXT_CLASS CTransformationsRender : public CLearnOpenGLRender
 {
-	DECLARE_DYNAMIC_RENDER(CTransformationRender);
+	DECLARE_DYNAMIC_RENDER(CTransformationsRender);
 
 public:
-	CTransformationRender();
-	virtual ~CTransformationRender();
+	CTransformationsRender();
+	virtual ~CTransformationsRender();
 
 private:
 	virtual void wglInitialUpdate(IRenderEngine* pRenderEngine) override;
